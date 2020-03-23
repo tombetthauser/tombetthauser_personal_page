@@ -500,8 +500,8 @@ iframe {
 }
 /* ======= Footer ======= */
 .footer {
-  background: #5f6b77;
-  color: #fff;
+  background: #fff;
+  color: #5f6b77;
   padding: 10px 0;
 }
 .footer .copyright {
@@ -510,7 +510,10 @@ iframe {
   font-size: 14px;
 }
 .footer a {
-  color: #fff;
+  color: pink;
+}
+.footer a:hover {
+  text-decoration: none;
 }
 .footer .fa-heart {
   color: #fb866a;
@@ -577,10 +580,15 @@ iframe {
   font-weight: 600;
 }
 
-.email-div i {
+.email-div i, .header-location-div i {
   margin-right: 7.5px;
 }
 
 .email-div::selection {
   background: rgb(255, 160, 176);
+}
+
+.header-location-div {
+  margin-top: 15px;
+  color: #959ba1;
 }
