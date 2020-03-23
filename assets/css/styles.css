@@ -65,13 +65,14 @@ a.btn-cta-primary,
   border: 1px solid pink;
   color: #fff;
   font-weight: 600;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
 }
 a.btn-cta-primary:hover,
 .btn-cta-primary:hover {
   background: pink;
   border: 1px solid pink;
   color: #fff;
+  cursor: ;
 }
 a.btn-cta-secondary,
 .btn-cta-secondary {
@@ -179,8 +180,8 @@ iframe {
 .section .section-inner {
   background: #fff;
   padding: 30px;
-  /* border: 4px solid pink;
-  box-shadow: -10px 10px 0 pink; */
+  /* border: 4px solid pink; */
+  box-shadow: -10px 10px 10px rgba(0,0,0,0.3);
 }
 .section .heading {
   margin-top: 0;
@@ -517,6 +518,7 @@ iframe {
 @media (max-width: 767px) {
   .header {
     text-align: center;
+    box-shadow: -10px 10px 10px rgba(0,0,0,0.3);
   }
   .header .profile-image {
     float: none !important;
