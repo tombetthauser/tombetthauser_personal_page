@@ -592,3 +592,13 @@ iframe {
   margin-top: 15px;
   color: #959ba1;
 }
+
+.education-logo-yale {
+  width: 225px;
+  margin-left: -15px;
+}
+
+.education-logo-sfai {
+  width: 175px;
+  margin-left: -10px;
+}
