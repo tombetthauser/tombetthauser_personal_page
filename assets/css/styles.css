@@ -543,3 +543,17 @@ iframe {
     width: 1360px;
   }
 }
+
+
+
+/* Tom additions */
+
+.tech-stack-icon {
+  height: 50px;
+  margin: 0 10px 25px;
+  display: inline-block;
+}
+
+.tech-stack-div {
+  text-align: center;
+}
