@@ -122,6 +122,7 @@ iframe {
   padding: 30px 0 50px;
   background: #fff;
   border-top: 10px solid #fff;
+    box-shadow: -10px 10px 10px rgba(0,0,0,.25);
 }
 .header .btn {
   margin-top: 60px;
@@ -518,7 +519,6 @@ iframe {
 @media (max-width: 767px) {
   .header {
     text-align: center;
-    box-shadow: -10px 10px 10px rgba(0,0,0,0.3);
   }
   .header .profile-image {
     float: none !important;
@@ -534,6 +534,12 @@ iframe {
   }
   .project-image {
     margin-bottom: 15px;
+  }
+  .email-div {
+    /* width: 100%; */
+    float: none !important;
+    display: block;
+    margin: auto;
   }
 }
 /* Small devices (tablets, 768px and up) */
@@ -558,4 +564,23 @@ iframe {
 
 .tech-stack-div {
   text-align: center;
+}
+
+.email-div {
+  margin-top: 40px;
+  background-color: pink;
+  width: 275px;
+  color: #fff;
+  padding: 7.5px 15px;
+  border-radius: 5px;
+  letter-spacing: .5px;
+  font-weight: 600;
+}
+
+.email-div i {
+  margin-right: 7.5px;
+}
+
+.email-div::selection {
+  background: rgb(255, 160, 176);
 }
