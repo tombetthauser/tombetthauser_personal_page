@@ -706,6 +706,10 @@ iframe {
     display: none;
   }
 
+  .header-location-div {
+    margin-bottom: 20px;
+  }
+
 }
 /* Small devices (tablets, 768px and up) */
 /* Medium devices (desktops, 992px and up) */
