@@ -679,6 +679,18 @@ iframe {
     margin-left: -7.5px;
     /* height: 60px; */
   }
+  body {
+    font-family: sans-serif;
+    color: #434343;
+    background: #778492;
+    background-image: url("https://raw.githubusercontent.com/tombetthauser/art_desktop_backgrounds/master/keepers/badart.jpg");
+    background-size: auto;
+    background-repeat: repeat;
+    background-attachment: fixed;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
 }
 /* Small devices (tablets, 768px and up) */
 /* Medium devices (desktops, 992px and up) */
