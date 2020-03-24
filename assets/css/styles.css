@@ -38,7 +38,7 @@ a {
 }
 a:hover {
   text-decoration: underline;
-  color: #5f6b77;
+  /* color: #5f6b77; */
   color: pink;
 }
 .btn,
@@ -72,7 +72,6 @@ a.btn-cta-primary:hover,
   background: pink;
   border: 1px solid pink;
   color: #fff;
-  cursor: ;
 }
 a.btn-cta-secondary,
 .btn-cta-secondary {
@@ -265,7 +264,7 @@ iframe {
   text-align: center;
   text-transform: uppercase;
   color: #fff;
-  background-color: #479fc8;
+  /* background-color: #479fc8; */
   -webkit-transform: rotate(45deg) translate3d(0, 0, 0);
   -moz-transform: rotate(45deg) translate3d(0, 0, 0);
   -ms-transform: rotate(45deg) translate3d(0, 0, 0);
@@ -276,7 +275,7 @@ iframe {
   content: '';
   position: absolute;
   bottom: -5px;
-  border-top: 5px solid #276582;
+  /* border-top: 5px solid #276582; */
   border-left: 5px solid transparent;
   border-right: 5px solid transparent;
 }
@@ -395,11 +394,11 @@ iframe {
 .testimonials .item .quote {
   color: #666666;
   font-size: 16px;
-  border-left-color: #9fdeb7;
+  /* border-left-color: #9fdeb7; */
   margin-bottom: 15px;
 }
 .testimonials .item .quote .fa {
-  color: #79d19a;
+  /* color: #79d19a; */
   margin-right: 15px;
 }
 .testimonials .item .source {
@@ -516,45 +515,8 @@ iframe {
   text-decoration: none;
 }
 .footer .fa-heart {
-  color: #fb866a;
+  /* color: #fb866a; */
 }
-/* Extra small devices (phones, less than 768px) */
-@media (max-width: 767px) {
-  .header {
-    text-align: center;
-  }
-  .header .profile-image {
-    float: none !important;
-    margin: 0 auto;
-  }
-  .header .profile-content {
-    float: none !important;
-    text-align: center;
-  }
-  .header .btn {
-    margin-top: 30px;
-    float: none !important;
-  }
-  .project-image {
-    margin-bottom: 15px;
-  }
-  .email-div {
-    /* width: 100%; */
-    float: none !important;
-    display: block;
-    margin: auto;
-  }
-}
-/* Small devices (tablets, 768px and up) */
-/* Medium devices (desktops, 992px and up) */
-/* Large devices (large desktops, 1200px and up) */
-/* Ex-Large devices (large desktops, 1200px and up) */
-@media (min-width: 1400px) {
-  .container {
-    width: 1360px;
-  }
-}
-
 
 
 /* Tom additions */
@@ -596,14 +558,134 @@ iframe {
 .education-logo-yale {
   width: 225px;
   margin-left: -15px;
+  margin-bottom: 7.5px;
 }
 
 .education-logo-sfai {
   width: 175px;
   margin-left: -10px;
+  margin-bottom: 7.5px;
 }
 
 .education-logo-aa {
   width: 165px;
   margin-left: -5px;
+  margin-bottom: 7.5px;
+}
+
+/* .employment-images-colleges {
+  width: 1000px;
+} */
+
+.employment-image-college {
+  height: 50px;
+  margin-right: 10px;
+}
+
+.employment-image-college:nth-child(4) {
+  margin-top: 7.5px;
+  height: 60px;
+}
+
+.employment-image-college:nth-child(5) {
+  margin-top: -5px;
+  height: 80px;
+}
+
+.employment-image-college:nth-child(2) {
+  margin-top: 5px;
+  height: 55px;
+}
+
+.hidden-break {
+  display: none;
+}
+
+.employment-image-museum-1 {
+  height: 65px;
+  margin-bottom: 25px;
+}
+
+.employment-image-museum-2 {
+  height: 40px;
+  margin-left: 10px;
+  margin-bottom: 20px;
+}
+
+.languages-subtext {
+  color: #778492;
+  font-size: 10px;
+}
+
+.employment-title-role {
+  color: #778492;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.employment-title-institution {
+  color: #778492;
+  font-size: 14px;
+}
+
+.employment-title-years {
+  color: #778492;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.employment-bullet-point {
+  color: #778492;
+}
+
+
+
+
+
+
+
+
+
+/* Extra small devices (phones, less than 768px) */
+@media (max-width: 767px) {
+  .header {
+    text-align: center;
+  }
+  .header .profile-image {
+    float: none !important;
+    margin: 0 auto;
+  }
+  .header .profile-content {
+    float: none !important;
+    text-align: center;
+  }
+  .header .btn {
+    margin-top: 30px;
+    float: none !important;
+  }
+  .project-image {
+    margin-bottom: 15px;
+  }
+  .email-div {
+    /* width: 100%; */
+    float: none !important;
+    display: block;
+    margin: auto;
+  }
+  .hidden-break {
+    display: block;
+  }
+  .employment-image-college:nth-child(4) {
+    margin-left: -7.5px;
+    /* height: 60px; */
+  }
+}
+/* Small devices (tablets, 768px and up) */
+/* Medium devices (desktops, 992px and up) */
+/* Large devices (large desktops, 1200px and up) */
+/* Ex-Large devices (large desktops, 1200px and up) */
+@media (min-width: 1400px) {
+  .container {
+    width: 1360px;
+  }
 }
