@@ -686,7 +686,7 @@ iframe {
     background-image: url("https://raw.githubusercontent.com/tombetthauser/art_desktop_backgrounds/master/keepers/badart.jpg");
     background-size: 100%;
     background-repeat: repeat;
-    background-attachment: fixed;
+    background-attachment: scroll;
     font-size: 16px;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
