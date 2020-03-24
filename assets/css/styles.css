@@ -683,7 +683,8 @@ iframe {
     font-family: sans-serif;
     color: #434343;
     background: #778492;
-    background-image: url("https://raw.githubusercontent.com/tombetthauser/art_desktop_backgrounds/master/keepers/badart.jpg");
+    background-image: none;
+    /* background-image: url("https://raw.githubusercontent.com/tombetthauser/art_desktop_backgrounds/master/keepers/badart.jpg"); */
     background-size: 100%;
     background-repeat: repeat;
     background-attachment: scroll;
