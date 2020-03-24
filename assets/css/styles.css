@@ -638,6 +638,10 @@ iframe {
   color: #778492;
 }
 
+.skills-mobile-hidden-div {
+  display: none;
+}
+
 
 
 
@@ -692,6 +696,16 @@ iframe {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
+
+
+  .skills-mobile-hidden-div {
+    display: block;
+  }
+
+  .skills-desktop-hidden-div {
+    display: none;
+  }
+
 }
 /* Small devices (tablets, 768px and up) */
 /* Medium devices (desktops, 992px and up) */
