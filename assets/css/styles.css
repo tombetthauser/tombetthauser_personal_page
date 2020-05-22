@@ -669,8 +669,12 @@ iframe {
   }
   .project-image {
     margin-bottom: 15px;
+  }
+
+  div.item img.img-responsive {
     background-color: rgb(230, 230, 230);
   }
+  
   .email-div {
     /* width: 100%; */
     float: none !important;
