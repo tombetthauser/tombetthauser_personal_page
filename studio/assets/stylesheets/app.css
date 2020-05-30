@@ -1,0 +1,261 @@
+* {
+	font-size: .95em;
+	color: none;
+	text-decoration: none;
+}
+
+h3 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 100;
+  letter-spacing: .4vw;
+}
+
+img {
+	width: 90%;
+	height: auto;
+	display: block;
+  margin-right: auto;
+	margin-left: auto;
+	margin-bottom: 10px;
+}
+
+img:nth-of-type(1) {
+	margin-top: 5%;
+}
+
+p.t-title-etc {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 300;
+  margin-top: 3%;
+	margin-bottom: 12.5%;
+  letter-spacing: none;
+  font-size: 12px;
+  text-align: center;
+}
+
+@media (max-width: 500px) {
+    p.t-title-etc {font-size: 3vw;}
+}
+
+div.t-cv-text {
+	margin-top: 0em;
+}
+
+div.t-cv-text p {
+	margin: 0 0 2.5em 1%;
+	letter-spacing: 1px;
+	white-space: nowrap;
+}
+
+div.t-cv-text h5 {
+	letter-spacing: 2px;
+}
+
+div.t-cv-text a:hover {
+	opacity: .75;
+}
+
+@media (max-width: 500px) {
+    div.t-cv-text p {font-size: 2.5vw;}
+    div.t-cv-text h4 {font-size: 1em;}
+}
+
+@media (max-width: 500px) {
+    #t-links-section-text p {font-size: 3vw;}
+}
+
+@media (max-width: 768px) {
+	div.t-cv-text p {white-space: normal;}
+	div.t-cv-text {margin-top: 2em;}
+  #container {margin-top: 3.5em;}
+}
+
+.t-center {
+  text-align: center;
+  margin-left: none;
+}
+
+#t-title-1 {
+    margin: 7% 0 1.5% 0;
+    color: black;
+    font-size: none;
+    font-family: inherit;
+}
+
+#t-title-1:hover {
+	opacity: .75;
+}
+
+#t-nav-links {
+  margin: 0 0 4% 0;
+  letter-spacing: 2px;
+  font-size: 1em;
+  color: black;
+}
+
+#t-nav-links a:hover {
+  opacity: .75;
+}
+
+.t-slash {
+  margin: 0px;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}
+
+a:hover, a:focus {
+  color: black;
+  text-decoration: none;
+}
+
+.navbar {
+  position: relative;
+  min-height: 10px;
+  margin-bottom: 0px;
+  border: none;
+}
+
+.navbar-brand {
+  float: left;
+  height: 35px;
+  padding: 5px 10px; 
+  letter-spacing: 1px;
+  font-size: 1.15em;
+}
+
+.navbar-toggle {
+  position: relative;
+  float: right;
+  padding: 9px 10px;
+  margin-top: 1px;
+  margin-right: 5px;
+  background-color: transparent;
+  border: none;
+  border-radius: 0px;
+}
+
+.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
+  background-color: rgba(0,0,0,0);
+}
+
+.navbar-default .navbar-collapse, .navbar-default .navbar-form {
+  border-color: none;
+}
+
+.navbar-default .navbar-toggle .icon-bar {
+  background-color: white;
+  border-bottom: 1px solid black;
+}
+
+.navbar-default .navbar-brand {
+  color: black;
+}
+
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus {
+  color: rgba(0,0,0,.75);
+  background-color: transparent;
+}
+
+#t-navbar-hr {
+  padding: 0;
+  margin: 0;
+}
+
+#t-nav-link-mobile {
+  color: black;
+  letter-spacing: 1px;
+}
+
+#t-nav-link-mobile:hover {
+	opacity: .75;
+}
+
+.navbar #t-navbar-white {
+  background-color: white;
+  padding-top: 4px;
+}
+
+.navbar-brand.container {
+  background-color: white;
+  margin-top: 3px;
+}
+
+.t-nav2-container {
+	border-bottom: 1px solid rgba(0,0,0,.03);
+    box-shadow: 0 5px 5px rgba(0,0,0,0.05);
+}
+
+.navbar-nav > li > a {
+    padding-top: 0px;
+    padding-bottom: 0px;
+    line-height: 3em;
+}
+
+.navbar-collapse {
+    padding-right: 15px;
+    padding-left: 5px;
+    margin-bottom: 7px;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+#t-nav-links a {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 300;
+}
+
+#t-nav-links {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 300;
+}
+
+a.navbar-brand.container {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 300;
+}
+
+a#t-nav-link-mobile {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 300;
+}
+
+#cvContainer p {
+  margin-bottom: 0;
+}
+
+#cvContainer h5 {
+  margin: 2em 0 .75em 0;
+}
+
+
+/*–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––*/
+
+
+/*.animation0 {
+}
+
+.animation1 {
+  animation: rollOne 20s;
+}
+
+@keyframes rollOne {
+  0% {transform: rotate(0deg);}
+  50% {transform: rotate(0deg);}
+  99% {transform: rotate(-3deg);}
+  100% {transform: rotate(0deg);}
+}
+
+.animation2 {
+  animation: rollTwo 20s;
+}
+
+@keyframes rollTwo {
+  0% {transform: rotate(0deg);}
+  50% {transform: rotate(0deg);}
+  99% {transform: rotate(3deg);}
+  100% {transform: rotate(0deg);}
+}*/
