@@ -716,6 +716,35 @@ iframe {
   }
 
 }
+
+.studio-images-div {
+  /* background: white; */
+  display: block;
+  /* resize: horizontal; */
+  /* border: 1px dashed; */
+  /* overflow: auto; */
+
+  width: 100%;
+  height: 75%;
+  /* height: calc(50vh - 16px); */
+  background-image: url("");
+  background-position: center;
+  background-size: cover;
+  transition: 1s;
+}
+
+.dummy-studio-image {
+  width: 100%;
+  opacity: 0;
+    /* transition: 1s; */
+}
+
+
+
+
+
+
+
 /* Small devices (tablets, 768px and up) */
 /* Medium devices (desktops, 992px and up) */
 /* Large devices (large desktops, 1200px and up) */
