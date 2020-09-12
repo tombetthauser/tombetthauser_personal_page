@@ -692,9 +692,9 @@ iframe {
   body {
     font-family: sans-serif;
     color: #434343;
-    background: #778492;
-    /* background-image: none; */
-    background-image: url("https://raw.githubusercontent.com/tombetthauser/art_desktop_backgrounds/master/keepers/white.png");
+  background: rgb(231, 231, 231);
+  /* background-image: url("https://upload.wikimedia.org/wikipedia/commons/b/b1/Cole_Thomas_The_Oxbow_%28The_Connecticut_River_near_Northampton_1836%29.jpg"); */
+  /* background-image: url("https://raw.githubusercontent.com/tombetthauser/art_desktop_backgrounds/master/keepers/white.png"); */
     background-size: 100%;
     background-repeat: repeat;
     background-attachment: scroll;
@@ -714,6 +714,13 @@ iframe {
 
   .header-location-div {
     margin-bottom: 20px;
+  }
+
+  .section .section-inner {
+    max-width: 95%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
   }
 
 }
@@ -753,7 +760,15 @@ iframe {
 /* Large devices (large desktops, 1200px and up) */
 /* Ex-Large devices (large desktops, 1200px and up) */
 @media (min-width: 1400px) {
+
+  body {
+      background: rgb(231, 231, 231);
+  }
   .container {
     width: 1360px;
   }
+
+    /* .section .section-inner {
+    max-width: 50%;
+  } */
 }
