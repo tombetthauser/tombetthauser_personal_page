@@ -1,0 +1,10 @@
+#main-thing {
+  width: 500px;
+  max-width: 90%;
+  display: block;
+  margin: 50px auto 150px;
+}
+
+img {
+  max-width: 100%;
+}
