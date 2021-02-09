@@ -1,17 +1,4 @@
-console.log(`
-$$\\   $$\\ $$$$$$$$\\ $$\\       $$\\       $$$$$$\\  
-$$ |  $$ |$$  _____|$$ |      $$ |     $$  __$$\\ 
-$$ |  $$ |$$ |      $$ |      $$ |     $$ /  $$ |
-$$$$$$$$ |$$$$$\\    $$ |      $$ |     $$ |  $$ |
-$$  __$$ |$$  __|   $$ |      $$ |     $$ |  $$ |
-$$ |  $$ |$$ |      $$ |      $$ |     $$ |  $$ |
-$$ |  $$ |$$$$$$$$\\ $$$$$$$$\\ $$$$$$$$\\ $$$$$$  |
-\\__|  \\__|\\________|\\________|\\________|\\______/   
-
-––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-
-`)
+console.log(`\n$$\\   $$\\ $$$$$$$$\\ $$\\       $$\\       $$$$$$\\  \n$$ |  $$ |$$  _____|$$ |      $$ |     $$  __$$\\ \n$$ |  $$ |$$ |      $$ |      $$ |     $$ /  $$ |\n$$$$$$$$ |$$$$$\\    $$ |      $$ |     $$ |  $$ |\n$$  __$$ |$$  __|   $$ |      $$ |     $$ |  $$ |\n$$ |  $$ |$$ |      $$ |      $$ |     $$ |  $$ |\n$$ |  $$ |$$$$$$$$\\ $$$$$$$$\\ $$$$$$$$\\ $$$$$$  |\n\\__|  \\__|\\________|\\________|\\________|\\______/   \n\n––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––\n––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––\n`)
 
 const logger = arr => {
   console.log(arr[Math.floor(Math.random() * arr.length)]);
@@ -138,8 +125,8 @@ const stuff = [
   `He started to build a giant palace that loomed over Damascus...`,
   `and his belief that it would be possible to transform the Arab world began to fade.`,
   `A British journalist, who knew Assad, wrote...`,
-  `"Assad's optimism has gone.`,
-  `"A trust in the future has gone.`,
+  `"Assad's optimism has gone."`,
+  `"A trust in the future has gone."`,
   `"What has emerged instead is a brutal, vengeful Assad, "who believes in nothing except revenge."`,
   `The original dream of the Soviet Union had been to create a glorious new world.`,
   `A world where not only the society, but the people themselves would be transformed.`,
@@ -472,8 +459,7 @@ const stuff = [
   `There were concerns that analysts were being pressured to make a case that didn't really exist...`,
   `and to do it, they were taking Gaddafi's rhetoric about himself as a global revolutionary and his manic ravings and then re-presenting them as fact.`,
   `And, in the process, together, the Americans and Gaddafi were constructing a fictional world.`,
-  `The analysts were certainly, I'm convinced...`,
-  `pressured into developing a prima facie case against the Libyan Government.`,
+  `"The analysts were certainly, I'm convinced... pressured into developing a prima facie case against the Libyan Government."`,
   `From the somewhat incoherent ravings of a maniac, both interceptions of a clandestine nature and interceptions of an open radio broadcast or whatever, as well as other sources, quotations of his, one can assemble a neatly-put-together package demonstrating that the man had violent interests against the United States and its European allies.`,
   `The European intelligence agencies told the Americans that they were wrong, that it was Syria that was behind the bombing, not Libya.`,
   `But the Americans had decided to attack Libya because they couldn't face the dangerous consequences of attacking Syria.`,
@@ -666,7 +652,7 @@ const stuff = [
   `He discovered that everyone who tried Eliza became engrossed.`,
   `They would sit for hours telling the machine about their inner feelings and incredibly intimate details of their lives.`,
   `They also liked it because it was free of any kind of patronising elitism.`,
-  `One person said, "After all, the computer doesn't burn out, "look down on you, or try to have sex with you."`,
+  `One person said, "After all, the computer doesn't burn out, look down on you, or try to have sex with you."`,
   `What Eliza showed was that, in an age of individualism, what made people feel secure was having themselves reflected back to them.`,
   `Just like in a mirror.`,
   `Artificial intelligence changed direction and started to create new systems that did just that, but on a giant scale.`,
@@ -835,7 +821,7 @@ const stuff = [
   `The attacks in September 2001 were suicide bombs, but now on a huge scale.`,
   `They demonstrated the terrifying power of this new force to penetrate all defences.`,
   `They had come to kill thousands of Americans on their own soil.`,
-  `20 years before, President Reagan had been confronted by the first suicide bombers.`,
+  `Twenty years before, President Reagan had been confronted by the first suicide bombers.`,
   `They had been unleashed by President Assad of Syria to force America out of the Middle East.`,
   `But rather than confront the complexity of Syria and Israel and the Palestinian problem, America had retreated and left Syria - and suicide bombing - to fester and mutate.`,
   `They had gone instead for Colonel Gaddafi and turned him into an evil global terrorist.`,
@@ -1285,8 +1271,7 @@ const stuff = [
   `Many of the facts that Trump asserted were also completely untrue.`,
   `But Trump didn't care.`,
   `He and his audience knew that much of what he said bore little relationship to reality.`,
-  `This meant that Trump defeated journalism - because the journalists'`,
-  `central belief was that their job was to expose lies and assert the truth.`,
+  `This meant that Trump defeated journalism - because the journalists' central belief was that their job was to expose lies and assert the truth.`,
   `With Trump, this became irrelevant.`,
   `Not surprisingly, Vladimir Putin admired this.`,
   `[MAN SPEAKS RUSSIAN]`,
