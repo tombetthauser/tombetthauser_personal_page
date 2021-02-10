@@ -1,6 +1,6 @@
 const things = {
   stuff: [
-    { tag: `a`, target      href: `images/image-02.jpg`,
+    { tag: `a`, href: `images/image-02.jpg`,
       babies: [{ tag: `img`,
           src: `images/image-02-thumb.png`
         }]
