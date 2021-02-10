@@ -55,6 +55,11 @@ const main = document.querySelector("#main-thing");
 const body = document.querySelector("body");
 const title = document.querySelector("title");
 
+main.style.display = "none";
+setTimeout(() => {
+  main.style.display = "block";
+}, 500)
+
 title.innerText = "🌱 Tom Betthauser"
 
 const turtler = (thing, mama = main) => {
