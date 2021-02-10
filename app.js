@@ -1,7 +1,7 @@
 const things = {
   stuff: [
     { tag: `a`, target: `new`,
-      href: `images/images/image-02.jpg`,
+      href: `images/image-02.jpg`,
       babies: [{ tag: `img`,
           src: `images/image-02-thumb.png`
         }]
