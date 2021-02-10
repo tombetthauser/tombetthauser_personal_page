@@ -1,9 +1,9 @@
 const things = {
   stuff: [
     { tag: `a`, target: `new`,
-      href: `images/image-02-thumb.png`,
+      href: `images/images/image-02.jpg`,
       babies: [{ tag: `img`,
-          src: `images/image-02.jpg`
+          src: `images/image-02-thumb.png`
         }]
     },{ tag: `p`,
       className: `image-text`,

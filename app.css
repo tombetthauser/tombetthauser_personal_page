@@ -1,6 +1,6 @@
 body {
   min-width: 500px;
-  opacity: 1;
+  opacity: 0;
   transition: .5s;
 }
 
