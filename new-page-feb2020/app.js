@@ -1,34 +1,53 @@
 const things = {
   stuff: [
-    {
-      tag: `img`,
-      src: `https://whitneymedia.org/assets/image/823189/large_CallaLilyVendor.jpg`
-    },{
-      tag: `p`,
-      innerText: `I'm a multimedia artist and software engineer currently working as an educator and maintaining my studio practice as an ongoing resident at the Verge Center for the Arts in Sacramento, CA. I am making a futile effort to join the migration off of social media by focusing my efforts towards an email newsletter, blog, art zines and pop-up exhibitions. I'm actively seeking out studio visits and collaboration oppourtunities so please don't hesitate to drop me a regular old email any time.`
-    },{
-      tag: `h1`,
+    { tag: `a`, target: `new`,
+      href: `images/image-02.jpg`,
+      babies: [{ tag: `img`,
+          src: `images/image-02.jpg`
+        }]
+    },{ tag: `p`,
+      className: `image-text`,
+      innerText: `Sacramento Collage, 8.5 x 11 in. original drawings and paintings on photocopies of original drawings and paintings, 2021`
+    },{ tag: `h1`,
       innerText: `Tom Betthauser`
-    },{
-      tag: `p`,
-      innerText: `I'm a multimedia artist and software engineer currently working as an educator and maintaining my studio practice as an ongoing resident at the Verge Center for the Arts in Sacramento, CA. I am making a futile effort to join the migration off of social media by focusing my efforts towards an email newsletter, blog, art zines and pop-up exhibitions. I'm actively seeking out studio visits and collaboration oppourtunities so please don't hesitate to drop me a regular old email any time.`
-    },{
-      tag: `a`,
-      innerText: `github`,
-      target: `new`,
-      href: `https://github.com/tombetthauser`
-    },{
-      tag: `ul`,
-      babies: [
-        {
-          tag: `li`,
-          innerText: `testing!`
-        },{
-          tag: `li`,
-          innerText: `testing again!`
-        }
-      ]
-    },
+    },{ tag: `h2`,
+      innerText: `Visual Artist / Software Engineer`
+    },{ tag: `hr`,
+    },{ tag: `p`,
+      innerText: `Hello, I'm a multimedia artist and software developer currently working as an educator and maintaining my studio practice as an ongoing resident at the Verge Center for the Arts in Sacramento, CA. I'm making a futile effort to get off social media by focusing my efforts on an old-school email newsletter, a blog, art zines and pop-up exhibitions with other artists.`
+    },{ tag: `p`,
+      innerText: `I'm always up for studio visits and collaboration oppourtunities with other artists, tech people, and artists masquerading as tech people (like me) so please don't hesitate to drop me a regular old email any time.`
+    },{ tag: `p`,
+      innerText: `tombetthauser@gmail.com`
+    },{ tag: `ul`,
+      babies: [{ tag: `li`, babies: [{ tag: `a`,
+              innerText: `my email newsletter thing`,
+              target: `new`, href: `https://github.com/tombetthauser`
+            }]},{ tag: `li`, babies: [{ tag: `a`,
+              innerText: `my random bandcamp page`,
+              target: `new`, href: `https://tombetthauser.bandcamp.com/`
+            }]},{ tag: `li`, babies: [{ tag: `a`,
+              innerText: `my art merch shop for buying stuff`,
+              target: `new`, href: `https://www.etsy.com/shop/tombetthauser`
+            }]},{ tag: `li`, babies: [{ tag: `a`,
+              innerText: `my github page for computer people`,
+              target: `new`, href: `https://github.com/tombetthauser`
+            }]},{ tag: `li`, babies: [{ tag: `a`,
+              innerText: `my linkedin page for whatever`,
+              target: `new`, href: `https://www.linkedin.com/in/tombetthauser/`
+            }]}]
+    // },{ tag: `ul`,
+    //   babies: [{ tag: `li`, babies: [{ tag: `a`,
+    //           innerText: `my software development portfolio`,
+    //           target: `new`, href: `https://docs.google.com/forms/d/e/1FAIpQLSeUSTIFKk7IitfyXX7EeCuyEGOX8n1FqZ5SMbLVNXDAtTQ8yQ/viewform?usp=sf_link`
+    //         }]},{ tag: `li`, babies: [{ tag: `a`,
+    //           innerText: `my visual arts portfolio`,
+    //           target: `new`, href: `https://github.com/tombetthauser`
+    //         }]},{ tag: `li`, babies: [{ tag: `a`,
+    //           innerText: `my arts / tech blog`,
+    //           target: `new`, href: `https://github.com/tombetthauser`
+    //         }]}]
+    }
   ]
 }
 
@@ -36,15 +55,15 @@ const main = document.querySelector("#main-thing");
 const body = document.querySelector("body");
 const title = document.querySelector("title");
 
-const turtler = thing => {
+const turtler = (thing, mama = main) => {
   thing = Array.isArray(thing) ? thing : thing.stuff;
   thing.forEach(thing => {
     let baby = document.createElement(thing.tag);
     Object.keys(thing).forEach(key => {
       if (key !== `tag`) baby[key] = thing[key];
-      if (baby.babies) turtler(baby.babies);
+      if (baby.babies) turtler(baby.babies, baby);
     })
-    main.appendChild(baby);
+    mama.appendChild(baby);
   })
 }
 

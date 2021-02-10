@@ -1,10 +1,52 @@
+body {
+  min-width: 500px;
+}
+
 #main-thing {
   width: 500px;
   max-width: 90%;
   display: block;
-  margin: 50px auto 150px;
+  margin: 75px auto 150px;
 }
 
 img {
   max-width: 100%;
+}
+h1, h2, h3, h4, h5 {
+  font-weight: 100;
+}
+
+.image-text {
+  font-size: 12px;
+  display: block;
+  width: 70%;
+  text-align: center;
+  margin: 15px auto 75px;
+}
+
+p {
+  font-size: 15px;
+}
+
+a {
+ color: cornflowerblue; 
+ text-decoration: none;
+}
+
+ul {
+ color: cornflowerblue; 
+ padding-left: 25px;
+}
+
+h1 {
+  margin-bottom: 0px;
+}
+
+h2 {
+  margin-top: 0px;
+  font-size: 16px;
+}
+
+hr {
+  color: #fff;
 }
