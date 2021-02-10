@@ -1,7 +1,7 @@
 const things = {
   stuff: [
     { tag: `a`, target: `new`,
-      href: `images/image-02.jpg`,
+      href: `images/image-02-thumb.png`,
       babies: [{ tag: `img`,
           src: `images/image-02.jpg`
         }]
@@ -57,7 +57,7 @@ const title = document.querySelector("title");
 
 setTimeout(() => {
   body.style.opacity = "1";
-}, 1000)
+}, 500)
 
 title.innerText = "🌱 Tom Betthauser"
 
