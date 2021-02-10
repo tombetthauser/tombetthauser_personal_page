@@ -1,10 +1,25 @@
-console.log(`\n$$\\   $$\\ $$$$$$$$\\ $$\\       $$\\       $$$$$$\\  \n$$ |  $$ |$$  _____|$$ |      $$ |     $$  __$$\\ \n$$ |  $$ |$$ |      $$ |      $$ |     $$ /  $$ |\n$$$$$$$$ |$$$$$\\    $$ |      $$ |     $$ |  $$ |\n$$  __$$ |$$  __|   $$ |      $$ |     $$ |  $$ |\n$$ |  $$ |$$ |      $$ |      $$ |     $$ |  $$ |\n$$ |  $$ |$$$$$$$$\\ $$$$$$$$\\ $$$$$$$$\\ $$$$$$  |\n\\__|  \\__|\\________|\\________|\\________|\\______/   \n\n––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––\n––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––\n`)
+console.log(`
+
+$$\\   $$\\ $$$$$$$$\\ $$\\       $$\\       $$$$$$\\  
+$$ |  $$ |$$  _____|$$ |      $$ |     $$  __$$\\ 
+$$ |  $$ |$$ |      $$ |      $$ |     $$ /  $$ |
+$$$$$$$$ |$$$$$\\    $$ |      $$ |     $$ |  $$ |
+$$  __$$ |$$  __|   $$ |      $$ |     $$ |  $$ |
+$$ |  $$ |$$ |      $$ |      $$ |     $$ |  $$ |
+$$ |  $$ |$$$$$$$$\\ $$$$$$$$\\ $$$$$$$$\\ $$$$$$  |
+\\__|  \\__|\\________|\\________|\\________|\\______/   
+
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+I am not Adam Curtis https://www.youtube.com/watch?v=fh2cDKyFdyU
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+
+`)
 
 const logger = arr => {
-  console.log(arr[Math.floor(Math.random() * arr.length)]);
+  for (let n = 0; n < Math.random() * 25; n++) console.log(arr[Math.floor(Math.random() * arr.length)]);
   setInterval(() => {
     console.log(arr[Math.floor(Math.random() * arr.length)]);
-  }, 5000)
+  }, 7500)
 }
 
 const stuff = [
@@ -127,7 +142,7 @@ const stuff = [
   `A British journalist, who knew Assad, wrote...`,
   `"Assad's optimism has gone."`,
   `"A trust in the future has gone."`,
-  `"What has emerged instead is a brutal, vengeful Assad, "who believes in nothing except revenge."`,
+  `"What has emerged instead is a brutal, vengeful Assad, who believes in nothing except revenge."`,
   `The original dream of the Soviet Union had been to create a glorious new world.`,
   `A world where not only the society, but the people themselves would be transformed.`,
   `They would become new and better kinds of human beings.`,
@@ -218,10 +233,9 @@ const stuff = [
   `Every year, Shi'ites march in a procession mourning the sacrifice of their founder, Husayn.`,
   `As they do, they whip themselves, symbolically re-enacting Husayn's suffering.`,
   `Khomeini said that the ultimate act of penitence was not just to whip yourself, but to kill yourself...`,
-  `providing it was for the greater good of the revolution.`,
+  `Providing it was for the greater good of the revolution.`,
   `In the name of God, the compassionate, the merciful, good afternoon.`,
-  `"An Iraqi Soviet-made MiG-23`,
-  `was shot down "by the air-force jet fighters of the Islamic Republic "over the north-western Iranian border region of Marivan "at 10.08 hours local time, Saturday," said the Joint Staff Commands communique numbered 1710.`,
+  `"An Iraqi Soviet-made MiG-23 was shot down by the air-force jet fighters of the Islamic Republic over the north-western Iranian border region of Marivan at 10:08 hours local time, Saturday," said the Joint Staff Commands communique numbered 1710.`,
   `Khomeini had mobilised this force when the country was attacked by Iraq.`,
   `Iran faced almost certain defeat because Iraq had far superior weapons, many of them supplied by America.`,
   `So, the revolutionaries took tens of thousands of young boys out of schools, put them on buses and sent them to the front line.`,

@@ -22,7 +22,7 @@ const things = {
     },{ tag: `ul`,
       babies: [{ tag: `li`, babies: [{ tag: `a`,
               innerText: `my email newsletter thing`,
-              target: `new`, href: `https://github.com/tombetthauser`
+              target: `new`, href: `https://docs.google.com/forms/d/e/1FAIpQLSeUSTIFKk7IitfyXX7EeCuyEGOX8n1FqZ5SMbLVNXDAtTQ8yQ/viewform?usp=sf_link`
             }]},{ tag: `li`, babies: [{ tag: `a`,
               innerText: `my random bandcamp page`,
               target: `new`, href: `https://tombetthauser.bandcamp.com/`
@@ -54,6 +54,8 @@ const things = {
 const main = document.querySelector("#main-thing");
 const body = document.querySelector("body");
 const title = document.querySelector("title");
+
+title.innerText = "🌱 Tom Betthauser"
 
 const turtler = (thing, mama = main) => {
   thing = Array.isArray(thing) ? thing : thing.stuff;
