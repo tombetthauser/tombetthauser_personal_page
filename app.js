@@ -55,9 +55,8 @@ const main = document.querySelector("#main-thing");
 const body = document.querySelector("body");
 const title = document.querySelector("title");
 
-main.style.display = "none";
 setTimeout(() => {
-  main.style.display = "block";
+  body.style.opacity = "1";
 }, 500)
 
 title.innerText = "🌱 Tom Betthauser"
