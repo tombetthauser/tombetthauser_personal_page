@@ -1,7 +1,6 @@
 const things = {
   stuff: [
-    { tag: `a`, target: `new`,
-      href: `images/image-02.jpg`,
+    { tag: `a`, target      href: `images/image-02.jpg`,
       babies: [{ tag: `img`,
           src: `images/image-02-thumb.png`
         }]
@@ -22,30 +21,30 @@ const things = {
     },{ tag: `ul`,
       babies: [{ tag: `li`, babies: [{ tag: `a`,
               innerText: `my email newsletter thing`,
-              target: `new`, href: `https://docs.google.com/forms/d/e/1FAIpQLSeUSTIFKk7IitfyXX7EeCuyEGOX8n1FqZ5SMbLVNXDAtTQ8yQ/viewform?usp=sf_link`
+              href: `https://docs.google.com/forms/d/e/1FAIpQLSeUSTIFKk7IitfyXX7EeCuyEGOX8n1FqZ5SMbLVNXDAtTQ8yQ/viewform?usp=sf_link`
             }]},{ tag: `li`, babies: [{ tag: `a`,
               innerText: `my random bandcamp page`,
-              target: `new`, href: `https://tombetthauser.bandcamp.com/`
+              href: `https://tombetthauser.bandcamp.com/`
             }]},{ tag: `li`, babies: [{ tag: `a`,
               innerText: `my art merch shop for buying stuff`,
-              target: `new`, href: `https://www.etsy.com/shop/tombetthauser`
+              href: `https://www.etsy.com/shop/tombetthauser`
             }]},{ tag: `li`, babies: [{ tag: `a`,
               innerText: `my github page for computer people`,
-              target: `new`, href: `https://github.com/tombetthauser`
+              href: `https://github.com/tombetthauser`
             }]},{ tag: `li`, babies: [{ tag: `a`,
               innerText: `my linkedin page for whatever`,
-              target: `new`, href: `https://www.linkedin.com/in/tombetthauser/`
+              href: `https://www.linkedin.com/in/tombetthauser/`
             }]}]
     // },{ tag: `ul`,
     //   babies: [{ tag: `li`, babies: [{ tag: `a`,
     //           innerText: `my software development portfolio`,
-    //           target: `new`, href: `https://docs.google.com/forms/d/e/1FAIpQLSeUSTIFKk7IitfyXX7EeCuyEGOX8n1FqZ5SMbLVNXDAtTQ8yQ/viewform?usp=sf_link`
+    //           href: `https://docs.google.com/forms/d/e/1FAIpQLSeUSTIFKk7IitfyXX7EeCuyEGOX8n1FqZ5SMbLVNXDAtTQ8yQ/viewform?usp=sf_link`
     //         }]},{ tag: `li`, babies: [{ tag: `a`,
     //           innerText: `my visual arts portfolio`,
-    //           target: `new`, href: `https://github.com/tombetthauser`
+    //           href: `https://github.com/tombetthauser`
     //         }]},{ tag: `li`, babies: [{ tag: `a`,
     //           innerText: `my arts / tech blog`,
-    //           target: `new`, href: `https://github.com/tombetthauser`
+    //           href: `https://github.com/tombetthauser`
     //         }]}]
     }
   ]
