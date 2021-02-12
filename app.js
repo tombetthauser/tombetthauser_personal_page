@@ -11,6 +11,8 @@ const things = {
       innerText: `Tom Betthauser`
     },{ tag: `h2`,
       innerText: `Visual Artist / Software Engineer`
+    // },{ tag: `h3`,
+    //   innerText: `Yale School of Art, MFA 2012`
     },{ tag: `hr`,
     },{ tag: `p`,
       innerText: `Hello, I'm a multimedia artist and software developer currently working as an educator and maintaining my studio practice as an ongoing resident at the Verge Center for the Arts in Sacramento, CA. I'm making a futile effort to get off social media by focusing my efforts on an old-school email newsletter, a blog, art zines and pop-up exhibitions with other artists.`
@@ -18,6 +20,9 @@ const things = {
       innerText: `I'm always up for studio visits and collaboration oppourtunities with other artists, tech people, and artists masquerading as tech people (like me) so please don't hesitate to drop me a regular old email any time.`
     },{ tag: `p`,
       innerText: `tombetthauser@gmail.com`
+    },{ tag: `hr`
+    },{ tag: `p`,
+      innerText: `Some me-related links...`
     },{ tag: `ul`,
       babies: [{ tag: `li`, babies: [{ tag: `a`,
               innerText: `my email newsletter thing`,
@@ -35,17 +40,25 @@ const things = {
               innerText: `my linkedin page for whatever`,
               href: `https://www.linkedin.com/in/tombetthauser/`
             }]}]
-    // },{ tag: `ul`,
-    //   babies: [{ tag: `li`, babies: [{ tag: `a`,
-    //           innerText: `my software development portfolio`,
-    //           href: `https://docs.google.com/forms/d/e/1FAIpQLSeUSTIFKk7IitfyXX7EeCuyEGOX8n1FqZ5SMbLVNXDAtTQ8yQ/viewform?usp=sf_link`
-    //         }]},{ tag: `li`, babies: [{ tag: `a`,
-    //           innerText: `my visual arts portfolio`,
-    //           href: `https://github.com/tombetthauser`
-    //         }]},{ tag: `li`, babies: [{ tag: `a`,
-    //           innerText: `my arts / tech blog`,
-    //           href: `https://github.com/tombetthauser`
-    //         }]}]
+    },{ tag: `p`,
+      innerText: `Some recent projects...`
+    },{ tag: `ul`,
+      babies: [{ tag: `li`, babies: [{ tag: `a`,
+              innerText: `hypernormalisation ipsum generator`,
+              href: `file:///Users/tombetthauser/Documents/GitHub_Repos/hypernormalisipsum/index.html`
+            }]},{ tag: `li`, babies: [{ tag: `a`,
+              innerText: `state of the arts survey data project`,
+              href: `http://www.sotasurvey.org/2019`
+            }]},{ tag: `li`, babies: [{ tag: `a`,
+              innerText: `unknowablesymbols web meditations`,
+              href: `http://unknowablesymbols.com`
+            }]},{ tag: `li`, babies: [{ tag: `a`,
+              innerText: `tomblr social media clone`,
+              href: `http://tomblr.herokuapp.com/`
+            }]},{ tag: `li`, babies: [{ tag: `a`,
+              innerText: `more on my github`,
+              href: `https://github.com/tombetthauser`
+            }]}]
     }
   ]
 }

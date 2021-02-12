@@ -46,9 +46,15 @@ h1 {
 
 h2 {
   margin-top: 0px;
+  /* margin-bottom: 0px; */
   font-size: 16px;
 }
 
 hr {
   color: #fff;
+}
+
+h3 {
+  margin-top: 5px;
+  font-size: 13px;
 }
