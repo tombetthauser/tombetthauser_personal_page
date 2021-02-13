@@ -45,7 +45,7 @@ const things = {
     },{ tag: `ul`,
       babies: [{ tag: `li`, babies: [{ tag: `a`,
               innerText: `hypernormalisation ipsum generator`,
-              href: `file:///Users/tombetthauser/Documents/GitHub_Repos/hypernormalisipsum/index.html`
+              href: `https://tombetthauser.github.io/hypernormalisipsum/`
             }]},{ tag: `li`, babies: [{ tag: `a`,
               innerText: `state of the arts survey data project`,
               href: `http://www.sotasurvey.org/2019`
