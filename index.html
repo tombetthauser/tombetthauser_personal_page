@@ -1,7 +1,201 @@
-<html>
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta http-equiv='refresh' content='0; URL=http://www.tombetthauser.com/dev'>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🌱 Tom Betthauser</title>
 </head>
+<style>
+  h1, h2, h3, h4, h5 {
+    font-weight: 100;
+  }
+  body {
+    padding-top: 50px;
+    width: 500px;
+    max-width: 85%;
+    display: block;
+    margin: auto;
+  }
+  section {
+    margin-bottom: 75px;
+  }
+  h1 {
+    margin-top: 30px;
+    margin-bottom: 10px;
+    font-size: 32.5px;
+  }
+  h2 {
+    margin-top: 50px;
+    margin-bottom: 0px;
+  }
+  #profile-img {
+    width: 175px;
+    border-radius: 50%;
+  }
+  ul {
+    list-style-type: none;
+    padding-left: 0;
+  }
+  a {
+    color: black;
+  }
+  #projects-ul li {
+    margin-top: 50px;
+    margin-bottom: 35px;
+  }
+  .dots-hr {
+    width: 300px;
+    border-bottom: 0.25px solid black;
+  }
+  li p {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  li h3 {
+    margin-bottom: 0px;
+  }
+  ::selection {
+    background-color: rgba(96, 144, 233, .25);
+  }
+  
+  /* zig zag hr line css */
+  .holder {
+    position: relative;
+    width: 100%;
+    height: 9px;
+    margin-top: 20px;
+    margin-bottom: -10px;
+  }
+  .line {
+      position: absolute;
+      width: 100%;
+      height: 9px;
+  }
+  .line1 {
+      background: linear-gradient(45deg, transparent 48%, black 48%, transparent 52%);
+  }
+  .line2 {
+      background: linear-gradient(-45deg, transparent 48%, black 48%, transparent 52%);
+  }
+  .line {
+      background-size: 17px 17px;
+  }
+</style>
+<body>
 
+  <img id="profile-img" src="https://avatars.githubusercontent.com/u/28816983?v=4">
+
+  <section>
+    <h1>Tom Betthauser</h1>
+    <ul>
+      <li>Software Engineer / Instructor at App Academy</li>
+      <li>Resident Artist at Verge Center for the Arts</li>
+    </ul>
+    <a href="https://pixelfed.social/tombetthauser">pixelfed</a> | <a href="#">linkedin</a> | <a href="#">github</a>
+
+    <!-- <ul id="links-ul">
+      <li><a href="https://pixelfed.social/tombetthauser">pixelfed</a></li>
+      <li><a href="#">linkedin</a></li>
+      <li><a href="#">github</a></li>
+    </ul> -->
+  </section>
+
+  
+  <section>
+    <h2>Wacky Projects</h2>
+    <div class="holder"><div class="line line1"></div><div class="line line2"></div></div>
+    <ul id="projects-ul">
+      <li id="green-square">
+        <h3>Green Square</h3>
+        <p>
+          A physical art space managed and curated by a bot specifically created for the project with an open code base. Built with Python and Selenium as a web-interfacing command line tool.
+        </p>
+        <a href="#">website</a> | <a href="#">github</a>
+      </li>
+      
+      <li id="sota-survey">
+        <h3>State of the Arts Survey</h3>
+        <p>
+          A national survey for visual artists built with D3.js data visualizations and a custom cross-reference visualization tool for the browser.
+        </p>
+        <a href="#">website</a> | <a href="#">github</a>
+      </li>
+      
+      <li id="fungible-objects">
+        <h3>Computer Buddies</h3>
+        <p>
+          A series of hand-sculpted computer history models cast in concrete and resin. Scanned for 3D printing and made freely available.
+        </p>
+        <a href="#">instagram</a> | <a href="#">github</a>
+      </li>
+      
+      <li id="fungible-objects">
+        <h3>Tech Portraits</h3>
+        <p>
+          A series of portraits of software engineers and important figures in computer history drawn on post-it notes and combined with simple web-art collages. Scanned and made freely available.
+        </p>
+        <a href="#">instagram</a> | <a href="#">github</a>
+      </li>
+
+      <li id="mfa-hole">
+        <h3>Slacker News</h3>
+        <p>
+          A Hacker News clone specifically for visual artists to share articles, information, questions etc. Built with
+          Express, PostgreSQL and a simple template-engine (pug) front-end.
+        </p>
+        <a href="#">website</a> | <a href="#">github</a>
+      </li>
+      
+      <li id="mfa-hole">
+        <h3>Bootcamp after Art School</h3>
+        <p>
+          A personal account of my time surviving coding bootcamp as an art school graduate and former art teacher. Mainly geared towards art students considering coding bootcamp.
+        </p>
+        <a href="#">substack</a> | <a href="#">github</a>
+      </li>
+      
+      <li id="mfa-hole">
+        <h3>Tomblr</h3>
+        <p>
+          My first full-stack web project built just for fun during my time at coding bootcamp. A clone of Tumblr built with
+          React, Express and PostgreSQL.
+        </p>
+        <a href="#">website</a> | <a href="#">github</a>
+      </li>
+      
+      <!-- <li id="fungible-objects">
+        <h3>Fungible Art Objects</h3>
+        <p>
+          A web platform for sharing free reproducible artwork files including 3D printable sculptures, zines, audio art etc. Built using React, Express, PostgreSQL and AWS.
+        </p>
+        <a href="#">website</a> | <a href="#">github</a>
+      </li> -->
+  
+      <!-- <li id="minstagram">
+        <h3>Minstagram</h3>
+        <p>
+          A minimal image sharing platform with a full-featured page customization interface. Built using React, Flask and PostgreSQL.
+        </p>
+        <a href="#">website</a> | <a href="#">github</a>
+      </li> -->
+    
+      <!-- <li id="art-hole">
+        <h3>Art Hole</h3>
+        <p>
+          A swipe-based web app for matching visual artists up with eachother, gallerists and collectors. Built using React, Express, PostgreSQL and AWS.
+        </p>
+        <a href="#">website</a> | <a href="#">github</a>
+      </li> -->
+      
+      <!-- <li>
+        <h3>Open Art Assignment</h3>
+        <p>
+          A platform for art instructors to share uploaded class assignments. Built using AngularJS, Flask, MongoDB and AWS.
+        </p>
+        <a href="#">website</a> | <a href="#">github</a>
+      </li> -->
+    </ul>
+  </section>
+</body>
 </html>
