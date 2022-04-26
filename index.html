@@ -84,6 +84,17 @@
   .line {
       background-size: 17px 17px;
   }
+  .not-finished {
+    display: none;
+  }
+  .not-finished p, .not-finished a, .not-finished h3 {
+    color: rgb(176, 3, 3);
+  }
+  .resume-pdf {
+    display: block;
+    margin-top: 35px;
+    font-size: 15px;
+  }
 </style>
 <body>
 
@@ -102,6 +113,8 @@
     <!-- <a href="https://www.instagram.com/tombetthauser/">instagram</a> (slowly getting off)<br> -->
     <!-- <a href="https://www.linkedin.com/in/tombetthauser/">linkedin</a><br> -->
     <!-- <a href="https://github.com/tombetthauser">github</a> -->
+    
+    <a class="resume-pdf" target="new" href="https://www.linkedin.com/in/tombetthauser/">[resume pdf]</a>
   </section>
 
   
@@ -145,13 +158,13 @@
           href="https://github.com/tombetthauser/greensquare">github</a>
       </li>
             
-      <!-- <li id="fungible-objects">
-        <h3>Tech Portraits</h3>
+      <li id="fungible-objects">
+        <h3>Dev Portraits</h3>
         <p>
           A series of portraits of software engineers and important figures in computer history drawn on post-it notes and combined with simple web-art collages. Scanned and made freely available.
         </p>
         <a href="#">pixelfed</a> | <a href="#">github</a>
-      </li> -->
+      </li>
 
       <li id="slacker-news">
         <h3>Slacker News</h3>
@@ -191,8 +204,8 @@
       <li id="tomblr">
         <h3>Tomblr</h3>
         <p>
-          My first full-stack web project built just for fun during my time at coding bootcamp. A clone of Tumblr built with
-          React, Express and PostgreSQL.
+          My first full-stack web project built just for fun during my time at coding bootcamp. A [bad] clone of Tumblr built with
+          React, Ruby on Rails and PostgreSQL hosted on Heroku.
         </p>
         <a href="https://tomblr.herokuapp.com/">website</a> | <a href="https://github.com/tombetthauser/tomblr_reactapp">github</a>
       </li>
@@ -201,14 +214,6 @@
         <h3>Fungible Art Objects</h3>
         <p>
           A web platform for sharing free reproducible artwork files including 3D printable sculptures, zines, audio art etc. Built using React, Express, PostgreSQL and AWS.
-        </p>
-        <a href="#">website</a> | <a href="#">github</a>
-      </li> -->
-  
-      <!-- <li id="minstagram">
-        <h3>Minstagram</h3>
-        <p>
-          A minimal image sharing platform with a full-featured page customization interface. Built using React, Flask and PostgreSQL.
         </p>
         <a href="#">website</a> | <a href="#">github</a>
       </li> -->
@@ -230,5 +235,38 @@
       </li> -->
     </ul>
   </section>
+
+  <section>
+    <h2>Barely Started</h2>
+    <div class="holder"><div class="line line1"></div><div class="line line2"></div></div>
+    <ul id="projects-ul">
+
+      <li id="defcon">
+        <a href="https://tombetthauser.github.io/computerbuddies/"><h3>The Art of Defcon</h3></a>
+        <p>Visiting Defcon for the first time as a visual artist working in tech. Trading computer sculptures for drawings from seasoned software engineers, hackers and fellow imposters. Compiled in a free downloadable zine.</p>
+        <a href="https://page.garden/">website</a> | <a
+          href="https://github.com/tombetthauser/page-garden">free zine</a>
+      </li>
+
+      <li id="unswipe-art">
+        <!-- <a href="https://tombetthauser.github.io/computerbuddies/"><h3>Unswipe Art</h3></a> -->
+        <a href="https://tombetthauser.github.io/computerbuddies/"><h3>Studio Swipe</h3></a>
+        <p>A minimal page building site in the spirit of geocities or angelfire maybe. Primarily a place to share images of projects without the bloat of social media features. Built with React, Flask and AWS, hosted on Heroku.</p>
+        <a href="https://page.garden/">website</a> | <a
+          href="https://github.com/tombetthauser/page-garden">github</a>
+      </li>
+
+    </ul>
+  </section>
 </body>
+<script>
+  const queryString = window.location.search;
+  const urlParams = new URLSearchParams(queryString);
+  if (urlParams.get('wip')) {
+    const unfinishedProjects = document.querySelectorAll(".not-finished");
+    unfinishedProjects.forEach(ele => {
+      ele.style.display = "block";
+    })
+  };
+</script>
 </html>
