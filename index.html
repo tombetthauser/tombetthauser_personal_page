@@ -40,7 +40,7 @@
   a {
     color: black;
   }
-  #projects-ul li {
+  .projects-ul li {
     margin-top: 50px;
     margin-bottom: 35px;
   }
@@ -106,12 +106,19 @@
   }
   .project-details summary {
     font-size: 12px;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
     cursor: pointer;
   }
-  .project-details li {
-    color: red;
+  .project-details > ul > li {
+    margin-top: 0;
+    margin-bottom: 3px;
+    font-size: 13px;
+    /* margin-left: 2px; */
   }
+  .project-details {
+    margin-bottom: 15px;
+  }
+  .project-details 
 </style>
 <body>
 
@@ -135,7 +142,7 @@
   <section>
     <h2>Wacky Projects</h2>
     <div class="holder"><div class="line line1"></div><div class="line line2"></div></div>
-    <ul id="projects-ul">
+    <ul class="projects-ul">
 
       <li id="minstagram">
         <a href="https://tombetthauser.github.io/computerbuddies/"><h3>Page Garden 🌻</h3></a>
@@ -209,7 +216,7 @@
   <section>
     <h2>In the Works</h2>
     <div class="holder"><div class="line line1"></div><div class="line line2"></div></div>
-    <ul id="projects-ul">
+    <ul class="projects-ul">
 
       <li id="fungible-objects">
         <h3>Developer Portraits ✏️</h3>
@@ -273,12 +280,6 @@
         <h3>Gallerybot 📡</h3>
         <p class="bracket-text">[software tool / gallery space]</p>
         <p>A physical art space managed and curated by a bot specifically created for the project with an open code base. Built with Python and Selenium as a web-interfacing command line tool.</p>
-        <details class="project-details">
-          <summary>more details</summary>
-          <ul>
-            <li>express API / templating engine</li>
-          </ul>
-        </details>
         <a href="https://tombetthauser.github.io/greensquare/">website</a> | <a href="https://github.com/tombetthauser/greensquare">github</a>
       </li>
 
@@ -289,6 +290,15 @@
         <p>
           Custom ffmpeg and image magick scripts that create printable collages for studio projects using images from other studio projects.
         </p>
+        <details class="project-details">
+          <summary>more details</summary>
+          <ul>
+            <li>> express api</li>
+            <li>> pug templates</li>
+            <li>> image magick</li>
+            <li>> heroku</li>
+          </ul>
+        </details>
         <a href="https://tombetthauser.github.io/greensquare/">website</a> | <a href="https://github.com/tombetthauser/greensquare">github</a>
       </li>
 
@@ -305,6 +315,7 @@
       
       <li>
         <h3>Open Art Assignment 📚</h3>
+        <p class="bracket-text">[web application]</p>
         <p>
           A platform for art instructors to share uploaded class assignments. Built using AngularJS, Flask, MongoDB and AWS.
         </p>
@@ -314,6 +325,7 @@
 
       <li>
         <h3>Hiking Blog 🌼</h3>
+        <p class="bracket-text">[just a blog]</p>
         <p>
           An image and text log of hikes and camping trips with my family. Hosted on a custom-built flask platform running a react front-end.
         </p>
@@ -326,10 +338,11 @@
   <section>
     <h2>Older Stuff</h2>
     <div class="holder"><div class="line line1"></div><div class="line line2"></div></div>
-    <ul id="projects-ul">
+    <ul class="projects-ul">
 
       <li id="tomblr">
         <h3>Tomblr 🏆</h3>
+        <p class="bracket-text">[web application]</p>
         <p>
           My first full-stack web project built just for fun during my time at coding bootcamp. A [bad] clone of Tumblr built
           with React, Ruby on Rails and PostgreSQL hosted on Heroku.
@@ -341,6 +354,7 @@
 
       <li id="bootcamp-after-art-school">
         <h3>Bootcamp after Art School 🎓</h3>
+        <p class="bracket-text">[substack article / essay]</p>
         <p>
           A personal account of my time surviving coding bootcamp as an art school graduate and former art teacher. Mainly
           geared towards art students considering coding bootcamp.
@@ -352,6 +366,7 @@
 
       <li id="bandcamp">
         <h3>Bandcamp 🎵</h3>
+        <p class="bracket-text">[music page]</p>
         <p>
           My personal bandcamp page for audio projects and collaborations. Mostly analogue electronic
           equipment. I'm not on there much lately but it's a great platform and I'll be back soon!
@@ -362,6 +377,7 @@
       
       <li id="tomblr">
         <h3>Instagram 😵</h3>
+        <p class="bracket-text">[studio page]</p>
         <p>
           I don't actively use instagram anymore but there are still a lot of people I love and respect on there so I haven't fully deactivated my account.
         </p>
