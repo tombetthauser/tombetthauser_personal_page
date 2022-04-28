@@ -20,6 +20,12 @@
   section {
     margin-bottom: 120px;
   }
+  .project-section p {
+    max-width: 400px;
+  }
+  .project-section {
+    margin-bottom: 175px;
+  }
   h1 {
     margin-top: 30px;
     margin-bottom: 10px;
@@ -42,7 +48,7 @@
   }
   .projects-ul li {
     margin-top: 50px;
-    margin-bottom: 35px;
+    margin-bottom: 60px;
   }
   .dots-hr {
     width: 300px;
@@ -141,7 +147,7 @@
   </section>
 
   
-  <section>
+  <section class="project-section">
     <h2>Wacky Projects</h2>
     <div class="holder"><div class="line line1"></div><div class="line line2"></div></div>
     <ul class="projects-ul">
@@ -149,13 +155,24 @@
       <li id="minstagram">
         <a href="https://tombetthauser.github.io/computerbuddies/"><h3>Page Garden 🌻</h3></a>
         <p class="bracket-text">[web application]</p>
-        <p>A minimal page building site in the spirit of geocities or angelfire maybe. Primarily a place to share images of projects without the bloat of social media features. Built with React, Flask and AWS, hosted on Heroku.</p>
+        <p>
+          A minimal instagram alternative built mainly for personal use but open for anyone. Make customizable pages and post images of projects.
+        </p>
         <details class="project-details">
-          <summary>more details</summary>
+          <summary>juicy details</summary>
           <ul>
-            <li>> stack</li>
-            <li>> libraries</li>
-            <li>> purpose</li>
+            <li>> customizable pages</li>
+            <li>> images / text / video posts </li>
+            <li>> built with react + flask</li>
+            <li>> aws image storage</li>
+            <br>
+            <li>soon maybe...</li>
+            <li>> image resizing on upload</li>
+            <li>> video uploads (resized or via youtube)</li>
+            <li>> basic messaging</li>
+            <li>> instant messaging (websockets)</li>
+            <li>> feed / follows</li>
+            <li>> bookmarks</li>
           </ul>
         </details>
         <a href="https://page.garden/">website</a> | <a
@@ -166,18 +183,29 @@
       <li id="computer-buddies">
         <a href="https://tombetthauser.github.io/computerbuddies/"><h3>Computer Buddies 💿</h3></a>
         <p class="bracket-text">[sculpture project]</p>
-        <p>An ongoing computer history sculpture project. First sculpted by hand in oil clay at 1:6 scale then cast in natural
-          wax, resin, concrete and other materials. Someday 3D scanned hopefully for free printing.</p>
+        <p>Some computer history sculptures I made for my toddler. Computers hand-sculpted in oil clay then cast in natural wax, resin, concrete and other stuff.</p>
         <details class="project-details">
-          <summary>more details</summary>
+          <summary>juicy details</summary>
           <ul>
-            <li>> stack</li>
-            <li>> libraries</li>
-            <li>> purpose</li>
+            <li>> hand-sculpted at barbie scale [1:6]</li>
+            <li>> cast in concrete / resin / soap / wax</li>
+            <li>> available on request</li>
+            <li>> commodore 64 ✓</li>
+            <li>> ibm 5150 ✓</li>
+            <li>> apple II ✓</li>
+            <br>
+            <li>soon maybe...</li>
+            <li>> free 3D printable files</li>
+            <li>> taking a batch to defcon</li>
+            <li>> gallery show in 2023</li>
+            <li>> six foot tall versions</li>
+            <li>> altair 8800</li>
+            <li>> macintosh</li>
+            <li>> imac</li>
           </ul>
         </details>
-        <a href="https://tombetthauser.github.io/computerbuddies/">website</a> | <a
-          href="https://github.com/tombetthauser/computerbuddies">github</a>
+        <a href="https://tombetthauser.github.io/computerbuddies/">website</a> 
+        <!-- | <a href="https://github.com/tombetthauser/computerbuddies">github</a> -->
       </li>
 
       
@@ -188,7 +216,7 @@
           A national survey for visual artists built with D3.js data visualizations and a custom cross-reference visualization tool for the browser.
         </p>
         <details class="project-details">
-          <summary>more details</summary>
+          <summary>juicy details</summary>
           <ul>
             <li>> stack</li>
             <li>> libraries</li>
@@ -207,7 +235,7 @@
           Express, PostgreSQL with a simple template-engine frontend.
         </p>
         <details class="project-details">
-          <summary>more details</summary>
+          <summary>juicy details</summary>
           <ul>
             <li>> stack</li>
             <li>> libraries</li>
@@ -224,7 +252,7 @@
           Just a Github repo and Discord community for artists working in tech to share resources. Mainly geared towards artists considering transitioning into tech careers.
         </p>
         <details class="project-details">
-          <summary>more details</summary>
+          <summary>juicy details</summary>
           <ul>
             <li>> stack</li>
             <li>> libraries</li>
@@ -241,7 +269,7 @@
           A web platform for sharing free reproducible artwork files including 3D printable sculptures, zines, audio art etc. Built using React, Express, PostgreSQL and AWS.
         </p>
         <details class="project-details">
-          <summary>more details</summary>
+          <summary>juicy details</summary>
           <ul>
             <li>> stack</li>
             <li>> libraries</li>
@@ -258,7 +286,7 @@
           Express, PostgreSQL and AWS.
         </p>
         <details class="project-details">
-          <summary>more details</summary>
+          <summary>juicy details</summary>
           <ul>
             <li>> stack</li>
             <li>> libraries</li>
@@ -271,7 +299,7 @@
     
   </section>
 
-  <section>
+  <section class="project-section">
     <h2>In the Works</h2>
     <div class="holder"><div class="line line1"></div><div class="line line2"></div></div>
     <ul class="projects-ul">
@@ -281,7 +309,7 @@
         <p class="bracket-text">[studio project]</p>
         <p>A series of portraits of living and historical software engineers, people working in tech and regular humans living inside the machine. important figures in computer history drawn on post-it notes and combined with simple web-art collages. Scanned and made freely available.</p>
         <details class="project-details">
-          <summary>more details</summary>
+          <summary>juicy details</summary>
           <ul>
             <li>> stack</li>
             <li>> libraries</li>
@@ -299,7 +327,7 @@
         <p class="bracket-text">[web application]</p>
         <p>Barely started searchable archive for free zine print files. Also a tool for joining images into print files. Mainly built for personal use but open to all.</p>
         <details class="project-details">
-          <summary>more details</summary>
+          <summary>juicy details</summary>
           <ul>
             <li>> stack</li>
             <li>> libraries</li>
@@ -316,7 +344,7 @@
         <p class="bracket-text">[web application]</p>
         <p>A minimal page building site in the spirit of geocities or angelfire maybe. Primarily a place to share images of projects without the bloat of social media features. Built with React, Flask and AWS, hosted on Heroku.</p>
         <details class="project-details">
-          <summary>more details</summary>
+          <summary>juicy details</summary>
           <ul>
             <li>> stack</li>
             <li>> libraries</li>
@@ -334,7 +362,7 @@
         <p class="bracket-text">[studio project / field trip]</p>
         <p>Visiting Defcon for the first time as a visual artist working in tech. Trading computer sculptures for drawings from seasoned software engineers, hackers and fellow imposters. Compiled in a free downloadable zine.</p>
         <details class="project-details">
-          <summary>more details</summary>
+          <summary>juicy details</summary>
           <ul>
             <li>> stack</li>
             <li>> libraries</li>
@@ -351,7 +379,7 @@
         <p class="bracket-text">[studio project / field trip]</p>
         <p>Visiting Defcon for the first time as a visual artist working in tech. Trading computer sculptures for drawings from seasoned software engineers, hackers and fellow imposters. Compiled in a free downloadable zine.</p>
         <details class="project-details">
-          <summary>more details</summary>
+          <summary>juicy details</summary>
           <ul>
             <li>> stack</li>
             <li>> libraries</li>
@@ -368,7 +396,7 @@
         <p class="bracket-text">[coding tutorials for artists]</p>
         <p>A physical art space managed and curated by a bot specifically created for the project with an open code base. Built with Python and Selenium as a web-interfacing command line tool.</p>
         <details class="project-details">
-          <summary>more details</summary>
+          <summary>juicy details</summary>
           <ul>
             <li>> stack</li>
             <li>> libraries</li>
@@ -387,7 +415,7 @@
         <p class="bracket-text">[software tool / gallery space]</p>
         <p>A physical art space managed and curated by a bot specifically created for the project with an open code base. Built with Python and Selenium as a web-interfacing command line tool.</p>
         <details class="project-details">
-          <summary>more details</summary>
+          <summary>juicy details</summary>
           <ul>
             <li>> stack</li>
             <li>> libraries</li>
@@ -405,7 +433,7 @@
           Custom ffmpeg and image magick scripts that create printable collages for studio projects using images from other studio projects.
         </p>
         <details class="project-details">
-          <summary>more details</summary>
+          <summary>juicy details</summary>
           <ul>
             <li>> express api</li>
             <li>> pug templates</li>
@@ -424,7 +452,7 @@
           A physical art space managed and curated by a bot specifically created for the project with an open code base. Built with Python and Selenium as a web-interfacing command line tool.
         </p>
         <details class="project-details">
-          <summary>more details</summary>
+          <summary>juicy details</summary>
           <ul>
             <li>> stack</li>
             <li>> libraries</li>
@@ -442,7 +470,7 @@
           A platform for art instructors to share uploaded class assignments. Built using AngularJS, Flask, MongoDB and AWS.
         </p>
         <details class="project-details">
-          <summary>more details</summary>
+          <summary>juicy details</summary>
           <ul>
             <li>> stack</li>
             <li>> libraries</li>
@@ -460,7 +488,7 @@
           An image and text log of hikes and camping trips with my family. Hosted on a custom-built flask platform running a react front-end.
         </p>
         <details class="project-details">
-          <summary>more details</summary>
+          <summary>juicy details</summary>
           <ul>
             <li>> stack</li>
             <li>> libraries</li>
@@ -473,7 +501,7 @@
     </ul>
   </section>
 
-  <section>
+  <section class="project-section">
     <h2>Older Stuff</h2>
     <div class="holder"><div class="line line1"></div><div class="line line2"></div></div>
     <ul class="projects-ul">
@@ -486,7 +514,7 @@
           with React, Ruby on Rails and PostgreSQL hosted on Heroku.
         </p>
         <details class="project-details">
-          <summary>more details</summary>
+          <summary>juicy details</summary>
           <ul>
             <li>> stack</li>
             <li>> libraries</li>
@@ -506,7 +534,7 @@
           geared towards art students considering coding bootcamp.
         </p>
         <details class="project-details">
-          <summary>more details</summary>
+          <summary>juicy details</summary>
           <ul>
             <li>> stack</li>
             <li>> libraries</li>
@@ -526,7 +554,7 @@
           equipment. I'm not on there much lately but it's a great platform and I'll be back soon!
         </p>
         <details class="project-details">
-          <summary>more details</summary>
+          <summary>juicy details</summary>
           <ul>
             <li>> stack</li>
             <li>> libraries</li>
@@ -544,7 +572,7 @@
           I don't actively use instagram anymore but there are still a lot of people I love and respect on there so I haven't fully deactivated my account.
         </p>
         <details class="project-details">
-          <summary>more details</summary>
+          <summary>juicy details</summary>
           <ul>
             <li>> stack</li>
             <li>> libraries</li>
