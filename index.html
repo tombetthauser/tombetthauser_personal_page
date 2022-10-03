@@ -4,666 +4,130 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>🌱 Tom Betthauser</title>
+  <title>tombetthauser</title>
 </head>
 <style>
-  h1, h2, h3, h4, h5 {
-    font-weight: 100;
-  }
   body {
-    padding-top: 50px;
-    width: 500px;
-    max-width: 85%;
-    display: block;
-    margin: auto;
-  }
-  section {
-    margin-bottom: 120px;
-  }
-  .project-section p {
-    max-width: 400px;
-  }
-  .project-section {
-    margin-bottom: 175px;
+    background-image: url("./images/img1.jpg");
+    /* background-image: url("https://thumbs.gfycat.com/EthicalJoyfulBangeltiger-max-1mb.gif"); */
+    background-size: 500px 380px;
+    padding: 0 25px;
+    animation: drift 10s linear infinite;
   }
   h1 {
-    margin-top: 30px;
-    margin-bottom: 10px;
-    font-size: 32.5px;
+    color: white;
+    font-weight: 100;
+    font-size: 100px;
+    width: 100%;
+    overflow-wrap: break-word;
+    text-shadow: 10px 10px 0 rgba(255, 255, 255, .7),
+    20px 20px 0 rgba(255, 255, 255, .5),
+    30px 30px 0 rgba(255, 255, 255, .3);
+    margin-bottom: 30px;
   }
-  h2 {
-    margin-top: 50px;
-    margin-bottom: 0px;
+  .button {
+    background-color: lightgray;
+    border: 5px outset rgb(221, 221, 221);
+    font-size: 20px;
+    width: 50px;
+    height: 25px;
+    text-align: center;
+    cursor: pointer;
+    box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.25);
+    margin-right: 15px;
   }
-  #profile-img {
-    width: 175px;
-    border-radius: 50%;
+  @keyframes drift {
+    from { background-position: 0px 0px; }
+    to { background-position: -500px -380px; }
   }
-  ul {
-    list-style-type: none;
-    padding-left: 0;
+  @keyframes pulse {
+    0% { color: rgba(0, 0, 0, 0); }
+    50% { color: rgba(0, 0, 0, 1); }
+  }
+  @keyframes jitter {
+    0% { margin: 3px 2px -3px 1px; }
+    10% { margin: -1px -3px 1px -2px; }
+    20% { margin: 1px 1px -2px 2px; }
+    30% { margin: -2px 3px -1px -3px; }
+    40% { margin: 2px -1px 1px -1px; }
+    50% { margin: 3px 2px -3px 1px; }
+    60% { margin: -1px -3px 1px -2px; }
+    70% { margin: 1px 1px -2px 2px; }
+    80% { margin: -2px 3px -1px -3px; }
+    90% { margin: 2px -1px 1px -1px; }
+    100% { margin: 2px -1px 1px -1px; }
   }
   a {
+    font-size: 20px;
+    background-color: yellow;
+    margin-top: 60px;
+    display: inline-block;
+  }
+  h2 {
+    margin-top: 200px;
+    font-weight: 100;
+    font-size: 30px;
+    /* font-family: cursive; */
+    width: auto;
+    background-color: orange;
     color: black;
+    text-decoration: underline;
+    max-width: 750px;
   }
-  .projects-ul li {
-    margin-top: 50px;
-    margin-bottom: 60px;
-  }
-  .dots-hr {
-    width: 300px;
-    border-bottom: 0.25px solid black;
-  }
-  li p {
-    margin-top: 10px;
-    margin-bottom: 10px;
-  }
-  li h3 {
-    margin-bottom: 0px;
-  }
-  li a:nth-child(1) {
-    text-decoration: none;
-  }
-  ::selection {
-    background-color: rgba(96, 144, 233, .25);
-  }
-  
-  /* zig zag hr line css */
-  .holder {
-    position: relative;
+  img {
     width: 100%;
-    height: 9px;
-    margin-top: 20px;
-    margin-bottom: -10px;
   }
-  .line {
-      position: absolute;
-      width: 100%;
-      height: 9px;
-  }
-  .line1 {
-      background: linear-gradient(45deg, transparent 48%, black 48%, transparent 52%);
-  }
-  .line2 {
-      background: linear-gradient(-45deg, transparent 48%, black 48%, transparent 52%);
-  }
-  .line {
-      background-size: 17px 17px;
-  }
-  .not-finished {
-    display: none;
-  }
-  .not-finished p, .not-finished a, .not-finished h3 {
-    color: rgb(176, 3, 3);
-  }
-  .resume-pdf {
+  h3 {
+    font-weight: 100;
+    background-color: yellow;
+    width: fit-content;
     display: block;
-    margin-top: 35px;
-    font-size: 15px;
+    font-style: italic;
   }
-  .bracket-text {
-    font-size: 12px;
+  section {
+    width: 350px;
+    max-width: 100%;
+  }
+  section a {
     margin-top: 5px;
-    padding-top: 5px;
-    margin-bottom: 15px;
-    /* margin-left: 2px; */
-    width: 275px;
-    border-top: .5px solid black;
-  }
-  .project-details summary {
-    font-size: 12px;
-    margin-bottom: 10px;
-    cursor: pointer;
-  }
-  .project-details > ul > li {
-    margin-top: 0;
-    margin-bottom: 3px;
-    font-size: 13px;
-    /* margin-left: 2px; */
-  }
-  .project-details {
-    margin-bottom: 15px;
-  }
-  details:focus, summary:focus{
-    outline: none;
   }
 </style>
-<body>
-
-  <img id="profile-img" src="https://avatars.githubusercontent.com/u/28816983?v=4">
-
-  <section>
-    <h1>Tom Betthauser</h1>
-    <ul>
-      <li>Software Engineer / Currently at <a href="https://recurse.com">Recurse Center</a></li>
-      <li>Resident Artist at <a href="https://vergecontemporary.org/">Verge Center for the Arts</a></li>
-    </ul>
-    <!-- <a target="new" href="https://pixelfed.social/tombetthauser">pixelfed</a>  -->
-    <a target="new" target="new" href="https://github.com/tombetthauser">github</a> | 
-    <a target="new" target="new" href="https://www.linkedin.com/in/tombetthauser/">linkedin</a> | 
-    <a target="new" target="new" href="https://pagegarden.herokuapp.com/tom-studio">studio-art</a>
-    
-    <a class="resume-pdf" target="new" target="new" href="https://www.tombetthauser.com/resume.pdf">[resume pdf]</a>
-  </section>
-  
-  <!-- <p style="font-size: 14px;">⚠️ A bunch of my Heroku projects are down because I'm cheap!</p> -->
-  <section class="project-section">
-    <h2>Wacky Projects</h2>
-    <div class="holder"><div class="line line1"></div><div class="line line2"></div></div>
-    <ul class="projects-ul">
-
-
-      <li>
-        <!-- <h3>Notall Zines 🏛</h3> -->
-        <!-- <h3>Zine Hole 🕳</h3> -->
-        <h3>Zine Garden 🌷</h3>
-        <p class="bracket-text">[web application]</p>
-        <p>
-          An intentionally bare-bones web interface for a series of bash scripts that process images into printable properly-paginated zine pdfs. The site also allows users to upload and share printable zine files. Built with Express!
-        </p>
-        <details class="project-details">
-          <summary>juicy details</summary>
-          <ul>
-            <li>> user pages / zines / search</li>
-            <li>> bookmarks and follows maybe</li>
-            <li>> or just a big list in order of upload</li>
-            <li>> maybe include a zine pdf pagination tool</li>
-            <li>> image sets off phone to printable zine pdfs</li>
-            <li>> half-page and quarter-page layouts</li>
-            <li>> ready to print, fold, staple and cut</li>
-            <li>> progress site coming soon!</li>
-          </ul>
-        </details>
-        <a target="new" href="http://www.zine.garden">website</a> | 
-        <a target="new" href="https://github.com/tombetthauser/zine-garden">github</a>
-      </li>
-
-
-      <li id="minstagram">
-        <a target="new" href="https://tombetthauser.github.io/computerbuddies/"><h3>Page Garden 🌻</h3></a>
-        <p class="bracket-text">[web application]</p>
-        <p>
-          A minimal instagram alternative built mainly for personal use but open for anyone. Make customizable pages and post images of projects.
-        </p>
-        <details class="project-details">
-          <summary>juicy details</summary>
-          <ul>
-            <li>> customizable pages</li>
-            <li>> images / text / video posts </li>
-            <li>> built with react + flask</li>
-            <li>> aws image storage</li>
-            <br>
-            <li>soon maybe...</li>
-            <li>> image resizing on upload</li>
-            <li>> video uploads (resized or via youtube)</li>
-            <li>> basic messaging</li>
-            <li>> instant messaging (websockets)</li>
-            <li>> feed / follows</li>
-            <li>> bookmarks</li>
-          </ul>
-        </details>
-        <a target="new" href="https://page.garden/">website</a> | <a
-          target="new" href="https://github.com/tombetthauser/page-garden">github</a>
-      </li>
-
-
-      <li id="computer-buddies">
-        <a target="new" href="https://tombetthauser.github.io/computerbuddies/"><h3>Computer Buddies 💿</h3></a>
-        <p class="bracket-text">[sculpture project]</p>
-        <p>Some computer history sculptures I made for my toddler. Computers hand-sculpted in oil clay then cast in natural wax, resin, concrete and other stuff.</p>
-        <details class="project-details">
-          <summary>mundane details</summary>
-          <ul>
-            <li>> hand-sculpted at barbie scale [1:6]</li>
-            <li>> cast in concrete / resin / soap / wax</li>
-            <li>> available on request</li>
-            <li>> commodore 64 ✓</li>
-            <li>> ibm 5150 ✓</li>
-            <li>> apple II ✓</li>
-            <br>
-            <li>soon maybe...</li>
-            <li>> free 3D printable files</li>
-            <li>> taking a batch to defcon</li>
-            <li>> gallery show in 2023</li>
-            <li>> six foot tall versions</li>
-            <li>> altair 8800</li>
-            <li>> macintosh</li>
-            <li>> imac</li>
-          </ul>
-        </details>
-        <a target="new" href="https://tombetthauser.github.io/computerbuddies/">website</a> 
-        <!-- | <a target="new" href="https://github.com/tombetthauser/computerbuddies">github</a> -->
-      </li>
-
-      
-      <li id="sota-survey">
-        <h3>State of the Arts Survey 📝</h3>
-        <p class="bracket-text">[data-oriented web project]</p>
-        <p>
-          A national survey for visual artists built with D3.js data visualizations and a custom cross-reference visualization tool for the browser.
-        </p>
-        <details class="project-details">
-          <summary>trivial details</summary>
-          <ul>
-            <li>> 100+ beta participants pre-covid</li>
-            <li>> responses from across the us</li>
-            <li>> 80+ unique data visualizations</li>
-            <li>> custom data cross-referencing tool</li>
-            <br>
-            <li>soon maybe...</li>
-            <li>> dynamic response integration</li>
-            <li>> physical mailers to art schools</li>
-            <li>> new question voting system</li>
-          </ul>
-        </details>
-        <a target="new" href="http://www.sotasurvey.org/">website</a> | <a target="new" href="https://github.com/tombetthauser/stateofthearts">github</a>
-      </li>
-            
-      <li id="slacker-news">
-        <h3>Slacker News 🗣</h3>
-        <!-- <h3>Mfa Hole 🕳</h3> -->
-        <p class="bracket-text">[web application]</p>
-        <p>
-          A Hacker News clone specifically for visual artists to share articles, shows, job postings, questions etc. Mainly for personal use but open for anyone.
-        </p>
-        <details class="project-details">
-          <summary>random details</summary>
-          <ul>
-            <li>> built with express and templates</li>
-            <li>> doesn't use react just for fun</li>
-            <li>> hosted via heroku</li>
-            <br>
-            <li>soon maybe...</li>
-            <li>> pagination</li>
-            <li>> simplify styling</li>
-            <li>> actual upvoting / gravity</li>
-            <li>> scrape job boards and post</li>
-            <li>> scrape arts publication sites and post</li>
-            <li>> scrape for exhibitions and post</li>
-            <li>> exhibition / gallery map maybe</li>
-            <li>> messaging maybe</li>
-          </ul>
-        </details>
-        <a target="new" href="https://mfahole.herokuapp.com/">website</a> | <a target="new" href="https://github.com/tombetthauser/artslackernews">github</a>
-      </li>
-
-      
-      <!-- <li id="fungible-objects">
-        <h3>Fungible Art Objects</h3>
-        <p>
-          A web platform for sharing free reproducible artwork files including 3D printable sculptures, zines, audio art etc. Built using React, Express, PostgreSQL and AWS.
-        </p>
-        <details class="project-details">
-          <summary>juicy details</summary>
-          <ul>
-            <li>> stack</li>
-            <li>> libraries</li>
-            <li>> purpose</li>
-          </ul>
-        </details>
-        <a target="new" href="#">website</a> | <a target="new" href="#">github</a>
-      </li> -->
-
-      <!-- <li id="art-hole">
-        <h3>Art Hole</h3>
-        <p>
-          A swipe-based web app for matching visual artists up with eachother, gallerists and collectors. Built using React,
-          Express, PostgreSQL and AWS.
-        </p>
-        <details class="project-details">
-          <summary>juicy details</summary>
-          <ul>
-            <li>> stack</li>
-            <li>> libraries</li>
-            <li>> purpose</li>
-          </ul>
-        </details>
-        <a target="new" href="#">website</a> | <a target="new" href="#">github</a>
-      </li> -->
-
-    
-  </section>
-
-  <section class="project-section">
-    <h2>In the Works</h2>
-    <div class="holder"><div class="line line1"></div><div class="line line2"></div></div>
-    <ul class="projects-ul">
-
-      <li>
-        <h3>Developer Portraits ✏️</h3>
-        <p class="bracket-text">[studio project]</p>
-        <p>Post-it note portraits of software engineers, people working in tech and regular humans living in the machine.</p>
-        <details class="project-details">
-          <summary>trivial details</summary>
-          <ul>
-            <li>> graphite drawings on post-it notes</li>
-            <li>> historical software engineers</li>
-            <li>> family members</li>
-            <li>> coworkers</li>
-            <li>> friends</li>
-            <li>> hackers</li>
-            <li>> hobbyists</li>
-            <li>> website coming soon!</li>
-          </ul>
-        </details>
-        <!-- <a target="new" href="https://page.garden/developer-portraits-wip">website</a> -->
-      </li>
-
-      <li>
-        <h3>Danny's Game 🎮</h3>
-        <p class="bracket-text">[original gameboy game]</p>
-        <p>
-          A quasi-educational cart-flashable original gameboy game I'm slowly building / adding to for my two year old.
-        </p>
-        <details class="project-details">
-          <summary>trivial details</summary>
-          <ul>
-            <li>> developing test version with gb studio</li>
-            <li>> experimenting with writing directly in c and assembly</li>
-            <li>> quasi-education, basic math / shapes / spelling</li>
-            <li>> very boring, he'd rather play tetris!</li>
-          </ul>
-        </details>
-        <a target="new" href="https://tombetthauser.itch.io/dannys-game">download</a>
-      </li>
-
-
-      <li>
-        <!-- <a target="new" href="https://tombetthauser.github.io/computerbuddies/"><h3>Unswipe Art</h3></a> -->
-        <a target="new" href="https://tombetthauser.github.io/computerbuddies/"><h3>Studio Swipe 🎨</h3></a>
-        <p class="bracket-text">[web application]</p>
-        <p>An tinder-style application for artists looking for studio visits with other artists, gallerists, collectors etc.</p>
-        <details class="project-details">
-          <summary>mundane details</summary>
-          <ul>
-            <li>> planned to be built with react and flask</li>
-            <li>> swipe-based react interface</li>
-            <li>> artists post up to five images</li>
-            <li>> then swipe to find other artworks they like</li>
-            <li>> not able to see the artists name etc</li>
-            <li>> matches occur with mutual likes</li>
-            <li>> messaging feature opens on matches</li>
-            <li>> work shown based on commonalities</li>
-            <li>> existing users invite new ones via invite codes</li>
-            <li>> different user types for artists, gallerists, collectors</li>
-            <li>> progress site coming soon!</li>
-          </ul>
-        </details>
-        <!-- <a target="new" href="https://page.garden/zine-garden-wip">website</a> -->
-      </li>
-
-
-      <li>
-        <h3>Defcon / Burning Man 🦂</h3>
-        <p class="bracket-text">[collaborative art zines]</p>
-        <p>
-          Going to Defcon and Burning Man for the first times. No idea what direction they'll take but art zines seem appropriate.
-        </p>
-        <details class="project-details">
-          <summary>illusory details</summary>
-          <ul>
-            <li>> bring computer buddy sculptures</li>
-            <li>> trade for drawings or photos for portraits</li>
-            <li>> maybe a weird novelty backpack for sculptures</li>
-            <li>> possible defcon talk Hacking the Art World (part I)</li>
-            <li>> talk about Arts Survey as resource for students</li>
-            <li>> undermining art world assumptions / rules / elitist gate keeping</li>
-            <li>> write out essay / documentation</li>
-            <li>> progress site coming soon!</li>
-          </ul>
-        </details>
-        <!-- <a target="new" href="https://page.garden/defcon-wip">website</a> -->
-      </li>
-
-
-      <li>
-        <h3>Arting the Coding Interview 🐍</h3>
-        <p class="bracket-text">[coding tutorials for artists]</p>
-        <p>A youtube channel focused on leetcode walkthroughs and web development basics for artists learning to code.</p>
-        <details class="project-details">
-          <summary>trivial details</summary>
-          <ul>
-            <li>> videos for artists getting into tech</li>
-            <li>> recorded leetcode walkthroughs</li>
-            <li>> recorded mock interviews</li>
-            <li>> tutorials on building basic websites / applications</li>
-            <li>> videos documenting teaching art friends to code</li>
-            <li>> progress site / youtube channel coming soon!</li>
-          </ul>
-        </details>
-        <!-- <a target="new" href="https://page.garden/artingcode-wip">website</a> -->
-        <!-- <a target="new" href="https://youtube.com/artingcode">youtube</a> -->
-      </li>
-      
-      
-      <li>
-        <h3>Gallerybot 📡</h3>
-        <p class="bracket-text">[software tool / gallery space]</p>
-        <p>
-          A gallery management script running on a raspberry pi connected to a printer / monitor. Openly accepts artworks via the web and outputs them in a gallery space.
-        </p>
-        <details class="project-details">
-          <summary>juicy details</summary>
-          <ul>
-            <li>> continuous deployment script running on a pi</li>
-            <li>> artworks submitted via email / checked via scraper</li>
-            <li>> creates artwork queue</li>
-            <li>> all submitted work shows for 1 month</li>
-            <li>> plays audio or video content via monitor</li>
-            <li>> prints written work and visual art </li>
-            <li>> also prints instructions for hanging / display </li>
-            <li>> instructions followed by human gallery assistant [me </li>
-            <li>> updates own gallery website and creates press releases etc</li>
-            <li>> photographs its own space via webcam</li>
-            <li>> will manage green square art space (see below)</li>
-            <li>> repo link coming soon!</li>
-          </ul>
-        </details>
-      </li>
-
-
-      <li>
-        <h3>Green Square 🍏</h3>
-        <p class="bracket-text">[gallery / art space]</p>
-        <p>A small physical art space managed and curated by a bot set up to openly accept new artwork via email.</p>
-        <details class="project-details">
-          <summary>trivial details</summary>
-          <ul>
-            <li>> physical art space in midtown sacramento ca</li>
-            <li>> inside the verge center for the arts building</li>
-            <li>> managed by gallerybot [see above]</li>
-            <li>> first show opens as soon as gallerybot beta is running!</li>
-          </ul>
-        </details>
-        <a target="new" href="https://tombetthauser.github.io/greensquare/">website</a> 
-        <!-- | <a target="new" href="https://github.com/tombetthauser/greensquare">github</a> -->
-      </li>
-
-
-
-      <li>
-        <h3>Studio Toolbot ⚙️</h3>
-        <p class="bracket-text">[web application]</p>
-        <p>
-          A collection of browser and command line tools for visual artists to assist in basic studio needs.
-        </p>
-        <details class="project-details">
-          <summary>mundane details</summary>
-          <ul>
-            <li>> a basic express template application</li>
-            <li>> image magick and maybe ffmpeg scripts</li>
-            <li>> color balance matching tool for studio images</li>
-            <li>> collage tool for groups of images</li>
-            <li>> bitmap posterizing tool for silkscreening / printing etc</li>
-            <li>> bitmap dithering tool for printing etc</li>
-            <li>> repo link coming soon!</li>
-          </ul>
-        </details>
-      </li>
-
-
-      <li id="green-square">
-        <h3>Gallery Mapbot 🌐</h3>
-        <p class="bracket-text">[web scraper + site]</p>
-        <p>
-          A webscraper and global map populated with art galleries along with contact information etc.
-        </p>
-        <details class="project-details">
-          <summary>random details</summary>
-          <ul>
-            <li>> connected webscraper run manually</li>
-            <li>> frontend only map created with python script</li>
-            <li>> downloadable as raw csv</li>
-            <li>> built to destroy the art world maybe</li>
-            <li>> repo coming soon!</li>
-          </ul>
-        </details>
-      </li>
-
-
-      <li>
-        <h3>Open Art Assignment 📄</h3>
-        <p class="bracket-text">[web application]</p>
-        <p>
-          A platform for visual art instructors to share, search for and freely download class assignments.
-        </p>
-        <details class="project-details">
-          <summary>juicy details</summary>
-          <ul>
-            <li>> basic express template application</li>
-            <li>> simple searchable list of assignments</li>
-            <li>> user pages maybe to search by schools etc</li>
-            <li>> maybe an images to pdf tool</li>
-            <li>> repo coming soon!</li>
-          </ul>
-        </details>
-      </li>
-
-
-      <li id="bootcamp-after-art-school">
-        <h3>Artists Can't Code 🚫</h3>
-        <p class="bracket-text">[substack article / essay]</p>
-        <p>
-          Profiles and brief interviews with artists working as software developers. Accounts of how they transitioned
-          careers, survived coding bootcamp etc.
-        </p>
-        <details class="project-details">
-          <summary>essential details</summary>
-          <ul>
-            <li>> interviews conducted via zoom or email</li>
-            <li>> up to the interviewee probably</li>
-            <li>> maybe recorded / posted on youtube</li>
-            <li>> portraits of interviewees too maybe</li>
-            <li>> so far just my bootcamp story</li>
-            <li>> currently getting off substack</li>
-            <li>> new site coming soon!</li>
-          </ul>
-        </details>
-        <a target="new"
-          href="https://tombetthauser.substack.com/p/coding-bootcamp-after-art-school-21-08-25?showWelcome=true">substack</a>
-      </li>
-
-      
-
-      <li>
-        <h3>Hiking Blog 🌼</h3>
-        <p class="bracket-text">[just a blog]</p>
-        <p>
-          A simple blog to document hikes, camping trips and little adventures with my family.
-        </p>
-        <details class="project-details">
-          <summary>mundane details</summary>
-          <ul>
-            <li>> holding myself accountable for more adventures</li>
-            <li>> page garden link coming soon!</li>
-          </ul>
-        </details>
-      </li>
-
-    </ul>
-  </section>
-
-  <section class="project-section">
-    <h2>Older Stuff</h2>
-    <div class="holder"><div class="line line1"></div><div class="line line2"></div></div>
-    <ul class="projects-ul">
-
-      <li id="tomblr">
-        <h3>Tomblr 🐱</h3>
-        <p class="bracket-text">[web application]</p>
-        <p>
-          My first real full-stack web project built during my time at coding bootcamp.
-        </p>
-        <details class="project-details">
-          <summary>trivial details</summary>
-          <ul>
-            <li>> stack</li>
-            <li>> libraries</li>
-            <li>> purpose</li>
-          </ul>
-        </details>
-        <a target="new" href="https://tomblr.herokuapp.com/">website</a> | <a
-          target="new" href="https://github.com/tombetthauser/tomblr_reactapp">github</a>
-      </li>
-
-
-      <li>
-        <h3>Artists in Tech Resources 🛠</h3>
-        <p class="bracket-text">[resource links / repo]</p>
-        <p>
-          Github repo and discord community for artists working in tech or curious about it to share resources.
-        </p>
-        <!-- <details class="project-details">
-          <summary>juicy details</summary>
-          <ul>
-            <li>> stack</li>
-            <li>> libraries</li>
-            <li>> purpose</li>
-          </ul>
-        </details> -->
-        <a target="new" href="https://discord.gg/3vdb6rk24D">discord</a> | <a target="new" href="https://github.com/tombetthauser/artists-in-tech-resources">github</a>
-      </li>
-      
-
-      <li id="bandcamp">
-        <h3>Bandcamp 🎵</h3>
-        <p class="bracket-text">[music page]</p>
-        <p>
-          Just a link to my bandcamp page for audio projects and collaborations. Mostly analogue electronic meditation jams.
-        </p>
-        <details class="project-details">
-          <summary>critical details</summary>
-          <ul>
-            <li>> no formal music training</li>
-            <li>> regular collaborations with bret ward [real musician]</li>
-            <li>> not posting a lot lately but I'll be back soon!</li>
-          </ul>
-        </details>
-        <a target="new" href="https://tombetthauser.bandcamp.com/">bandcamp</a>
-      </li>
-      
-      
-      <li id="tomblr">
-        <h3>Instagram ☠️</h3>
-        <p class="bracket-text">[studio page]</p>
-        <p>
-          Not actively using instagram anymore but there are a lot of good people on there so keeping my account for now.
-        </p>
-        <a target="new" href="https://instagram.com/tombetthauser/">instagram</a>
-      </li>
-
-
-    </ul>
-  </section>
-</body>
 <script>
-  const queryString = window.location.search;
-  const urlParams = new URLSearchParams(queryString);
-  if (urlParams.get('wip')) {
-    const unfinishedProjects = document.querySelectorAll(".not-finished");
-    unfinishedProjects.forEach(ele => {
-      ele.style.display = "block";
-    })
-  };
+  let isPlaying = false;
+
+  const foo = () => {
+    const audio = document.getElementById("audio")
+    const button = document.querySelector(".button")
+    
+    if (isPlaying) {
+      isPlaying = false
+      audio.pause()
+      button.innerHTML = ">"
+      button.style.animation = "";
+    } else { 
+      audio.play()
+      isPlaying = true
+      button.innerHTML = "<"
+      button.style.animation = "jitter .1s infinite";
+    }
+  }
 </script>
+<body>
+  <h1>http://tombetthauser.com</h1>
+  <audio id="audio" hidden autoplay="true">
+    <source src="./audio/sonic.m4a" type="audio/x-m4a">
+    Your browser does not support the audio element.
+  </audio>
+  <div class="button" onclick="foo()">&gt;</div>
+  <a target="new" href="https://github.com/tombetthauser">github</a>
+  <a target="new" href="https://www.linkedin.com/in/tombetthauser/">linkedin</a>
+  <a target="new" href="https://pagegarden.herokuapp.com/tom-studio">studioart</a>
+
+  <!-- <h2>Current Projects</h2> -->
+  <!-- <section>
+    <img src="https://tombetthauser.github.io/computerbuddies/assets/images/35.jpg"/>
+    <a target="new" href="https://tombetthauser.github.io/computerbuddies/">computer buddies</a>
+    <br>
+  </section> -->
+</body>
 </html>
