@@ -8,8 +8,11 @@
 </head>
 <style>
   html {
+    background-color: black;
     background-image: url("./images/img1.jpg");
-    animation: drift 10s linear infinite;
+    animation: drift 30s linear infinite;
+    /* background-image: url("https://thumbs.gfycat.com/EthicalJoyfulBangeltiger-max-1mb.gif"); */
+    /* animation: zoom 20s linear infinite; */
     background-size: 500px 380px;
   }
   body {
@@ -30,6 +33,10 @@
   @keyframes drift {
     from { background-position: 0px 0px; }
     to { background-position: -500px -380px; }
+  }
+  @keyframes zoom {
+    from {     background-size: 500px 380px; }
+    to {  background-size: 0px 0px; }
   }
   @keyframes pulse {
     0% { color: rgba(0, 0, 0, 0); }
@@ -60,7 +67,7 @@
     list-style-type: none;
   }
 </style>
-<!-- <script>
+<script>
   let isPlaying = false;
 
   const foo = () => {
@@ -80,11 +87,11 @@
       button.style.animation = "jitter .1s infinite";
     }
   }
-</script> -->
+</script>
 <body>
   <h1>https://tombetthauser.com</h1>
-  <!-- <audio id="audio" loop src="./audio/outrun.mp3" type="audio/x-m4a"></audio> -->
-  <!-- <div class="button" onclick="foo()">&gt;</div> -->
+  <!-- <audio id="audio" loop src="./audio/outrun.mp3" type="audio/x-m4a"></audio>
+  <div class="button" onclick="foo()">&gt;</div> -->
   <ul>
     <li><a target="new" href="https://github.com/tombetthauser">github</a></li>
     <li><a target="new" href="https://www.linkedin.com/in/tombetthauser/">linkedin</a></li>
@@ -92,11 +99,12 @@
     <li><a target="new" href="resume.pdf">resume</a></li>
   </ul>
   <ul>
-    <li><a target="new" href="https://www.astronaut.horse/">astronaut-horse</a></li>
-    <li><a target="new" href="https://tombetthauser.github.io/computerbuddies/">computer-buddies</a></li>
-    <li><a target="new" href="pagegarden.herokuapp.com/">page-garden</a></li>
-    <li><a target="new" href="www.zine.garden/">zine-garden</a></li>
     <li><a target="new" href="https://tombetthauser.github.io/wasm-zinebot/">zine-bot</a></li>
+    <li><a target="new" href="https://www.astronaut.horse/">astronaut-horse</a></li>
+    <li><a target="new" href="https://www.sotasurvey.org/">state-of-the-arts-survey</a></li>
+    <li><a target="new" href="https://tombetthauser.github.io/computerbuddies/">computer-buddies</a></li>
+    <li><a target="new" href="https://pagegarden.herokuapp.com/">page-garden</a></li>
+    <!-- <li><a target="new" href="www.zine.garden/">zine-garden</a></li> -->
   </ul>
   <!-- <a target="new" href="https://tombetthauser.github.io/computerbuddies/">solar-server</a> -->
   <!-- <a target="new" href="https://tombetthauser.github.io/computerbuddies/">diffusion</a> -->
