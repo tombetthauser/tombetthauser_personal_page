@@ -42,7 +42,7 @@
     0% { color: rgba(0, 0, 0, 0); }
     50% { color: rgba(0, 0, 0, 1); }
   }
-  @keyframes jitter {
+  @keyframes jitter-big {
     0% { margin: 6px 4px -6px 2px; }
     10% { margin: -2px -6px 2px -4px; }
     20% { margin: 2px 2px -4px 4px; }
@@ -55,6 +55,19 @@
     90% { margin: 4px -2px 2px -2px; }
     100% { margin: 4px -2px 2px -2px; }
   }
+  @keyframes jitter {
+    0% { margin: 1px 1px -1px 1px; }
+    10% { margin: -1px -1px 1px -1px; }
+    20% { margin: 1px 1px -1px 1px; }
+    30% { margin: -1px 1px -1px -1px; }
+    40% { margin: 1px -1px 1px -1px; }
+    50% { margin: 1px 1px -1px 1px; }
+    60% { margin: -1px -1px 1px -1px; }
+    70% { margin: 1px 1px -1px 1px; }
+    80% { margin: -1px 1px -1px -1px; }
+    90% { margin: 1px -1px 1px -1px; }
+    100% { margin: 1px -1px 1px -1px; }
+  }
   a {
     font-size: 20px;
     background-color: yellow;
@@ -65,6 +78,25 @@
   ul {
     padding-left: 0;
     list-style-type: none;
+  }
+  h2 {
+    font-family: cursive;
+    font-weight: 100;
+    /* background-color: #bbb;
+    border: 5px outset rgb(171, 171, 171); */
+    width: 150px;
+    padding: 7px 17.5px;
+    font-size: 15px;
+    margin-top: 40px;
+    border-radius: 20px 0;
+    background-color: white;
+    color: black;
+    border: 2px solid black;
+  }
+  .pointer {
+    animation: jitter .5s linear infinite;
+    transition: 0;
+    display: inline-block;
   }
 </style>
 <script>
@@ -92,19 +124,21 @@
   <h1>https://tombetthauser.com</h1>
   <!-- <audio id="audio" loop src="./audio/outrun.mp3" type="audio/x-m4a"></audio>
   <div class="button" onclick="foo()">&gt;</div> -->
+  <!-- <h2>general links</h2> -->
   <ul>
     <li><a target="new" href="https://github.com/tombetthauser">github</a></li>
     <li><a target="new" href="https://www.linkedin.com/in/tombetthauser/">linkedin</a></li>
-    <li><a target="new" href="https://socialnotwork.net/@tom">studio-work</a></li>
+    <!-- <li><a target="new" href="https://socialnotwork.net/@tom">studio-work</a></li> -->
     <li><a target="new" href="https://socialnotwork.net/@tom">mastodon</a></li>
     <li><a target="new" href="resume.pdf">resume</a></li>
   </ul>
+  <!-- <h2>project links</h2> -->
   <ul>
-    <li><a target="new" href="https://tombetthauser.github.io/wasm-zinebot/">zine-bot</a></li>
-    <li><a target="new" href="https://www.astronaut.horse/">astronaut-horse</a></li>
-    <li><a target="new" href="https://www.sotasurvey.org/">state-of-the-arts-survey</a></li>
+    <li><a target="new" href="https://www.astronaut.horse/">astronaut-horse</a><span class=""> ← [new]</span></li>
     <li><a target="new" href="https://tombetthauser.github.io/computerbuddies/">computer-buddies</a></li>
+    <li><a target="new" href="https://www.sotasurvey.org/">state-of-the-arts-survey</a></li>
     <li><a target="new" href="https://pagegarden.herokuapp.com/">page-garden</a></li>
+    <li><a target="new" href="https://tombetthauser.github.io/wasm-zinebot/">zine-bot</a></li>
     <!-- <li><a target="new" href="www.zine.garden/">zine-garden</a></li> -->
   </ul>
   <!-- <a target="new" href="https://tombetthauser.github.io/computerbuddies/">solar-server</a> -->
