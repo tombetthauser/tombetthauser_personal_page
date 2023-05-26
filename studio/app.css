@@ -2,6 +2,7 @@ body {
   width: 500px;
   display: block;
   margin: 50px auto;
+  max-width: 100%;
 }
 
 h1 {
@@ -15,7 +16,7 @@ h1 {
   font-size: 100px;
   width: 80%;
   line-height: 30px;
-  margin-bottom: 100px;
+  margin-bottom: 125px;
   text-decoration: none;
 }
 
