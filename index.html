@@ -126,21 +126,81 @@
   <div class="button" onclick="foo()">&gt;</div> -->
   <!-- <h2>general links</h2> -->
   <ul>
-    <li><a target="new" href="https://github.com/tombetthauser">github</a></li>
-    <li><a target="new" href="https://www.linkedin.com/in/tombetthauser/">linkedin</a></li>
+    <li><a target="new" href="https://github.com/tombetthauser">💻 github</a></li>
+    <li><a target="new" href="https://www.linkedin.com/in/tombetthauser/">🤝 linkedin</a></li>
     <!-- <li><a target="new" href="https://socialnotwork.net/@tom">studio-work</a></li> -->
-    <li><a target="new" href="https://socialnotwork.net/@tom">mastodon</a></li>
-    <li><a target="new" href="resume.pdf">resume</a></li>
+    <!-- <li><a target="new" href="https://socialnotwork.net/@tom">mastodon</a></li> -->
+    <li><a target="new" href="resume.pdf">📄resume</a></li>
   </ul>
-  <!-- <h2>project links</h2> -->
+  
+  <!-- <h2>coding projects</h2> -->
   <ul>
-    <li><a target="new" href="https://www.astronaut.horse/">astronaut-horse</a><span class=""> ← [new]</span></li>
-    <li><a target="new" href="https://tombetthauser.github.io/computerbuddies/">computer-buddies</a></li>
-    <li><a target="new" href="https://www.sotasurvey.org/">state-of-the-arts-survey</a></li>
-    <li><a target="new" href="https://pagegarden.herokuapp.com/">page-garden</a></li>
-    <li><a target="new" href="https://tombetthauser.github.io/wasm-zinebot/">zine-bot</a></li>
+    <li><a id='astronaut-horse' target="new" href="https://www.astronaut.horse/">🐎 astronaut-horse</a></li>
+    <li><a id='computer-buddies' target="new" href="https://tombetthauser.github.io/computerbuddies/">💾 computer-buddies</a></li>
+    <li><a id='state-of-the-arts' target="new" href="https://www.sotasurvey.org/">🎨 state-of-the-arts-survey</a></li>
+    <li><a id='page-garden' target="new" href="https://pagegarden.herokuapp.com/">🌱 page-garden</a></li>
+    <li><a id='zine-bot' target="new" href="https://tombetthauser.github.io/wasm-zinebot/">📒 zine-bot</a></li>
     <!-- <li><a target="new" href="www.zine.garden/">zine-garden</a></li> -->
   </ul>
+  
+  <ul>
+    <li><a href="studio/index.html">🖼️ artwork</a></li>
+    <li><a href="weblog/index.html">✏️ weblog</a></li>
+    <li><a target="new" href="https://tombetthauser.bandcamp.com">🎹 sound</a></li>
+  </ul>
+
+  <script>
+    const astronautHorse = document.getElementById("astronaut-horse");
+    const framesDicts = [
+      {
+        id: "astronaut-horse",
+        frames: [
+          "🐎 astronaut-horse", 
+          "🐎 ai-art-collaborations",
+        ]
+      },{
+        id: "computer-buddies",
+        frames: [
+          "💾 computer-buddies", 
+          "💾 computer-sculpture-project",
+        ]
+      },{
+        id: "state-of-the-arts",
+        frames: [
+          "🎨 state-of-the-arts-survey", 
+          "🎨 survey-data-visualizations-project",
+        ]
+      },{
+        id: "page-garden",
+        frames: [
+          "🌱 page-garden", 
+          "🌱 fullstack-react-project",
+        ]
+      },{
+        id: "zine-bot",
+        frames: [
+          "📒 zine-bot", 
+          "📒 wasm-image-tool",
+        ]
+      },
+    ];
+
+    let frame = 0;
+    
+    const frameSwitch = () => {
+      frame++;
+      framesDicts.forEach(currDict => {
+        const domEle = document.getElementById(currDict.id);
+        domEle.innerHTML = currDict.frames[frame % currDict.frames.length];
+      }); 
+      setTimeout(frameSwitch, 1500 + (frame % 2 === 0 ? 4000 : 0));
+    }
+
+    setTimeout(frameSwitch, 10000);
+
+  </script>
+
+
   <!-- <a target="new" href="https://tombetthauser.github.io/computerbuddies/">solar-server</a> -->
   <!-- <a target="new" href="https://tombetthauser.github.io/computerbuddies/">diffusion</a> -->
   <!-- <a target="new" href="https://tombetthauser.github.io/computerbuddies/">zines</a> -->

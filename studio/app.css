@@ -1,0 +1,47 @@
+body {
+  width: 500px;
+  display: block;
+  margin: 50px auto;
+}
+
+h1 {
+  color: black;
+  text-shadow: 10px 10px 0 rgba(0, 0, 0, .3),
+  20px 20px 0 rgba(0, 0, 0, .2),
+  30px 30px 0 rgba(0, 0, 0, .1);
+  overflow-wrap: break-word;
+  margin-bottom: 30px;
+  font-weight: 100;
+  font-size: 100px;
+  width: 80%;
+  line-height: 30px;
+  margin-bottom: 100px;
+  text-decoration: none;
+}
+
+h1:hover {
+  color: blue;
+  text-shadow: 10px 10px 0 rgba(0, 0, 255, .3),
+  20px 20px 0 rgba(0, 0, 255, .2),
+  30px 30px 0 rgba(0, 0, 255, .1);
+}
+
+a {
+  text-decoration: none;  
+}
+
+a:hover {
+  text-decoration: underline;  
+}
+
+img {
+  width: 100%;
+  margin-top: -5px;
+  margin-bottom: 0;
+}
+
+a {
+  height: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
