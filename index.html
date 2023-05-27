@@ -25,10 +25,12 @@
     20px 20px 0 rgba(255, 255, 255, .5),
     30px 30px 0 rgba(255, 255, 255, .3);
     overflow-wrap: break-word;
-    margin-bottom: 30px;
     font-weight: 100;
     font-size: 100px;
     width: 100%;
+    line-height: 80px;
+    margin-bottom: 100px;
+    margin-top: 30px;
   }
   @keyframes drift {
     from { background-position: 0px 0px; }
@@ -156,44 +158,114 @@
         id: "astronaut-horse",
         frames: [
           "🐎 astronaut-horse", 
-          "🐎 ai-art-collaborations",
+          "🐎 ai-artist-collaborations",
         ]
       },{
         id: "computer-buddies",
         frames: [
           "💾 computer-buddies", 
-          "💾 computer-sculpture-project",
+          "💾 analog-computer-sculptures",
         ]
       },{
         id: "state-of-the-arts",
         frames: [
           "🎨 state-of-the-arts-survey", 
-          "🎨 survey-data-visualizations-project",
+          "🎨 art-survey-data-visualizations",
         ]
       },{
         id: "page-garden",
         frames: [
           "🌱 page-garden", 
-          "🌱 fullstack-react-project",
+          "🌱 image-sharing-fullstack-react-app",
         ]
       },{
         id: "zine-bot",
         frames: [
           "📒 zine-bot", 
-          "📒 wasm-image-tool",
+          "📒 wasm-image-processing-tool",
         ]
       },
     ];
+
+    const flipText = (domId, newText) => {
+      const domEle = document.getElementById(domId);
+      let idx = 0;
+      const currInterval = setInterval(() => {
+        const currText = domEle.innerHTML;
+        if (currText === newText) {
+          console.log(0)
+          console.log({DONE: "DONE", currText, newText})
+          clearInterval(currInterval);
+          domEle.innerHTML = newText;
+
+        } else if (
+            idx >= newText.length && 
+            idx <= currText.length
+          ) {
+
+          console.log(1)
+          const textArray = currText.split("")
+          const sliced = textArray.slice(0,-1)
+          domEle.innerHTML = sliced.join("");
+          // domEle.innerHTML = newText;
+
+        } else if (
+            idx >= currText.length && 
+            idx < newText.length
+          ) {
+
+          console.log(2)
+          const textArray = currText.split("")
+          textArray.push(newText[idx]);
+          domEle.innerHTML = textArray.join("");
+
+        } else if (
+            idx < currText.length && 
+            idx < newText.length
+          ) {
+            
+          console.log(3)
+          const textArray = currText.split("")
+          textArray[idx] = newText[idx];
+          domEle.innerHTML = textArray.join("");
+
+
+        } else if (
+            currText !== newText
+          ) {
+
+          console.log(4)
+          const textArray = currText.split("")
+          const sliced = textArray.slice(0,-1)
+          domEle.innerHTML = sliced.join("");
+
+        } else {
+
+          console.log(5)
+          console.log({idx, currText, "currText.length": currText.length, newText, "newText.length": newText.length})
+          console.log({DONE: "DONE", currText, newText})
+          domEle.innerHTML = newText;
+          clearInterval(currInterval);
+        }
+        idx++;
+      }, 100);
+    }
 
     let frame = 0;
     
     const frameSwitch = () => {
       frame++;
+      
+      // testing
+      // const domEle = document.getElementById(framesDicts[0].id);
+      // flipText(framesDicts[0].id, framesDicts[0].frames[frame % framesDicts[0].frames.length])
+      
       framesDicts.forEach(currDict => {
         const domEle = document.getElementById(currDict.id);
-        domEle.innerHTML = currDict.frames[frame % currDict.frames.length];
+        flipText(currDict.id, currDict.frames[frame % currDict.frames.length])
+        // domEle.innerHTML = currDict.frames[frame % currDict.frames.length];
       }); 
-      setTimeout(frameSwitch, 1500 + (frame % 2 === 0 ? 4000 : 0));
+      setTimeout(frameSwitch, 8000 + (frame % 2 === 0 ? 6000 : 0));
     }
 
     setTimeout(frameSwitch, 10000);
