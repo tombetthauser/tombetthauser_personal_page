@@ -128,27 +128,27 @@
   <div class="button" onclick="foo()">&gt;</div> -->
   <!-- <h2>general links</h2> -->
   <ul>
-    <li><a target="new" href="https://github.com/tombetthauser">💻 github</a></li>
-    <li><a target="new" href="https://www.linkedin.com/in/tombetthauser/">🤝 linkedin</a></li>
-    <!-- <li><a target="new" href="https://socialnotwork.net/@tom">studio-work</a></li> -->
-    <!-- <li><a target="new" href="https://socialnotwork.net/@tom">mastodon</a></li> -->
-    <li><a target="new" href="resume.pdf">📄resume</a></li>
+    <li><a id="github" href="https://github.com/tombetthauser">💻 github</a></li>
+    <li><a id="linkedin" href="https://www.linkedin.com/in/tombetthauser/">🤝 linkedin</a></li>
+    <!-- <li><a href="https://socialnotwork.net/@tom">studio-work</a></li> -->
+    <!-- <li><a href="https://socialnotwork.net/@tom">mastodon</a></li> -->
+    <li><a id="resume" href="resume.pdf">📄 resume</a></li>
   </ul>
   
   <!-- <h2>coding projects</h2> -->
   <ul>
-    <li><a id='astronaut-horse' target="new" href="https://www.astronaut.horse/">🐎 astronaut-horse</a></li>
-    <li><a id='computer-buddies' target="new" href="https://tombetthauser.github.io/computerbuddies/">💾 computer-buddies</a></li>
-    <li><a id='state-of-the-arts' target="new" href="https://www.sotasurvey.org/">🎨 state-of-the-arts-survey</a></li>
-    <li><a id='page-garden' target="new" href="https://pagegarden.herokuapp.com/">🌱 page-garden</a></li>
-    <li><a id='zine-bot' target="new" href="https://tombetthauser.github.io/wasm-zinebot/">📒 zine-bot</a></li>
-    <!-- <li><a target="new" href="www.zine.garden/">zine-garden</a></li> -->
+    <li><a id='astronaut-horse' href="https://www.astronaut.horse/">🐎 astronaut-horse</a></li>
+    <li><a id='computer-buddies' href="https://tombetthauser.github.io/computerbuddies/">💾 computer-buddies</a></li>
+    <li><a id='state-of-the-arts' href="https://www.sotasurvey.org/">🎨 state-of-the-arts-survey</a></li>
+    <li><a id='page-garden' href="https://pagegarden.herokuapp.com/">🌱 page-garden</a></li>
+    <li><a id='zine-bot' href="https://tombetthauser.github.io/wasm-zinebot/">📒 zine-bot</a></li>
+    <!-- <li><a href="www.zine.garden/">zine-garden</a></li> -->
   </ul>
   
   <ul>
-    <li><a href="studio/index.html">🖼️ artwork</a></li>
+    <li><a id="studio" href="studio/index.html">🖼️ artwork</a></li>
     <!-- <li><a href="weblog/index.html">✏️ weblog</a></li> -->
-    <li><a target="new" href="https://tombetthauser.bandcamp.com">🎹 sound</a></li>
+    <li><a id="sound" href="https://tombetthauser.bandcamp.com">🎹 sound</a></li>
   </ul>
 
   <script>
@@ -159,6 +159,7 @@
         frames: [
           "🐎 astronaut-horse", 
           "🐎 ai-artist-collaborations",
+          "🐎 artificial-intelligence-hype-train",
         ]
       },{
         id: "computer-buddies",
@@ -183,6 +184,38 @@
         frames: [
           "📒 zine-bot", 
           "📒 wasm-image-processing-tool",
+        ]
+      },{
+        id: "sound",
+        frames: [
+          "🎹 sound", 
+          "🎹 not-really-music",
+        ]
+      },{
+        id: "studio",
+        frames: [
+          "🖼️ artwork", 
+          "🖼️ studio-work", 
+          "🖼️ paintings-drawings-etc", 
+        ]
+      },{
+        id: "resume",
+        frames: [
+          "📄 resume", 
+          "📄 cv-pdf", 
+        ]
+      },{
+        id: "linkedin",
+        frames: [
+          "🤝 linkedin", 
+          "🤝 professional-façade",
+          "🤝 work-related-social-media",
+        ]
+      },{
+        id: "github",
+        frames: [
+          "💻 github", 
+          "💻 software-work", 
         ]
       },
     ];
