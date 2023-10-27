@@ -151,7 +151,7 @@
     <li><a id="sound" href="https://tombetthauser.bandcamp.com">🎹 sound</a></li>
   </ul>
 
-  <script>
+  <!-- <script>
     const astronautHorse = document.getElementById("astronaut-horse");
     const framesDicts = [
       {
@@ -223,6 +223,13 @@
     const flipText = (domId, newText) => {
       const domEle = document.getElementById(domId);
       let idx = 0;
+      
+      const currText = domEle.innerHTML;
+      if (currText.length == 0) {
+        domEle.innerHTML = newText;
+        return;
+      }
+
       const currInterval = setInterval(() => {
         const currText = domEle.innerHTML;
         if (currText === newText) {
@@ -303,7 +310,19 @@
 
     setTimeout(frameSwitch, 10000);
 
-  </script>
+    // check for broken text
+    window.setInterval(() => {
+      for (let i = 0; i < framesDicts.length; i++) {
+        const id = framesDicts[i].id;
+        const domEle = document.getElementById(id);
+        if (domEle.innerHTML.length < 2) {
+          console.log("dead element found - replacing text")
+          domEle.innerHTML = framesDicts[i].frames[0]
+        }
+      }
+    }, 1000);
+
+  </script> -->
 
 
   <!-- <a target="new" href="https://tombetthauser.github.io/computerbuddies/">solar-server</a> -->
