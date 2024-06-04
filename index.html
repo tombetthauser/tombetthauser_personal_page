@@ -217,6 +217,7 @@
         frames: [
           "🐎 astronaut-horse", 
           "🐎 ai-artist-collaborations",
+          "🐎 artificial-intelligence-hype-train",
         ]
       },{
         id: "computer-buddies",
@@ -242,12 +243,51 @@
           "📒 zine-bot", 
           "📒 wasm-image-processing-tool",
         ]
+      },{
+        id: "sound",
+        frames: [
+          "🎹 sound", 
+          "🎹 not-really-music",
+        ]
+      },{
+        id: "studio",
+        frames: [
+          "🖼️ artwork", 
+          "🖼️ studio-work", 
+          "🖼️ paintings-drawings-etc", 
+        ]
+      },{
+        id: "resume",
+        frames: [
+          "📄 resume", 
+          "📄 cv-pdf", 
+        ]
+      },{
+        id: "linkedin",
+        frames: [
+          "🤝 linkedin", 
+          "🤝 professional-façade",
+          "🤝 work-related-social-media",
+        ]
+      },{
+        id: "github",
+        frames: [
+          "💻 github", 
+          "💻 software-work", 
+        ]
       },
     ];
 
     const flipText = (domId, newText) => {
       const domEle = document.getElementById(domId);
       let idx = 0;
+      
+      const currText = domEle.innerHTML;
+      if (currText.length == 0) {
+        domEle.innerHTML = newText;
+        return;
+      }
+
       const currInterval = setInterval(() => {
         const currText = domEle.innerHTML;
         if (currText === newText) {
@@ -328,7 +368,19 @@
 
     setTimeout(frameSwitch, 10000);
 
-  </script>
+    // check for broken text
+    window.setInterval(() => {
+      for (let i = 0; i < framesDicts.length; i++) {
+        const id = framesDicts[i].id;
+        const domEle = document.getElementById(id);
+        if (domEle.innerHTML.length < 2) {
+          console.log("dead element found - replacing text")
+          domEle.innerHTML = framesDicts[i].frames[0]
+        }
+      }
+    }, 1000);
+
+  </script> -->
 
 <!-- 
 <script>
