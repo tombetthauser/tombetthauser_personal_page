@@ -14,6 +14,7 @@
     /* background-image: url("https://thumbs.gfycat.com/EthicalJoyfulBangeltiger-max-1mb.gif"); */
     /* animation: zoom 20s linear infinite; */
     background-size: 500px 380px;
+    /* filter: invert(1) contrast(20) sepia(20) hue-rotate(45deg) saturate(200) ; */
   }
   body {
     padding: 0 25px 100px;
@@ -132,26 +133,83 @@
     <li><a target="new" href="https://www.linkedin.com/in/tombetthauser/">🤝 linkedin</a></li>
     <!-- <li><a target="new" href="https://socialnotwork.net/@tom">studio-work</a></li> -->
     <!-- <li><a target="new" href="https://socialnotwork.net/@tom">mastodon</a></li> -->
-    <li><a target="new" href="resume.pdf">📄resume</a></li>
+    <li><a target="new" href="resume.pdf">📄 resume</a></li>
+    <li><a target="new" href="https://www.linkedin.com/in/tombetthauser/">🛒 art</a></li>
   </ul>
-  
+
+
+  <ul>
+    <li><a href="weblog/index.html">✏️ weblog</a></li>
+  </ul>
+
   <!-- <h2>coding projects</h2> -->
   <ul>
+    <li><a id='astronaut-horse' target="new" href="./coming-soon.html">🎨 art-n-chill</a></li>
+    <li><a id='astronaut-horse' target="new" href="./coming-soon.html">🏛 artist-coding-workshops</a></li>
+    <!-- <li><a id='astronaut-horse' target="new" href="https://www.astronaut.horse/">🤖 blog-conversations-with-artists-and-engineers</a></li> -->
     <li><a id='astronaut-horse' target="new" href="https://www.astronaut.horse/">🐎 astronaut-horse</a></li>
-    <li><a id='computer-buddies' target="new" href="https://tombetthauser.github.io/computerbuddies/">💾 computer-buddies</a></li>
-    <li><a id='state-of-the-arts' target="new" href="https://www.sotasurvey.org/">🎨 state-of-the-arts-survey</a></li>
+    <!-- <li><a id='computer-buddies' target="new" href="https://tombetthauser.github.io/computerbuddies/">💾 computer-buddy-sculptures</a></li> -->
+    <!-- <li><a id='computer-buddies' target="new" href="https://tombetthauser.github.io/computerbuddies/">✏️ tech-people-portraits</a></li> -->
+    <li><a id='state-of-the-arts' target="new" href="https://www.sotasurvey.org/">🕹️ gameboy-games</a></li>
+    <li><a id='state-of-the-arts' target="new" href="https://www.sotasurvey.org/">📄 state-of-the-arts-survey</a></li>
     <li><a id='page-garden' target="new" href="https://pagegarden.herokuapp.com/">🌱 page-garden</a></li>
     <li><a id='zine-bot' target="new" href="https://tombetthauser.github.io/wasm-zinebot/">📒 zine-bot</a></li>
     <!-- <li><a target="new" href="www.zine.garden/">zine-garden</a></li> -->
   </ul>
   
   <ul>
-    <li><a href="studio/index.html">🖼️ artwork</a></li>
-    <!-- <li><a href="weblog/index.html">✏️ weblog</a></li> -->
-    <li><a target="new" href="https://tombetthauser.bandcamp.com">🎹 sound</a></li>
+    <li><a href="studio/index.html">🖼️ studio-images</a></li>
+    <li><a target="new" href="https://tombetthauser.bandcamp.com">🎹 bandcamp</a></li>
   </ul>
 
+
   <script>
+    const images = [
+      "./images/img1.jpg",
+      "./images/image-02-thumb.png",
+      "./old-studio/assets/images/portfolio/thumb/77.jpg",
+      "./old-studio/assets/images/portfolio/thumb/62.jpg",
+      "./old-studio/assets/images/portfolio/thumb/57.jpg",
+      "./old-studio/assets/images/portfolio/thumb/56.jpg",
+      "./old-studio/assets/images/portfolio/thumb/51.jpg",
+      "./old-studio/assets/images/portfolio/thumb/49.jpg",
+      "./old-studio/assets/images/portfolio/thumb/48.jpg",
+      "./old-studio/assets/images/portfolio/thumb/44.jpg",
+      "./old-studio/assets/images/portfolio/thumb/41.jpg",
+      "./old-studio/assets/images/portfolio/thumb/38.jpg",
+      "./old-studio/assets/images/portfolio/thumb/37.jpg",
+      "./old-studio/assets/images/portfolio/thumb/34.jpg",
+      "./old-studio/assets/images/portfolio/thumb/33.jpg",
+      "./old-studio/assets/images/portfolio/thumb/32.jpg",
+      "./old-studio/assets/images/portfolio/thumb/30.jpg",
+      "./old-studio/assets/images/portfolio/thumb/28.jpg",
+      "./old-studio/assets/images/portfolio/thumb/27.jpg",
+      "./old-studio/assets/images/portfolio/thumb/26.jpg",
+      "./old-studio/assets/images/portfolio/thumb/23.jpg",
+      "./old-studio/assets/images/portfolio/thumb/20.jpg",
+      "./old-studio/assets/images/portfolio/thumb/19.jpg",
+      "./old-studio/assets/images/portfolio/thumb/18.jpg",
+      "./old-studio/assets/images/portfolio/thumb/17.jpg",
+      "./old-studio/assets/images/portfolio/thumb/16.jpg",
+    ];
+
+    const randImg = () => {
+      return images[Math.floor(Math.random() * images.length)];
+    }
+
+    const html = document.querySelector("html");
+
+    let newImg = randImg();
+    html.style.backgroundImage = `url("${newImg}")`;
+
+    setInterval(() => {
+      newImg = randImg();
+      html.style.backgroundImage = `url("${newImg}")`;
+    }, 6000)
+  </script>
+
+  <script>
+    return; // this is working if you take out the early return
     const astronautHorse = document.getElementById("astronaut-horse");
     const framesDicts = [
       {
@@ -272,6 +330,20 @@
 
   </script>
 
+<!-- 
+<script>
+  (function() {
+      let hue = 0;
+
+      function changeTint() {
+          hue = (hue + 1) % 360;
+          document.documentElement.style.filter = `hue-rotate(${hue}deg) contrast(${(hue / 360) * 20}) brightness(${(hue / 360) * 1}) invert(${(hue / 360) * 1})`;
+          requestAnimationFrame(changeTint);
+      }
+
+      changeTint();
+  })();
+</script> -->
 
   <!-- <a target="new" href="https://tombetthauser.github.io/computerbuddies/">solar-server</a> -->
   <!-- <a target="new" href="https://tombetthauser.github.io/computerbuddies/">diffusion</a> -->
