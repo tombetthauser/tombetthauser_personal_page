@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>tombetthauser</title>
+</head>
+<style>
+  html {
+    background-color: black;
+    background-image: url("./images/img1.jpg");
+    animation: drift 30s linear infinite;
+    /* background-image: url("https://thumbs.gfycat.com/EthicalJoyfulBangeltiger-max-1mb.gif"); */
+    /* animation: zoom 20s linear infinite; */
+    background-size: 500px 380px;
+    /* filter: invert(1) contrast(20) sepia(20) hue-rotate(45deg) saturate(200) ; */
+  }
+  body {
+    padding: 0 25px 100px;
+    max-width: 700px;
+  }
+  h1 {
+    color: white;
+    text-shadow: 10px 10px 0 rgba(255, 255, 255, .7),
+    20px 20px 0 rgba(255, 255, 255, .5),
+    30px 30px 0 rgba(255, 255, 255, .3);
+    overflow-wrap: break-word;
+    font-weight: 100;
+    font-size: 100px;
+    width: 100%;
+    line-height: 80px;
+    margin-bottom: 100px;
+    margin-top: 30px;
+  }
+  @keyframes drift {
+    from { background-position: 0px 0px; }
+    to { background-position: -500px -380px; }
+  }
+  @keyframes zoom {
+    from {     background-size: 500px 380px; }
+    to {  background-size: 0px 0px; }
+  }
+  @keyframes pulse {
+    0% { color: rgba(0, 0, 0, 0); }
+    50% { color: rgba(0, 0, 0, 1); }
+  }
+  @keyframes jitter-big {
+    0% { margin: 6px 4px -6px 2px; }
+    10% { margin: -2px -6px 2px -4px; }
+    20% { margin: 2px 2px -4px 4px; }
+    30% { margin: -4px 6px -2px -6px; }
+    40% { margin: 4px -2px 2px -2px; }
+    50% { margin: 6px 4px -6px 2px; }
+    60% { margin: -2px -6px 2px -4px; }
+    70% { margin: 2px 2px -4px 4px; }
+    80% { margin: -4px 6px -2px -6px; }
+    90% { margin: 4px -2px 2px -2px; }
+    100% { margin: 4px -2px 2px -2px; }
+  }
+  @keyframes jitter {
+    0% { margin: 1px 1px -1px 1px; }
+    10% { margin: -1px -1px 1px -1px; }
+    20% { margin: 1px 1px -1px 1px; }
+    30% { margin: -1px 1px -1px -1px; }
+    40% { margin: 1px -1px 1px -1px; }
+    50% { margin: 1px 1px -1px 1px; }
+    60% { margin: -1px -1px 1px -1px; }
+    70% { margin: 1px 1px -1px 1px; }
+    80% { margin: -1px 1px -1px -1px; }
+    90% { margin: 1px -1px 1px -1px; }
+    100% { margin: 1px -1px 1px -1px; }
+  }
+  a {
+    font-size: 20px;
+    background-color: yellow;
+    display: inline-block;
+    width: fit-content;
+    margin-top: 5px;
+  }
+  ul {
+    padding-left: 0;
+    list-style-type: none;
+  }
+  h2 {
+    font-family: cursive;
+    font-weight: 100;
+    color: yellow;
+    font-size: 70px;
+    text-shadow: 10px 10px 0 orange,
+    10px -10px 0 orange,
+    -10px -10px 0 orange,
+    -10px 10px 0 orange;
+    background-color: violet;
+  }
+  .pointer {
+    animation: jitter .5s linear infinite;
+    transition: 0;
+    display: inline-block;
+  }
+  .feed-image {
+    border: 5px solid red;
+    max-width: 100%;
+    margin-bottom: 0;
+  }
+  .feed-text {
+    background-color: red;
+    margin-top: -5px;
+    width: fit-content;
+  }
+  .image-feed-gif {
+    margin-top: 90px;
+    margin-bottom: 25px;
+    background-color: #000000;
+    box-shadow: 0 0 20px black,
+    2px -2px 10px black,
+    0 0 5px black,
+    0 0 2px black;
+    /* padding-left: 30px; */
+    /* padding-right: 30px; */
+    max-width: 90%;
+}
+</style>
+<script>
+  let isPlaying = false;
+
+  const foo = () => {
+    const audio = document.getElementById("audio")
+    const button = document.querySelector(".button")
+    
+    if (isPlaying) {
+      isPlaying = false
+      audio.pause()
+      button.innerHTML = ">"
+      button.style.animation = "";
+    } else { 
+      audio.volume = 0.4;
+      audio.play()
+      isPlaying = true
+      button.innerHTML = "<"
+      button.style.animation = "jitter .1s infinite";
+    }
+  }
+</script>
+<body>
+  <h1>https://tombetthauser.com</h1>
+  <!-- <audio id="audio" loop src="./audio/outrun.mp3" type="audio/x-m4a"></audio>
+  <div class="button" onclick="foo()">&gt;</div> -->
+  <!-- <h2>general links</h2> -->
+  <ul>
+    <li><a target="new" href="https://github.com/tombetthauser">💻 github</a></li>
+    <li><a target="new" href="https://www.linkedin.com/in/tombetthauser/">🤝 linkedin</a></li>
+    <!-- <li><a target="new" href="https://socialnotwork.net/@tom">studio-work</a></li> -->
+    <!-- <li><a target="new" href="https://socialnotwork.net/@tom">mastodon</a></li> -->
+    <li><a target="new" href="resume.pdf">📄 resume</a></li>
+    <li><a target="new" href="https://www.etsy.com/shop/SocietyofObjects">🛒 art</a></li>
+  </ul>
+
+
+  <ul>
+    <li><a href="weblog/index.html">✏️ weblog</a></li>
+  </ul>
+
+  <!-- <h2>coding projects</h2> -->
+  <ul>
+    <li><a id='astronaut-horse' target="new" href="./coming-soon.html">🎨 art-n-chill</a></li>
+    <li><a id='astronaut-horse' target="new" href="./coming-soon.html">🏛 artist-coding-workshops</a></li>
+    <!-- <li><a id='astronaut-horse' target="new" href="https://www.astronaut.horse/">🤖 blog-conversations-with-artists-and-engineers</a></li> -->
+    <li><a id='astronaut-horse' target="new" href="https://www.astronaut.horse/">🐎 astronaut-horse</a></li>
+    <!-- <li><a id='computer-buddies' target="new" href="https://tombetthauser.github.io/computerbuddies/">💾 computer-buddy-sculptures</a></li> -->
+    <!-- <li><a id='computer-buddies' target="new" href="https://tombetthauser.github.io/computerbuddies/">✏️ tech-people-portraits</a></li> -->
+    <li><a id='state-of-the-arts' target="new" href="https://www.sotasurvey.org/">🕹️ gameboy-games</a></li>
+    <li><a id='state-of-the-arts' target="new" href="https://www.sotasurvey.org/">📄 state-of-the-arts-survey</a></li>
+    <li><a id='page-garden' target="new" href="https://pagegarden.herokuapp.com/">🌱 page-garden</a></li>
+    <li><a id='zine-bot' target="new" href="https://tombetthauser.github.io/wasm-zinebot/">📒 zine-bot</a></li>
+    <!-- <li><a target="new" href="www.zine.garden/">zine-garden</a></li> -->
+  </ul>
+  
+  <ul>
+    <li><a href="studio/index.html">🖼️ studio-images</a></li>
+    <li><a target="new" href="https://tombetthauser.bandcamp.com">🎹 bandcamp</a></li>
+  </ul>
+
+  <img class="image-feed-gif" src="./images/image-feed.gif">
+
+  <div id="image-container">
+    
+  </div>
+<!-- 
+  <img class="feed-image" src="./images/image-02-thumb.png">
+  <p class="feed-text">./images/image-02-thumb.png</p>
+  <img class="feed-image" src="./old-studio/assets/images/portfolio/thumb/77.jpg">
+  <p class="feed-text">./old-studio/assets/images/portfolio/thumb/77.jpg</p>
+  <img class="feed-image" src="./old-studio/assets/images/portfolio/thumb/62.jpg">
+  <p class="feed-text">./old-studio/assets/images/portfolio/thumb/62.jpg</p>
+  <img class="feed-image" src="./old-studio/assets/images/portfolio/thumb/57.jpg">
+  <p class="feed-text">./old-studio/assets/images/portfolio/thumb/57.jpg</p>
+  <img class="feed-image" src="./old-studio/assets/images/portfolio/thumb/56.jpg">
+  <p class="feed-text">./old-studio/assets/images/portfolio/thumb/56.jpg</p>
+  <img class="feed-image" src="./old-studio/assets/images/portfolio/thumb/51.jpg">
+  <p class="feed-text">./old-studio/assets/images/portfolio/thumb/51.jpg</p>
+  <img class="feed-image" src="./old-studio/assets/images/portfolio/thumb/49.jpg">
+  <p class="feed-text">./old-studio/assets/images/portfolio/thumb/49.jpg</p>
+ -->
+
+  <script>
+    const images = [
+      "./images/img1.jpg",
+      "./images/image-02-thumb.png",
+      "./old-studio/assets/images/portfolio/thumb/77.jpg",
+      "./old-studio/assets/images/portfolio/thumb/62.jpg",
+      "./old-studio/assets/images/portfolio/thumb/57.jpg",
+      "./old-studio/assets/images/portfolio/thumb/56.jpg",
+      "./old-studio/assets/images/portfolio/thumb/51.jpg",
+      "./old-studio/assets/images/portfolio/thumb/49.jpg",
+      "./old-studio/assets/images/portfolio/thumb/48.jpg",
+      "./old-studio/assets/images/portfolio/thumb/44.jpg",
+      "./old-studio/assets/images/portfolio/thumb/41.jpg",
+      "./old-studio/assets/images/portfolio/thumb/38.jpg",
+      "./old-studio/assets/images/portfolio/thumb/37.jpg",
+      "./old-studio/assets/images/portfolio/thumb/34.jpg",
+      "./old-studio/assets/images/portfolio/thumb/33.jpg",
+      "./old-studio/assets/images/portfolio/thumb/32.jpg",
+      "./old-studio/assets/images/portfolio/thumb/30.jpg",
+      "./old-studio/assets/images/portfolio/thumb/28.jpg",
+      "./old-studio/assets/images/portfolio/thumb/27.jpg",
+      "./old-studio/assets/images/portfolio/thumb/26.jpg",
+      "./old-studio/assets/images/portfolio/thumb/23.jpg",
+      "./old-studio/assets/images/portfolio/thumb/20.jpg",
+      "./old-studio/assets/images/portfolio/thumb/19.jpg",
+      "./old-studio/assets/images/portfolio/thumb/18.jpg",
+      "./old-studio/assets/images/portfolio/thumb/17.jpg",
+      "./old-studio/assets/images/portfolio/thumb/16.jpg",
+    ];
+
+    const randImg = () => {
+      return images[Math.floor(Math.random() * images.length)];
+    }
+
+    const html = document.querySelector("html");
+
+    let newImg = randImg();
+    html.style.backgroundImage = `url("${newImg}")`;
+
+    setInterval(() => {
+      newImg = randImg();
+      html.style.backgroundImage = `url("${newImg}")`;
+    }, 6000)
+  </script>
+
+  <script>
+    return; // this is working if you take out the early return
+    const astronautHorse = document.getElementById("astronaut-horse");
+    const framesDicts = [
+      {
+        id: "astronaut-horse",
+        frames: [
+          "🐎 astronaut-horse", 
+          "🐎 ai-artist-collaborations",
+          "🐎 artificial-intelligence-hype-train",
+        ]
+      },{
+        id: "computer-buddies",
+        frames: [
+          "💾 computer-buddies", 
+          "💾 analog-computer-sculptures",
+        ]
+      },{
+        id: "state-of-the-arts",
+        frames: [
+          "🎨 state-of-the-arts-survey", 
+          "🎨 art-survey-data-visualizations",
+        ]
+      },{
+        id: "page-garden",
+        frames: [
+          "🌱 page-garden", 
+          "🌱 image-sharing-fullstack-react-app",
+        ]
+      },{
+        id: "zine-bot",
+        frames: [
+          "📒 zine-bot", 
+          "📒 wasm-image-processing-tool",
+        ]
+      },{
+        id: "sound",
+        frames: [
+          "🎹 sound", 
+          "🎹 not-really-music",
+        ]
+      },{
+        id: "studio",
+        frames: [
+          "🖼️ artwork", 
+          "🖼️ studio-work", 
+          "🖼️ paintings-drawings-etc", 
+        ]
+      },{
+        id: "resume",
+        frames: [
+          "📄 resume", 
+          "📄 cv-pdf", 
+        ]
+      },{
+        id: "linkedin",
+        frames: [
+          "🤝 linkedin", 
+          "🤝 professional-façade",
+          "🤝 work-related-social-media",
+        ]
+      },{
+        id: "github",
+        frames: [
+          "💻 github", 
+          "💻 software-work", 
+        ]
+      },
+    ];
+
+    const flipText = (domId, newText) => {
+      const domEle = document.getElementById(domId);
+      let idx = 0;
+      
+      const currText = domEle.innerHTML;
+      if (currText.length == 0) {
+        domEle.innerHTML = newText;
+        return;
+      }
+
+      const currInterval = setInterval(() => {
+        const currText = domEle.innerHTML;
+        if (currText === newText) {
+          console.log(0)
+          console.log({DONE: "DONE", currText, newText})
+          clearInterval(currInterval);
+          domEle.innerHTML = newText;
+
+        } else if (
+            idx >= newText.length && 
+            idx <= currText.length
+          ) {
+
+          console.log(1)
+          const textArray = currText.split("")
+          const sliced = textArray.slice(0,-1)
+          domEle.innerHTML = sliced.join("");
+          // domEle.innerHTML = newText;
+
+        } else if (
+            idx >= currText.length && 
+            idx < newText.length
+          ) {
+
+          console.log(2)
+          const textArray = currText.split("")
+          textArray.push(newText[idx]);
+          domEle.innerHTML = textArray.join("");
+
+        } else if (
+            idx < currText.length && 
+            idx < newText.length
+          ) {
+            
+          console.log(3)
+          const textArray = currText.split("")
+          textArray[idx] = newText[idx];
+          domEle.innerHTML = textArray.join("");
+
+
+        } else if (
+            currText !== newText
+          ) {
+
+          console.log(4)
+          const textArray = currText.split("")
+          const sliced = textArray.slice(0,-1)
+          domEle.innerHTML = sliced.join("");
+
+        } else {
+
+          console.log(5)
+          console.log({idx, currText, "currText.length": currText.length, newText, "newText.length": newText.length})
+          console.log({DONE: "DONE", currText, newText})
+          domEle.innerHTML = newText;
+          clearInterval(currInterval);
+        }
+        idx++;
+      }, 100);
+    }
+
+    let frame = 0;
+    
+    const frameSwitch = () => {
+      frame++;
+      
+      // testing
+      // const domEle = document.getElementById(framesDicts[0].id);
+      // flipText(framesDicts[0].id, framesDicts[0].frames[frame % framesDicts[0].frames.length])
+      
+      framesDicts.forEach(currDict => {
+        const domEle = document.getElementById(currDict.id);
+        flipText(currDict.id, currDict.frames[frame % currDict.frames.length])
+        // domEle.innerHTML = currDict.frames[frame % currDict.frames.length];
+      }); 
+      setTimeout(frameSwitch, 8000 + (frame % 2 === 0 ? 6000 : 0));
+    }
+
+    setTimeout(frameSwitch, 10000);
+
+    // check for broken text
+    window.setInterval(() => {
+      for (let i = 0; i < framesDicts.length; i++) {
+        const id = framesDicts[i].id;
+        const domEle = document.getElementById(id);
+        if (domEle.innerHTML.length < 2) {
+          console.log("dead element found - replacing text")
+          domEle.innerHTML = framesDicts[i].frames[0]
+        }
+      }
+    }, 1000);
+
+  </script>
+
+<!-- 
+<script>
+  (function() {
+      let hue = 0;
+
+      function changeTint() {
+          hue = (hue + 1) % 360;
+          document.documentElement.style.filter = `hue-rotate(${hue}deg) contrast(${(hue / 360) * 20}) brightness(${(hue / 360) * 1}) invert(${(hue / 360) * 1})`;
+          requestAnimationFrame(changeTint);
+      }
+
+      changeTint();
+  })();
+</script> -->
+
+  <!-- <a target="new" href="https://tombetthauser.github.io/computerbuddies/">solar-server</a> -->
+  <!-- <a target="new" href="https://tombetthauser.github.io/computerbuddies/">diffusion</a> -->
+  <!-- <a target="new" href="https://tombetthauser.github.io/computerbuddies/">zines</a> -->
+  <!-- <a target="new" href="https://pagegarden.herokuapp.com/tom-studio">studioart</a> -->
+
+  <!-- <h2>Current Projects</h2> -->
+  <!-- <section>
+    <img src="https://tombetthauser.github.io/computerbuddies/assets/images/35.jpg"/>
+    <a target="new" href="https://tombetthauser.github.io/computerbuddies/">computer buddies</a>
+    <br>
+  </section> -->
+</body>
+</html>
