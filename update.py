@@ -1,8 +1,8 @@
 import os
 
 # Define the path to the images folder and the index.html file
-images_folder = 'images'
-index_file = 'index.html'
+images_folder = 'feed'
+index_file = 'index-test.html'
 
 # Get a list of image files in the folder, sorted by modification time in reverse order
 image_files = sorted(
