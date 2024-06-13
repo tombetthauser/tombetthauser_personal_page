@@ -20,7 +20,7 @@ for image_file in image_files:
     creation_time = datetime.fromtimestamp(os.path.getctime(os.path.join(images_folder, image_file)))
     # formatted_date = creation_time.strftime('%Y-%m-%d %H:%M:%S')
     formatted_date = creation_time.strftime('%m/%d/%y')
-    image_html += f'<img class="feed-image" src="{img_src}">\n<p class="feed-text">./{img_src} [{formatted_date}]</p>\n'
+    image_html += f'<img class="feed-image" src="{img_src}">\n<p class="feed-text">{img_src} [{formatted_date}]</p>\n'
 
 # Read the existing index.html file
 with open(index_file, 'r') as file:
