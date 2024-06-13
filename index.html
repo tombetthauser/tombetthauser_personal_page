@@ -99,14 +99,20 @@
     display: inline-block;
   }
   .feed-image {
-    border: 5px solid red;
+    /* border: 5px solid red; */
+    border: 3px solid red;
     max-width: 100%;
     margin-bottom: 0;
   }
   .feed-text {
+    /* background-color: red; */
     background-color: red;
+    color: white;
     margin-top: -5px;
     width: fit-content;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-bottom: 2px;
   }
   .image-feed-gif {
     margin-top: 90px;
@@ -119,7 +125,20 @@
     /* padding-left: 30px; */
     /* padding-right: 30px; */
     max-width: 90%;
-}
+  }
+  .blue-label {
+    margin-top: 120px;
+    background-color: blue;
+    color: white;
+    font-family: 'Comic Sans MS', 'Comic Sans', monospace;
+    font-weight: 300;
+    font-size: 30px;
+    padding: 10px 120px;
+    width: fit-content;
+    text-shadow: -2px 2px 5px rgb(0, 0, 66);
+    /* border: 5px outset rgb(98, 98, 255); */
+    /* box-shadow: -5px 5px 7px #00000099; */
+  }
 </style>
 <script>
   let isPlaying = false;
@@ -181,9 +200,16 @@
     <li><a target="new" href="https://tombetthauser.bandcamp.com">🎹 bandcamp</a></li>
   </ul>
 
-  <img class="image-feed-gif" src="./images/image-feed.gif">
+  <!-- <img class="image-feed-gif" src="./images/image-feed.gif"> -->
 
-  <img class="feed-image" src="./images/image-02-thumb.png">
+  <p class="blue-label">image feed</p>
+
+  <div id="image-container">
+<img class="feed-image" src="feed/34.jpg">
+<p class="feed-text">./feed/34.jpg [06/12/24]</p>
+</div>  
+
+  <!-- <img class="feed-image" src="./images/image-02-thumb.png">
   <p class="feed-text">./images/image-02-thumb.png</p>
   <img class="feed-image" src="./old-studio/assets/images/portfolio/thumb/77.jpg">
   <p class="feed-text">./old-studio/assets/images/portfolio/thumb/77.jpg</p>
@@ -196,7 +222,7 @@
   <img class="feed-image" src="./old-studio/assets/images/portfolio/thumb/51.jpg">
   <p class="feed-text">./old-studio/assets/images/portfolio/thumb/51.jpg</p>
   <img class="feed-image" src="./old-studio/assets/images/portfolio/thumb/49.jpg">
-  <p class="feed-text">./old-studio/assets/images/portfolio/thumb/49.jpg</p>
+  <p class="feed-text">./old-studio/assets/images/portfolio/thumb/49.jpg</p> -->
 
 
   <script>

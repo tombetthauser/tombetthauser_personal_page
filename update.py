@@ -1,8 +1,9 @@
 import os
+from datetime import datetime
 
 # Define the path to the images folder and the index.html file
 images_folder = 'feed'
-index_file = 'index-test.html'
+index_file = './index.html'
 
 # Get a list of image files in the folder, sorted by modification time in reverse order
 image_files = sorted(
@@ -16,7 +17,10 @@ image_html = ""
 for image_file in image_files:
     img_src = os.path.join(images_folder, image_file)
     filename = os.path.splitext(image_file)[0].replace('-', ' ')
-    image_html += f'<img src="{img_src}">\n<p>{filename}</p>\n'
+    creation_time = datetime.fromtimestamp(os.path.getctime(os.path.join(images_folder, image_file)))
+    # formatted_date = creation_time.strftime('%Y-%m-%d %H:%M:%S')
+    formatted_date = creation_time.strftime('%m/%d/%y')
+    image_html += f'<img class="feed-image" src="{img_src}">\n<p class="feed-text">./{img_src} [{formatted_date}]</p>\n'
 
 # Read the existing index.html file
 with open(index_file, 'r') as file:
