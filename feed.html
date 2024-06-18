@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tom's Social Media Feed</title>
+</head>
+<style>
+  body {
+    max-width: 500px;
+    margin: 50px auto;
+  }
+  img {
+    width: 100%;
+  }
+  .heart-emoji {
+    cursor: pointer;
+  }
+</style>
+<body>
+
+  
+  
+  <a href="./index.html">http://tombetthauser.com</a>
+  <h1>Tom's Social Media Feed</h1>
+
+  <div id="image-container">
+<img class="feed-image" src="feed/IMG_3966.jpeg">
+<p class="feed-text">IMG_3966.jpeg</p>
+<img class="feed-image" src="feed/IMG_3748.jpeg">
+<p class="feed-text">IMG_3748.jpeg</p>
+<img class="feed-image" src="feed/IMG_3745.jpeg">
+<p class="feed-text">IMG_3745.jpeg</p>
+<img class="feed-image" src="feed/IMG_0365.jpeg">
+<p class="feed-text">IMG_0365.jpeg</p>
+<img class="feed-image" src="feed/IMG_3579.jpeg">
+<p class="feed-text">IMG_3579.jpeg</p>
+<img class="feed-image" src="feed/IMG_3436.jpeg">
+<p class="feed-text">IMG_3436.jpeg</p>
+</div>  
+
+</body>
+<script>
+  const hearts = document.querySelectorAll(".heart-emoji");
+  hearts.forEach(ele => {
+    ele.addEventListener("click", () => alert('You liked an image!'))
+  })
+</script>
+</html>
