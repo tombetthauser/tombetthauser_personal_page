@@ -9,7 +9,7 @@ def update_file(images_folder, index_file):
     # Get a list of image files in the folder, sorted by modification time in reverse order
     image_files = sorted(
         [f for f in os.listdir(images_folder) if f.lower().endswith(('png', 'jpg', 'jpeg', 'gif'))],
-        key=lambda x: os.path.getmtime(os.path.join(images_folder, x)),
+        key=lambda x: os.path.getctime(os.path.join(images_folder, x)),
         reverse=True
     )
 
@@ -18,7 +18,7 @@ def update_file(images_folder, index_file):
     for image_file in image_files:
         img_src = os.path.join(images_folder, image_file)
         filename = os.path.splitext(image_file)[0].replace('-', ' ')
-        creation_time = datetime.fromtimestamp(os.path.getmtime(os.path.join(images_folder, image_file)))
+        creation_time = datetime.fromtimestamp(os.path.getctime(os.path.join(images_folder, image_file)))
         # formatted_date = creation_time.strftime('%Y-%m-%d %H:%M:%S')
         formatted_date = creation_time.strftime('%m/%d/%y')
         # image_html += f'<img class="feed-image" src="{img_src}">\n<p class="feed-text">{img_src} [{formatted_date}]</p>\n'
@@ -48,7 +48,7 @@ def update_file(images_folder, index_file):
     with open(index_file, 'w') as file:
         file.write(new_html_content)
 
-    print("index.html has been updated successfully.")
+    print(f"{index_file} has been updated successfully.")
 
 update_file('feed', './index.html')
 update_file('feed', './feed.html')
