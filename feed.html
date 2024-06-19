@@ -1,6 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infinite Scroll Image Loader</title>
+    <style>
+        body {
+          width: 90%;
+          max-width: 500px;
+          margin: 50px auto;
+        }
+        img {
+          width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <a href="./index.html">http://tombetthauser.com</a>
+    <h1>Tom's Social Media Feed</h1>
+  
+    <div id="image-container">
+<img class="feed-image" src="feed/IMG_3966.jpeg">
+<p class="feed-text">[06/16/24]</p>
+<img class="feed-image" src="feed/IMG_3748.jpeg">
+<p class="feed-text">[06/13/24]</p>
+<img class="feed-image" src="feed/IMG_3745.jpeg">
+<p class="feed-text">[06/12/24]</p>
+<img class="feed-image" src="feed/IMG_3579.jpeg">
+<p class="feed-text">[06/08/24]</p>
+<img class="feed-image" src="feed/IMG_3436.jpeg">
+<p class="feed-text">[06/03/24]</p>
+<img class="feed-image" src="feed/IMG_1644.jpeg">
+<p class="feed-text">[04/01/24]</p>
+</div>
+
+    <script>
+        return;
+        const imageSources = [
+          "feed/IMG_3966.jpeg",
+          "feed/IMG_3748.jpeg",
+          "feed/IMG_3745.jpeg",
+          "feed/IMG_0365.jpeg",
+          "feed/IMG_3579.jpeg",
+          "feed/IMG_3436.jpeg",
+          "feed/IMG_3966.jpeg",
+          "feed/IMG_3748.jpeg",
+          "feed/IMG_3745.jpeg",
+          "feed/IMG_0365.jpeg",
+          "feed/IMG_3579.jpeg",
+          "feed/IMG_3436.jpeg",
+          "feed/IMG_3966.jpeg",
+          "feed/IMG_3748.jpeg",
+          "feed/IMG_3745.jpeg",
+          "feed/IMG_0365.jpeg",
+          "feed/IMG_3579.jpeg",
+          "feed/IMG_3436.jpeg",
+          "feed/IMG_3966.jpeg",
+          "feed/IMG_3748.jpeg",
+          "feed/IMG_3745.jpeg",
+          "feed/IMG_0365.jpeg",
+          "feed/IMG_3579.jpeg",
+          "feed/IMG_3436.jpeg",
+          "feed/IMG_3966.jpeg",
+          "feed/IMG_3748.jpeg",
+          "feed/IMG_3745.jpeg",
+          "feed/IMG_0365.jpeg",
+          "feed/IMG_3579.jpeg",
+          "feed/IMG_3436.jpeg",
+          "feed/IMG_3966.jpeg",
+          "feed/IMG_3748.jpeg",
+          "feed/IMG_3745.jpeg",
+          "feed/IMG_0365.jpeg",
+          "feed/IMG_3579.jpeg",
+          "feed/IMG_3436.jpeg",
+        ];
+
+        let currentIndex = 0;
+
+        function loadImages(count) {
+            const container = document.getElementById('image-container');
+            for (let i = 0; i < count; i++) {
+                if (currentIndex >= imageSources.length) {
+                    return;
+                }
+                const img = document.createElement('img');
+                img.src = imageSources[currentIndex % 3]; // Cycle through the first 3 sources
+                container.appendChild(img);
+                currentIndex++;
+            }
+        }
+
+        function handleScroll() {
+            if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+                loadImages(5);
+            }
+        }
+
+        window.addEventListener('scroll', handleScroll);
+        loadImages(10);
+    </script>
+</body>
+</html>
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -27,10 +132,6 @@
   <h1>Tom's Social Media Feed</h1>
 
   <div id="image-container">
-<img class="feed-image" src="feed/IMG_3029.jpeg">
-<p class="feed-text">IMG_3029.jpeg</p>
-<img class="feed-image" src="feed/IMG_1644.jpeg">
-<p class="feed-text">IMG_1644.jpeg</p>
 <img class="feed-image" src="feed/IMG_3966.jpeg">
 <p class="feed-text">IMG_3966.jpeg</p>
 <img class="feed-image" src="feed/IMG_3748.jpeg">
@@ -46,10 +147,4 @@
 </div>  
 
 </body>
-<script>
-  const hearts = document.querySelectorAll(".heart-emoji");
-  hearts.forEach(ele => {
-    ele.addEventListener("click", () => alert('You liked an image!'))
-  })
-</script>
-</html>
+</html> -->
