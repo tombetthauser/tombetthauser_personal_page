@@ -6,6 +6,49 @@ from PIL.ExifTags import TAGS
 images_folder = 'feed'
 # index_file = './index.html'
 
+def resize_image(input_path, output_path, width=1024):
+    """Resizes the image to the specified width while maintaining aspect ratio."""
+    with Image.open(input_path) as img:
+        aspect_ratio = img.height / img.width
+        new_height = int(width * aspect_ratio)
+        img = img.resize((width, new_height), Image.ANTIALIAS)
+        img.save(output_path)
+
+def process_images(images_folder, thumbnails_folder, width=1024):
+    """Processes images: resizes them if necessary and cleans up thumbnails folder."""
+    # Ensure the thumbnails folder exists
+    if not os.path.exists(thumbnails_folder):
+        os.makedirs(thumbnails_folder)
+
+    # Get the list of files in the images and thumbnails folders
+    images = {f for f in os.listdir(images_folder) if os.path.isfile(os.path.join(images_folder, f))}
+    thumbnails = {f for f in os.listdir(thumbnails_folder) if os.path.isfile(os.path.join(thumbnails_folder, f))}
+
+    # Process each image in the images folder
+    for image_file in images:
+        image_path = os.path.join(images_folder, image_file)
+        thumbnail_path = os.path.join(thumbnails_folder, image_file)
+
+        if image_file not in thumbnails:
+            # Resize and save the image as a thumbnail
+            resize_image(image_path, thumbnail_path, width)
+        else:
+            print(f"Thumbnail for '{image_file}' already exists, skipping...")
+
+    # Remove thumbnails that do not have corresponding images
+    for thumbnail_file in thumbnails:
+        if thumbnail_file not in images:
+            os.remove(os.path.join(thumbnails_folder, thumbnail_file))
+            print(f"Removed orphan thumbnail '{thumbnail_file}'")
+
+# if __name__ == "__main__":
+# images_folder = "path/to/your/images/folder"
+# thumbnails_folder = "path/to/your/thumbnails/folder"
+
+# process_images(images_folder, thumbnails_folder)
+
+
+
 def get_exif_date(image_path):
     try:
         image = Image.open(image_path)
@@ -37,7 +80,6 @@ def update_file(images_folder, index_file):
         img_src = os.path.join(images_folder, image_file)
         filename = os.path.splitext(image_file)[0].replace('-', ' ')
         formatted_date = creation_time.strftime('%m/%d/%y')
-        # image_html += f'<img class="feed-image" src="{img_src}">\n<p class="feed-text">{filename} - {formatted_date}</p>\n'
         image_html += f'<a href="./feed/{image_file}"><img class="feed-image" src="./thumbnails/{image_file}"></a>\n<p class="feed-text">[{formatted_date}]</p>\n'
 
 
@@ -61,6 +103,9 @@ def update_file(images_folder, index_file):
         file.write(new_html_content)
 
     print(f"{index_file} has been updated successfully.")
+
+
+process_images('./feed', './thumbnails')
 
 update_file(images_folder, './index.html')
 update_file(images_folder, './feed.html')
