@@ -11,7 +11,7 @@ def resize_image(input_path, output_path, width=1024):
     with Image.open(input_path) as img:
         aspect_ratio = img.height / img.width
         new_height = int(width * aspect_ratio)
-        img = img.resize((width, new_height), PIL.Image.LANCZOS)
+        img = img.resize((width, new_height), Image.LANCZOS)
         img.save(output_path)
 
 def process_images(images_folder, thumbnails_folder, width=1024):
