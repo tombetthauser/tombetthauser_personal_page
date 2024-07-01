@@ -80,7 +80,7 @@ def update_file(images_folder, index_file):
         img_src = os.path.join(images_folder, image_file)
         filename = os.path.splitext(image_file)[0].replace('-', ' ')
         formatted_date = creation_time.strftime('%m/%d/%y')
-        image_html += f'<a href="./feed/{image_file}"><img class="feed-image" src="./thumbnails/{image_file}"></a>\n<p class="feed-text">[{formatted_date}]</p>\n'
+        image_html += f'<a href="./feed/{image_file}"><img class="feed-image" src="./feed/{image_file}"></a>\n<p class="feed-text">[{formatted_date}]</p>\n'
 
 
     with open(index_file, 'r') as file:
