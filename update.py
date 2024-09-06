@@ -23,6 +23,8 @@ remove_dummy_file()
 
 
 
+# import os
+
 def process_images(inbox_dir='inbox', images_dir='images', record_file='record.txt'):
     # List of acceptable image file extensions
     image_extensions = ['.png', '.jpg', '.jpeg', '.gif']
@@ -31,6 +33,13 @@ def process_images(inbox_dir='inbox', images_dir='images', record_file='record.t
     if not os.path.exists(images_dir):
         os.makedirs(images_dir)
 
+    # Read existing record.txt contents if it exists
+    if os.path.exists(record_file):
+        with open(record_file, 'r') as record:
+            recorded_filenames = set(line.strip() for line in record)
+    else:
+        recorded_filenames = set()
+
     # Check for files in the inbox directory
     for filename in os.listdir(inbox_dir):
         # Get the file extension
@@ -38,23 +47,29 @@ def process_images(inbox_dir='inbox', images_dir='images', record_file='record.t
 
         # Check if the file is an image or gif
         if file_ext in image_extensions:
-            # Read the current contents of record.txt
-            if os.path.exists(record_file):
-                with open(record_file, 'r') as record:
-                    existing_content = record.read()
-            else:
-                existing_content = ""
-
-            # Write the filename at the top of record.txt
-            with open(record_file, 'w') as record:
-                record.write(filename + '\n' + existing_content)
-
-            # Move the file to the images directory using os.rename
+            # Define the source and destination paths
             source = os.path.join(inbox_dir, filename)
             destination = os.path.join(images_dir, filename)
-            os.rename(source, destination)
 
-    print("Processing complete. All files moved.")
+            # Copy the file only if it does not already exist in the destination directory
+            if not os.path.exists(destination):
+                with open(source, 'rb') as src_file:
+                    with open(destination, 'wb') as dst_file:
+                        while True:
+                            chunk = src_file.read(1024)  # Read in chunks
+                            if not chunk:
+                                break
+                            dst_file.write(chunk)
+                print(f"Copied: {filename}")
+
+                # Add filename to record.txt if it was copied
+                with open(record_file, 'a') as record:
+                    record.write(filename + '\n')
+            else:
+                print(f"Already exists: {filename}")
+
+    print("Processing complete. All files copied where necessary.")
+
 
 # Example of using the function
 process_images()
