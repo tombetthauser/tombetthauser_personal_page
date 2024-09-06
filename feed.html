@@ -10,6 +10,11 @@
           max-width: 500px;
           margin: 50px auto;
         }
+        h1 {
+            font-size: 70px;
+            font-weight: 100;
+            margin-bottom: 70px;
+        }
         img {
           width: 100%;
         }
@@ -18,133 +23,134 @@
 <body>
     <a href="./index.html">http://tombetthauser.com</a>
     <h1>Tom's Social Media Feed</h1>
-  
-    <div id="image-container">
-<a href="./feed/IMG_3966.jpeg"><img class="feed-image" src="./thumbnails/IMG_3966.jpeg"></a>
-<p class="feed-text">[06/16/24]</p>
-<a href="./feed/IMG_3748.jpeg"><img class="feed-image" src="./thumbnails/IMG_3748.jpeg"></a>
-<p class="feed-text">[06/13/24]</p>
-<a href="./feed/IMG_3745.jpeg"><img class="feed-image" src="./thumbnails/IMG_3745.jpeg"></a>
-<p class="feed-text">[06/12/24]</p>
-<a href="./feed/IMG_3579.jpeg"><img class="feed-image" src="./thumbnails/IMG_3579.jpeg"></a>
-<p class="feed-text">[06/08/24]</p>
-<a href="./feed/IMG_3436.jpeg"><img class="feed-image" src="./thumbnails/IMG_3436.jpeg"></a>
-<p class="feed-text">[06/03/24]</p>
-<a href="./feed/IMG_1644.jpeg"><img class="feed-image" src="./thumbnails/IMG_1644.jpeg"></a>
-<p class="feed-text">[04/01/24]</p>
-</div>
+    <div id="image-container"></div>
+    <br><br><br>
+    <!-- <a href="./index.html">http://tombetthauser.com</a> -->
+    <!-- <br><br> -->
+    <a href="#">back...</a>
+    <!-- [END] -->
 
     <script>
-        return;
-        const imageSources = [
-          "feed/IMG_3966.jpeg",
-          "feed/IMG_3748.jpeg",
-          "feed/IMG_3745.jpeg",
-          "feed/IMG_0365.jpeg",
-          "feed/IMG_3579.jpeg",
-          "feed/IMG_3436.jpeg",
-          "feed/IMG_3966.jpeg",
-          "feed/IMG_3748.jpeg",
-          "feed/IMG_3745.jpeg",
-          "feed/IMG_0365.jpeg",
-          "feed/IMG_3579.jpeg",
-          "feed/IMG_3436.jpeg",
-          "feed/IMG_3966.jpeg",
-          "feed/IMG_3748.jpeg",
-          "feed/IMG_3745.jpeg",
-          "feed/IMG_0365.jpeg",
-          "feed/IMG_3579.jpeg",
-          "feed/IMG_3436.jpeg",
-          "feed/IMG_3966.jpeg",
-          "feed/IMG_3748.jpeg",
-          "feed/IMG_3745.jpeg",
-          "feed/IMG_0365.jpeg",
-          "feed/IMG_3579.jpeg",
-          "feed/IMG_3436.jpeg",
-          "feed/IMG_3966.jpeg",
-          "feed/IMG_3748.jpeg",
-          "feed/IMG_3745.jpeg",
-          "feed/IMG_0365.jpeg",
-          "feed/IMG_3579.jpeg",
-          "feed/IMG_3436.jpeg",
-          "feed/IMG_3966.jpeg",
-          "feed/IMG_3748.jpeg",
-          "feed/IMG_3745.jpeg",
-          "feed/IMG_0365.jpeg",
-          "feed/IMG_3579.jpeg",
-          "feed/IMG_3436.jpeg",
+        const imgUrls = [
+            // start tag
+			"img1.jpg",
+			"image-02.jpg",
+			"IMG_3436.jpeg",
+          // end tag
         ];
 
-        let currentIndex = 0;
+        let imgIndex = 0;
+        const imagesPerBatch = 10;
+        const container = document.getElementById('image-container');
 
-        function loadImages(count) {
-            const container = document.getElementById('image-container');
-            for (let i = 0; i < count; i++) {
-                if (currentIndex >= imageSources.length) {
-                    return;
-                }
-                const img = document.createElement('img');
-                img.src = imageSources[currentIndex % 3]; // Cycle through the first 3 sources
-                container.appendChild(img);
-                currentIndex++;
-            }
+        // Function to load the next batch of images
+        function loadImages() {
+        const endIndex = imgIndex + imagesPerBatch;
+        for (let i = imgIndex; i < endIndex && i < imgUrls.length; i++) {
+            const atag1 = document.createElement('a');
+            atag1.href = `./images/${imgUrls[i]}`;
+
+            const img = document.createElement('img');
+            img.src = `thumbnails/${imgUrls[i]}`;
+            atag1.appendChild(img);
+
+            container.appendChild(atag1);
+
+            // const atag2 = document.createElement('a');
+
+            const ptag = document.createElement('p');
+            // ptag.className = `feed-text`;
+            ptag.innerHTML = `./${imgUrls[i]}`;
+            // atag2.appendChild(ptag);
+
+            container.appendChild(ptag);
+
+            const brtag = document.createElement('br');
+            container.appendChild(brtag);
+        }
+        imgIndex += imagesPerBatch;
         }
 
-        function handleScroll() {
-            if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
-                loadImages(5);
-            }
+        // Infinite scroll handler
+        window.addEventListener('scroll', () => {
+        if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
+            loadImages();
         }
+        });
 
-        window.addEventListener('scroll', handleScroll);
-        loadImages(10);
+        // Initial load
+        loadImages();
     </script>
 </body>
 </html>
 
 
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tom's Social Media Feed</title>
-</head>
-<style>
-  body {
-    width: 90%;
-    max-width: 500px;
-    margin: 50px auto;
-  }
-  img {
-    width: 100%;
-  }
-  .heart-emoji {
-    cursor: pointer;
-  }
-</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
 <body>
 
-  
-  
-  <a href="./index.html">http://tombetthauser.com</a>
-  <h1>Tom's Social Media Feed</h1>
+    <h1>Tom Betthauser</h1>
 
-  <div id="image-container">
-<img class="feed-image" src="feed/IMG_3966.jpeg">
-<p class="feed-text">IMG_3966.jpeg</p>
-<img class="feed-image" src="feed/IMG_3748.jpeg">
-<p class="feed-text">IMG_3748.jpeg</p>
-<img class="feed-image" src="feed/IMG_3745.jpeg">
-<p class="feed-text">IMG_3745.jpeg</p>
-<img class="feed-image" src="feed/IMG_0365.jpeg">
-<p class="feed-text">IMG_0365.jpeg</p>
-<img class="feed-image" src="feed/IMG_3579.jpeg">
-<p class="feed-text">IMG_3579.jpeg</p>
-<img class="feed-image" src="feed/IMG_3436.jpeg">
-<p class="feed-text">IMG_3436.jpeg</p>
-</div>  
+    <a href="#">/images</a>
+    <a href="#">/resume</a>
+    <a href="#">/contact</a>
 
-</body>
-</html> -->
+  <div id="image-container"></div>
+  <div id="loading">Loading more images...</div>
+
+  <script>
+    // Array of image URLs
+    const imgUrls = [
+    ];
+
+    let imgIndex = 0;
+    const imagesPerBatch = 10;
+    const container = document.getElementById('image-container');
+    // const loading = document.getElementById('loading');
+
+    // Function to load the next batch of images
+    function loadImages() {
+      const endIndex = imgIndex + imagesPerBatch;
+      for (let i = imgIndex; i < endIndex && i < imgUrls.length; i++) {
+        const img = document.createElement('img');
+        img.src = imgUrls[i];
+        container.appendChild(img);
+      }
+      imgIndex += imagesPerBatch;
+
+      // If all images are loaded, hide the loading message
+    //   if (imgIndex >= imgUrls.length) {
+    //     loading.style.display = 'none';
+    //   }
+    }
+
+    // Infinite scroll handler
+    window.addEventListener('scroll', () => {
+      if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
+        loadImages();
+      }
+    });
+
+    // Initial load
+    loadImages();
+  </script>
+
+</body> -->

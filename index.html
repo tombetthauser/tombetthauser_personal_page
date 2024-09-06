@@ -8,13 +8,16 @@
 </head>
 <style>
   html {
-    background-color: black;
-    background-image: url("./images/img1.jpg");
+    background-color: greenyellow;
     animation: drift 30s linear infinite;
-    /* background-image: url("https://thumbs.gfycat.com/EthicalJoyfulBangeltiger-max-1mb.gif"); */
-    /* animation: zoom 20s linear infinite; */
+    animation: zoom 20s linear infinite;
     background-size: 500px 380px;
-    /* filter: invert(1) contrast(20) sepia(20) hue-rotate(45deg) saturate(200) ; */
+    background-image: url("./images/img1.jpg");
+    background-attachment: fixed;
+    /* background-image: url("https://i.makeagif.com/media/9-20-2017/fZPKhZ.gif"); */
+    /* background-image: url("https://thumbs.gfycat.com/EthicalJoyfulBangeltiger-max-1mb.gif"); */
+    /* filter: invert(1) contrast(20) sepia(20) hue-rotate(45deg) saturate(10) ; */
+    /* https://i.makeagif.com/media/9-20-2017/fZPKhZ.gif */
   }
   body {
     padding: 0 25px 100px;
@@ -41,36 +44,6 @@
     from {     background-size: 500px 380px; }
     to {  background-size: 0px 0px; }
   }
-  @keyframes pulse {
-    0% { color: rgba(0, 0, 0, 0); }
-    50% { color: rgba(0, 0, 0, 1); }
-  }
-  @keyframes jitter-big {
-    0% { margin: 6px 4px -6px 2px; }
-    10% { margin: -2px -6px 2px -4px; }
-    20% { margin: 2px 2px -4px 4px; }
-    30% { margin: -4px 6px -2px -6px; }
-    40% { margin: 4px -2px 2px -2px; }
-    50% { margin: 6px 4px -6px 2px; }
-    60% { margin: -2px -6px 2px -4px; }
-    70% { margin: 2px 2px -4px 4px; }
-    80% { margin: -4px 6px -2px -6px; }
-    90% { margin: 4px -2px 2px -2px; }
-    100% { margin: 4px -2px 2px -2px; }
-  }
-  @keyframes jitter {
-    0% { margin: 1px 1px -1px 1px; }
-    10% { margin: -1px -1px 1px -1px; }
-    20% { margin: 1px 1px -1px 1px; }
-    30% { margin: -1px 1px -1px -1px; }
-    40% { margin: 1px -1px 1px -1px; }
-    50% { margin: 1px 1px -1px 1px; }
-    60% { margin: -1px -1px 1px -1px; }
-    70% { margin: 1px 1px -1px 1px; }
-    80% { margin: -1px 1px -1px -1px; }
-    90% { margin: 1px -1px 1px -1px; }
-    100% { margin: 1px -1px 1px -1px; }
-  }
   a {
     font-size: 20px;
     background-color: yellow;
@@ -83,30 +56,12 @@
     padding-left: 0;
     list-style-type: none;
   }
-  h2 {
-    font-family: cursive;
-    font-weight: 100;
-    color: yellow;
-    font-size: 70px;
-    text-shadow: 10px 10px 0 orange,
-    10px -10px 0 orange,
-    -10px -10px 0 orange,
-    -10px 10px 0 orange;
-    background-color: violet;
-  }
-  .pointer {
-    animation: jitter .5s linear infinite;
-    transition: 0;
-    display: inline-block;
-  }
   .feed-image {
-    /* border: 5px solid red; */
     border: 3px solid red;
     max-width: 100%;
     margin-bottom: 0;
   }
   .feed-text {
-    /* background-color: red; */
     background-color: red;
     color: white;
     margin-top: -5px;
@@ -116,86 +71,48 @@
     padding-right: 5px;
     padding-bottom: 2px;
   }
-  .image-feed-gif {
-    margin-top: 90px;
-    margin-bottom: 25px;
-    background-color: #000000;
-    box-shadow: 0 0 20px black,
-    2px -2px 10px black,
-    0 0 5px black,
-    0 0 2px black;
-    /* padding-left: 30px; */
-    /* padding-right: 30px; */
-    max-width: 90%;
-  }
   .red-label {
     margin-top: 125px;
     margin-bottom: 50px;
     background-color: red;
     color: white;
-    /* font-family: 'Comic Sans MS', 'Comic Sans', monospace; */
     font-weight: 300;
     font-size: 40px;
     width: fit-content;
-    /* text-shadow: -2px 2px 5px rgb(0, 0, 66); */
-    /* border: 5px outset rgb(98, 98, 255); */
-    /* box-shadow: -5px 5px 7px #00000099; */
   }
+  /* img:hover {
+    filter: invert(1);
+    cursor: grab;
+  } */
 </style>
-<script>
-  let isPlaying = false;
 
-  const foo = () => {
-    const audio = document.getElementById("audio")
-    const button = document.querySelector(".button")
-    
-    if (isPlaying) {
-      isPlaying = false
-      audio.pause()
-      button.innerHTML = ">"
-      button.style.animation = "";
-    } else { 
-      audio.volume = 0.4;
-      audio.play()
-      isPlaying = true
-      button.innerHTML = "<"
-      button.style.animation = "jitter .1s infinite";
-    }
-  }
-</script>
 <body>
   <h1>https://tombetthauser.com</h1>
-  <!-- <audio id="audio" loop src="./audio/outrun.mp3" type="audio/x-m4a"></audio>
-  <div class="button" onclick="foo()">&gt;</div> -->
-  <!-- <h2>general links</h2> -->
   <ul>
     <li><a target="new" href="https://github.com/tombetthauser">💻 github</a></li>
     <li><a target="new" href="https://www.linkedin.com/in/tombetthauser/">🤝 linkedin</a></li>
     <li><a target="new" href="./feed.html">🖤 social media</a></li>
-
+    <li><a target="new" href="./oldsite/resume.pdf">📄 resume</a></li>
     <!-- <li><a target="new" href="https://socialnotwork.net/@tom">studio-work</a></li> -->
     <!-- <li><a target="new" href="https://socialnotwork.net/@tom">mastodon</a></li> -->
-    <li><a target="new" href="resume.pdf">📄 resume</a></li>
     <!-- <li><a target="new" href="https://www.etsy.com/shop/SocietyofObjects">🛒 art</a></li> -->
   </ul>
 
-
-  <ul>
+  <!-- <ul>
     <li><a href="weblog/index.html">✏️ weblog</a></li>
-  </ul>
+  </ul> -->
 
-  <!-- <h2>coding projects</h2> -->
   <ul>
+    <li><a id='page-garden' target="new" href="https://pagegarden.herokuapp.com/">🌱 page-garden</a></li>
+    <li><a id='zine-bot' target="new" href="https://tombetthauser.github.io/wasm-zinebot/">📒 zine-bot</a></li>
+    <!-- <li><a id='astronaut-horse' target="new" href="https://www.astronaut.horse/">🐎 astronaut-horse</a></li> -->
+    <!-- <li><a id='state-of-the-arts' target="new" href="https://xstreetgames.itch.io/">🕹️ gameboy-games</a></li> -->
+    <!-- <li><a id='state-of-the-arts' target="new" href="https://tombetthauser.github.io/stateofthearts/">📄 state-of-the-arts-survey</a></li> -->
     <!-- <li><a id='astronaut-horse' target="new" href="./coming-soon.html">🎨 art-n-chill</a></li> -->
     <!-- <li><a id='astronaut-horse' target="new" href="./coming-soon.html">🏛 artist-coding-workshops</a></li> -->
     <!-- <li><a id='astronaut-horse' target="new" href="https://www.astronaut.horse/">🤖 blog-conversations-with-artists-and-engineers</a></li> -->
-    <li><a id='astronaut-horse' target="new" href="https://www.astronaut.horse/">🐎 astronaut-horse</a></li>
     <!-- <li><a id='computer-buddies' target="new" href="https://tombetthauser.github.io/computerbuddies/">💾 computer-buddy-sculptures</a></li> -->
     <!-- <li><a id='computer-buddies' target="new" href="https://tombetthauser.github.io/computerbuddies/">✏️ tech-people-portraits</a></li> -->
-    <li><a id='state-of-the-arts' target="new" href="https://xstreetgames.itch.io/">🕹️ gameboy-games</a></li>
-    <li><a id='state-of-the-arts' target="new" href="https://www.sotasurvey.org/">📄 state-of-the-arts-survey</a></li>
-    <li><a id='page-garden' target="new" href="https://pagegarden.herokuapp.com/">🌱 page-garden</a></li>
-    <li><a id='zine-bot' target="new" href="https://tombetthauser.github.io/wasm-zinebot/">📒 zine-bot</a></li>
     <!-- <li><a target="new" href="www.zine.garden/">zine-garden</a></li> -->
   </ul>
   
@@ -204,60 +121,42 @@
     <li><a target="new" href="https://tombetthauser.bandcamp.com">🎹 bandcamp</a></li>
   </ul>
 
-  <!-- <img class="image-feed-gif" src="./images/image-feed.gif"> -->
-  <!-- <p class="red-label"> -->
-    <a class="red-label" href="./feed.html">
-      image feed
-    </a>
-  <!-- </p> -->
+  <a class="red-label" href="./feed.html">
+    image feed
+  </a>
 
-  <div id="image-container">
-<a href="./feed/IMG_4363.jpeg"><img class="feed-image" src="./thumbnails/IMG_4363.jpeg"></a>
-<p class="feed-text">[06/29/24]</p>
-<a href="./feed/IMG_4362.jpeg"><img class="feed-image" src="./thumbnails/IMG_4362.jpeg"></a>
-<p class="feed-text">[06/29/24]</p>
-<a href="./feed/IMG_3966.jpeg"><img class="feed-image" src="./thumbnails/IMG_3966.jpeg"></a>
-<p class="feed-text">[06/16/24]</p>
-<a href="./feed/IMG_3748.jpeg"><img class="feed-image" src="./thumbnails/IMG_3748.jpeg"></a>
-<p class="feed-text">[06/13/24]</p>
-<a href="./feed/IMG_3745.jpeg"><img class="feed-image" src="./thumbnails/IMG_3745.jpeg"></a>
-<p class="feed-text">[06/12/24]</p>
-<a href="./feed/IMG_3579.jpeg"><img class="feed-image" src="./thumbnails/IMG_3579.jpeg"></a>
-<p class="feed-text">[06/08/24]</p>
-<a href="./feed/IMG_3436.jpeg"><img class="feed-image" src="./thumbnails/IMG_3436.jpeg"></a>
-<p class="feed-text">[06/03/24]</p>
-<a href="./feed/IMG_1644.jpeg"><img class="feed-image" src="./thumbnails/IMG_1644.jpeg"></a>
-<p class="feed-text">[04/01/24]</p>
-</div>  
+  <div id="image-container"></div>
+  <p class="red-label">[END]</p>
+  <a href="#">/backup</a>
 
   <script>
     const images = [
-      "./images/img1.jpg",
-      "./images/image-02-thumb.png",
-      "./old-studio/assets/images/portfolio/thumb/77.jpg",
-      "./old-studio/assets/images/portfolio/thumb/62.jpg",
-      "./old-studio/assets/images/portfolio/thumb/57.jpg",
-      "./old-studio/assets/images/portfolio/thumb/56.jpg",
-      "./old-studio/assets/images/portfolio/thumb/51.jpg",
-      "./old-studio/assets/images/portfolio/thumb/49.jpg",
-      "./old-studio/assets/images/portfolio/thumb/48.jpg",
-      "./old-studio/assets/images/portfolio/thumb/44.jpg",
-      "./old-studio/assets/images/portfolio/thumb/41.jpg",
-      "./old-studio/assets/images/portfolio/thumb/38.jpg",
-      "./old-studio/assets/images/portfolio/thumb/37.jpg",
-      "./old-studio/assets/images/portfolio/thumb/34.jpg",
-      "./old-studio/assets/images/portfolio/thumb/33.jpg",
-      "./old-studio/assets/images/portfolio/thumb/32.jpg",
-      "./old-studio/assets/images/portfolio/thumb/30.jpg",
-      "./old-studio/assets/images/portfolio/thumb/28.jpg",
-      "./old-studio/assets/images/portfolio/thumb/27.jpg",
-      "./old-studio/assets/images/portfolio/thumb/26.jpg",
-      "./old-studio/assets/images/portfolio/thumb/23.jpg",
-      "./old-studio/assets/images/portfolio/thumb/20.jpg",
-      "./old-studio/assets/images/portfolio/thumb/19.jpg",
-      "./old-studio/assets/images/portfolio/thumb/18.jpg",
-      "./old-studio/assets/images/portfolio/thumb/17.jpg",
-      "./old-studio/assets/images/portfolio/thumb/16.jpg",
+      "./oldsite/images/img1.jpg",
+      "./oldsite/images/image-02-thumb.png",
+      "./oldsite/old-studio/assets/images/portfolio/thumb/77.jpg",
+      "./oldsite/old-studio/assets/images/portfolio/thumb/62.jpg",
+      "./oldsite/old-studio/assets/images/portfolio/thumb/57.jpg",
+      "./oldsite/old-studio/assets/images/portfolio/thumb/56.jpg",
+      "./oldsite/old-studio/assets/images/portfolio/thumb/51.jpg",
+      "./oldsite/old-studio/assets/images/portfolio/thumb/49.jpg",
+      "./oldsite/old-studio/assets/images/portfolio/thumb/48.jpg",
+      "./oldsite/old-studio/assets/images/portfolio/thumb/44.jpg",
+      "./oldsite/old-studio/assets/images/portfolio/thumb/41.jpg",
+      "./oldsite/old-studio/assets/images/portfolio/thumb/38.jpg",
+      "./oldsite/old-studio/assets/images/portfolio/thumb/37.jpg",
+      "./oldsite/old-studio/assets/images/portfolio/thumb/34.jpg",
+      "./oldsite/old-studio/assets/images/portfolio/thumb/33.jpg",
+      "./oldsite/old-studio/assets/images/portfolio/thumb/32.jpg",
+      "./oldsite/old-studio/assets/images/portfolio/thumb/30.jpg",
+      "./oldsite/old-studio/assets/images/portfolio/thumb/28.jpg",
+      "./oldsite/old-studio/assets/images/portfolio/thumb/27.jpg",
+      "./oldsite/old-studio/assets/images/portfolio/thumb/26.jpg",
+      "./oldsite/old-studio/assets/images/portfolio/thumb/23.jpg",
+      "./oldsite/old-studio/assets/images/portfolio/thumb/20.jpg",
+      "./oldsite/old-studio/assets/images/portfolio/thumb/19.jpg",
+      "./oldsite/old-studio/assets/images/portfolio/thumb/18.jpg",
+      "./oldsite/old-studio/assets/images/portfolio/thumb/17.jpg",
+      "./oldsite/old-studio/assets/images/portfolio/thumb/16.jpg",
     ];
 
     const randImg = () => {
@@ -276,204 +175,53 @@
   </script>
 
   <script>
-    return; // this is working if you take out the early return
-    const astronautHorse = document.getElementById("astronaut-horse");
-    const framesDicts = [
-      {
-        id: "astronaut-horse",
-        frames: [
-          "🐎 astronaut-horse", 
-          "🐎 ai-artist-collaborations",
-          "🐎 artificial-intelligence-hype-train",
-        ]
-      },{
-        id: "computer-buddies",
-        frames: [
-          "💾 computer-buddies", 
-          "💾 analog-computer-sculptures",
-        ]
-      },{
-        id: "state-of-the-arts",
-        frames: [
-          "🎨 state-of-the-arts-survey", 
-          "🎨 art-survey-data-visualizations",
-        ]
-      },{
-        id: "page-garden",
-        frames: [
-          "🌱 page-garden", 
-          "🌱 image-sharing-fullstack-react-app",
-        ]
-      },{
-        id: "zine-bot",
-        frames: [
-          "📒 zine-bot", 
-          "📒 wasm-image-processing-tool",
-        ]
-      },{
-        id: "sound",
-        frames: [
-          "🎹 sound", 
-          "🎹 not-really-music",
-        ]
-      },{
-        id: "studio",
-        frames: [
-          "🖼️ artwork", 
-          "🖼️ studio-work", 
-          "🖼️ paintings-drawings-etc", 
-        ]
-      },{
-        id: "resume",
-        frames: [
-          "📄 resume", 
-          "📄 cv-pdf", 
-        ]
-      },{
-        id: "linkedin",
-        frames: [
-          "🤝 linkedin", 
-          "🤝 professional-façade",
-          "🤝 work-related-social-media",
-        ]
-      },{
-        id: "github",
-        frames: [
-          "💻 github", 
-          "💻 software-work", 
-        ]
-      },
-    ];
+      const imgUrls = [
+        // start tag
+			"img1.jpg",
+			"image-02.jpg",
+			"IMG_3436.jpeg",
+        // end tag
+      ];
 
-    const flipText = (domId, newText) => {
-      const domEle = document.getElementById(domId);
-      let idx = 0;
-      
-      const currText = domEle.innerHTML;
-      if (currText.length == 0) {
-        domEle.innerHTML = newText;
-        return;
+      let imgIndex = 0;
+      const imagesPerBatch = 10;
+      const container = document.getElementById('image-container');
+
+      // Function to load the next batch of images
+      function loadImages() {
+      const endIndex = imgIndex + imagesPerBatch;
+      for (let i = imgIndex; i < endIndex && i < imgUrls.length; i++) {
+          const atag1 = document.createElement('a');
+          atag1.href = `./images/${imgUrls[i]}`;
+
+          const img = document.createElement('img');
+          img.src = `thumbnails/${imgUrls[i]}`;
+          atag1.appendChild(img);
+
+          container.appendChild(atag1);
+
+          const atag2 = document.createElement('a');
+
+          const ptag = document.createElement('p');
+          ptag.className = `feed-text`;
+          ptag.innerHTML = `./${imgUrls[i]}`;
+          atag2.appendChild(ptag);
+
+          container.appendChild(atag2);
+      }
+      imgIndex += imagesPerBatch;
       }
 
-      const currInterval = setInterval(() => {
-        const currText = domEle.innerHTML;
-        if (currText === newText) {
-          console.log(0)
-          console.log({DONE: "DONE", currText, newText})
-          clearInterval(currInterval);
-          domEle.innerHTML = newText;
-
-        } else if (
-            idx >= newText.length && 
-            idx <= currText.length
-          ) {
-
-          console.log(1)
-          const textArray = currText.split("")
-          const sliced = textArray.slice(0,-1)
-          domEle.innerHTML = sliced.join("");
-          // domEle.innerHTML = newText;
-
-        } else if (
-            idx >= currText.length && 
-            idx < newText.length
-          ) {
-
-          console.log(2)
-          const textArray = currText.split("")
-          textArray.push(newText[idx]);
-          domEle.innerHTML = textArray.join("");
-
-        } else if (
-            idx < currText.length && 
-            idx < newText.length
-          ) {
-            
-          console.log(3)
-          const textArray = currText.split("")
-          textArray[idx] = newText[idx];
-          domEle.innerHTML = textArray.join("");
-
-
-        } else if (
-            currText !== newText
-          ) {
-
-          console.log(4)
-          const textArray = currText.split("")
-          const sliced = textArray.slice(0,-1)
-          domEle.innerHTML = sliced.join("");
-
-        } else {
-
-          console.log(5)
-          console.log({idx, currText, "currText.length": currText.length, newText, "newText.length": newText.length})
-          console.log({DONE: "DONE", currText, newText})
-          domEle.innerHTML = newText;
-          clearInterval(currInterval);
-        }
-        idx++;
-      }, 100);
-    }
-
-    let frame = 0;
-    
-    const frameSwitch = () => {
-      frame++;
-      
-      // testing
-      // const domEle = document.getElementById(framesDicts[0].id);
-      // flipText(framesDicts[0].id, framesDicts[0].frames[frame % framesDicts[0].frames.length])
-      
-      framesDicts.forEach(currDict => {
-        const domEle = document.getElementById(currDict.id);
-        flipText(currDict.id, currDict.frames[frame % currDict.frames.length])
-        // domEle.innerHTML = currDict.frames[frame % currDict.frames.length];
-      }); 
-      setTimeout(frameSwitch, 8000 + (frame % 2 === 0 ? 6000 : 0));
-    }
-
-    setTimeout(frameSwitch, 10000);
-
-    // check for broken text
-    window.setInterval(() => {
-      for (let i = 0; i < framesDicts.length; i++) {
-        const id = framesDicts[i].id;
-        const domEle = document.getElementById(id);
-        if (domEle.innerHTML.length < 2) {
-          console.log("dead element found - replacing text")
-          domEle.innerHTML = framesDicts[i].frames[0]
-        }
+      // Infinite scroll handler
+      window.addEventListener('scroll', () => {
+      if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
+          loadImages();
       }
-    }, 1000);
+      });
 
+      // Initial load
+      loadImages();
   </script>
 
-<!-- 
-<script>
-  (function() {
-      let hue = 0;
-
-      function changeTint() {
-          hue = (hue + 1) % 360;
-          document.documentElement.style.filter = `hue-rotate(${hue}deg) contrast(${(hue / 360) * 20}) brightness(${(hue / 360) * 1}) invert(${(hue / 360) * 1})`;
-          requestAnimationFrame(changeTint);
-      }
-
-      changeTint();
-  })();
-</script> -->
-
-  <!-- <a target="new" href="https://tombetthauser.github.io/computerbuddies/">solar-server</a> -->
-  <!-- <a target="new" href="https://tombetthauser.github.io/computerbuddies/">diffusion</a> -->
-  <!-- <a target="new" href="https://tombetthauser.github.io/computerbuddies/">zines</a> -->
-  <!-- <a target="new" href="https://pagegarden.herokuapp.com/tom-studio">studioart</a> -->
-
-  <!-- <h2>Current Projects</h2> -->
-  <!-- <section>
-    <img src="https://tombetthauser.github.io/computerbuddies/assets/images/35.jpg"/>
-    <a target="new" href="https://tombetthauser.github.io/computerbuddies/">computer buddies</a>
-    <br>
-  </section> -->
 </body>
 </html>
