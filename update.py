@@ -1,5 +1,28 @@
 import os
 
+
+
+def remove_dummy_file():
+    # Define the directory and file paths
+    dir_name = "inbox"
+    file_name = "foo.txt"
+    
+    # Define the full path for the file
+    file_path = os.path.join(dir_name, file_name)
+    
+    # Check if the file exists, then remove it
+    if os.path.exists(file_path):
+        os.remove(file_path)
+        print(f"File '{file_name}' removed.")
+    else:
+        print(f"File '{file_name}' does not exist in the '{dir_name}' directory.")
+
+# Call the function
+remove_dummy_file()
+
+
+
+
 def process_images(inbox_dir='inbox', images_dir='images', record_file='record.txt'):
     # List of acceptable image file extensions
     image_extensions = ['.png', '.jpg', '.jpeg', '.gif']
@@ -183,3 +206,31 @@ def create_thumbnails(images_dir='images', thumbnails_dir='thumbnails', thumbnai
 # Example of using the function
 create_thumbnails()
 
+
+
+
+# import os
+
+def create_inbox_with_dummy_file():
+    # Define the directory and file paths
+    dir_name = "inbox"
+    file_name = "foo.txt"
+    file_content = "bar"
+    
+    # Check if the directory exists, if not, create it
+    if not os.path.exists(dir_name):
+        os.makedirs(dir_name)
+        print(f"Directory '{dir_name}' created.")
+    else:
+        print(f"Directory '{dir_name}' already exists.")
+    
+    # Define the full path for the file
+    file_path = os.path.join(dir_name, file_name)
+    
+    # Create the file and write 'bar' to it
+    with open(file_path, "w") as file:
+        file.write(file_content)
+        print(f"File '{file_name}' created with content: {file_content}")
+
+# Call the function
+create_inbox_with_dummy_file()
