@@ -5,6 +5,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>tombetthauser</title>
+  <script>
+    const sonicMode = true;
+  </script>
 </head>
 <style>
   html {
@@ -14,7 +17,7 @@
     background-size: 500px 380px;
     background-image: url("./images/img1.jpg");
     background-attachment: fixed;
-    /* background-image: url("https://i.makeagif.com/media/9-20-2017/fZPKhZ.gif"); */
+    background-image: url("https://i.makeagif.com/media/9-20-2017/fZPKhZ.gif");
     /* background-image: url("https://thumbs.gfycat.com/EthicalJoyfulBangeltiger-max-1mb.gif"); */
     /* filter: invert(1) contrast(20) sepia(20) hue-rotate(45deg) saturate(10) ; */
     /* https://i.makeagif.com/media/9-20-2017/fZPKhZ.gif */
@@ -44,6 +47,19 @@
     from {     background-size: 500px 380px; }
     to {  background-size: 0px 0px; }
   }
+  @keyframes jitter {
+    0% { margin: 1px 1px -1px 1px; }
+    10% { margin: -1px -1px 1px -1px; }
+    20% { margin: 1px 1px -1px 1px; }
+    30% { margin: -1px 1px -1px -1px; }
+    40% { margin: 1px -1px 1px -1px; }
+    50% { margin: 1px 1px -1px 1px; }
+    60% { margin: -1px -1px 1px -1px; }
+    70% { margin: 1px 1px -1px 1px; }
+    80% { margin: -1px 1px -1px -1px; }
+    90% { margin: 1px -1px 1px -1px; }
+    100% { margin: 1px -1px 1px -1px; }
+  }
   a {
     font-size: 20px;
     background-color: yellow;
@@ -55,6 +71,7 @@
   ul {
     padding-left: 0;
     list-style-type: none;
+    margin-top: 50px;
   }
   .feed-image {
     border: 3px solid red;
@@ -84,6 +101,20 @@
     max-width: 100%;
     image-orientation: from-image;
   }
+  #sonic-player {
+    filter: saturate(0) ;
+    /* filter: invert(0) brightness(.6) contrast(20) sepia(20) hue-rotate(90deg) saturate(0) ; */
+    /* border: '3px outset white'; */
+    box-shadow: -5px 5px 0 gray,
+    5px -5px 0 lightgray,
+    5px 5px 0 gray,
+    -5px -5px 0 gray,
+    -10px 10px 5px black;
+  }
+  #sonic-player:hover {
+    animation: jitter .5s linear infinite;
+    transition: 0;
+  }
   /* img:hover {
     filter: invert(1);
     cursor: grab;
@@ -92,6 +123,9 @@
 
 <body>
   <h1>https://tombetthauser.com</h1>
+
+  <div id="sonic-player"></div>
+
   <ul>
     <li><a target="new" href="https://github.com/tombetthauser">💻 github</a></li>
     <li><a target="new" href="https://www.linkedin.com/in/tombetthauser/">🤝 linkedin</a></li>
@@ -163,19 +197,24 @@
       "./oldsite/old-studio/assets/images/portfolio/thumb/16.jpg",
     ];
 
-    const randImg = () => {
-      return images[Math.floor(Math.random() * images.length)];
-    }
-
+    
     const html = document.querySelector("html");
+    
+    if (sonicMode) {
+      // html.style.backgroundImage = `url("${newImg}")`;
+    } else {
+      const randImg = () => {
+        return images[Math.floor(Math.random() * images.length)];
+      }
 
-    let newImg = randImg();
-    html.style.backgroundImage = `url("${newImg}")`;
-
-    setInterval(() => {
-      newImg = randImg();
+      let newImg = randImg();
       html.style.backgroundImage = `url("${newImg}")`;
-    }, 6000)
+  
+      setInterval(() => {
+        newImg = randImg();
+        html.style.backgroundImage = `url("${newImg}")`;
+      }, 6000)
+    }
   </script>
 
   <script>
@@ -226,6 +265,36 @@
 
       // Initial load
       loadImages();
+  </script>
+
+  <!-- adds sonic music player -->
+  <script>
+    // Define the sonicMode variable
+    // const sonicMode = true; // Change this to false to test when it's not true
+
+    // Function to create and insert the YouTube player
+    function loadYouTubePlayer() {
+        if (sonicMode) {
+            // Load the IFrame API
+            const tag = document.createElement('script');
+            tag.src = "https://www.youtube.com/iframe_api";
+            const firstScriptTag = document.getElementsByTagName('script')[0];
+            firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+            // Create the YouTube player when the API is ready
+            window.onYouTubeIframeAPIReady = function() {
+                new YT.Player('sonic-player', {
+                    height: '25',
+                    width: '250',
+                    videoId: 'dgJWZiBt6_w', // Example video ID
+                    playerVars: { 'autoplay': 1, 'controls': 0 } // Minimal controls
+                });
+            };
+        }
+    }
+
+    // Call the function to initialize the player
+    loadYouTubePlayer();
   </script>
 
 </body>
