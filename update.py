@@ -1,4 +1,109 @@
 import os
+from datetime import datetime
+from PIL import Image
+from PIL.ExifTags import TAGS
+
+images_folder = 'inbox'
+# index_file = './index.html'
+
+def resize_image(input_path, output_path, width=1024):
+    """Resizes the image to the specified width while maintaining aspect ratio."""
+    with Image.open(input_path) as img:
+        if width is not None:
+            aspect_ratio = img.height / img.width
+            new_height = int(width * aspect_ratio)
+            img = img.resize((width, new_height), Image.LANCZOS)
+        img.save(output_path)
+
+def process_images(images_folder, thumbnails_folder, width=1024):
+    """Processes images: resizes them if necessary and cleans up thumbnails folder."""
+    # Ensure the thumbnails folder exists
+    if not os.path.exists(thumbnails_folder):
+        os.makedirs(thumbnails_folder)
+
+    # Get the list of files in the images and thumbnails folders
+    images = {f for f in os.listdir(images_folder) if os.path.isfile(os.path.join(images_folder, f))}
+    thumbnails = {f for f in os.listdir(thumbnails_folder) if os.path.isfile(os.path.join(thumbnails_folder, f))}
+
+    # Process each image in the images folder
+    for image_file in images:
+        image_path = os.path.join(images_folder, image_file)
+        thumbnail_path = os.path.join(thumbnails_folder, image_file)
+
+        if image_file not in thumbnails:
+            # Resize and save the image as a thumbnail
+            resize_image(image_path, thumbnail_path, width)
+        else:
+            print(f"Thumbnail for '{image_file}' already exists, skipping...")
+
+    # Remove thumbnails that do not have corresponding images
+    for thumbnail_file in thumbnails:
+        if thumbnail_file not in images:
+            os.remove(os.path.join(thumbnails_folder, thumbnail_file))
+            print(f"Removed orphan thumbnail '{thumbnail_file}'")
+
+# if __name__ == "__main__":
+# images_folder = "path/to/your/images/folder"
+# thumbnails_folder = "path/to/your/thumbnails/folder"
+
+# process_images(images_folder, thumbnails_folder)
+
+
+
+def get_exif_date(image_path):
+    try:
+        image = Image.open(image_path)
+        exif_data = image._getexif()
+        if exif_data:
+            for tag, value in exif_data.items():
+                tag_name = TAGS.get(tag, tag)
+                if tag_name == 'DateTimeOriginal':
+                    return datetime.strptime(value, '%Y:%m:%d %H:%M:%S')
+    except Exception as e:
+        print(f"Error getting EXIF date for {image_path}: {e}")
+    return None
+
+# def update_file(images_folder, index_file):
+#     image_files = [f for f in os.listdir(images_folder) if f.lower().endswith(('png', 'jpg', 'jpeg', 'gif'))]
+
+#     image_files_with_dates = []
+#     for image_file in image_files:
+#         image_path = os.path.join(images_folder, image_file)
+#         exif_date = get_exif_date(image_path)
+#         if exif_date is None:
+#             exif_date = datetime.fromtimestamp(os.path.getctime(image_path))
+#         image_files_with_dates.append((image_file, exif_date))
+
+#     sorted_image_files = sorted(image_files_with_dates, key=lambda x: x[1], reverse=True)
+
+#     image_html = ""
+#     for image_file, creation_time in sorted_image_files:
+#         img_src = os.path.join(images_folder, image_file)
+#         filename = os.path.splitext(image_file)[0].replace('-', ' ')
+#         formatted_date = creation_time.strftime('%m/%d/%y')
+#         image_html += f'<a href="./feed/{image_file}"><img class="feed-image" src="./feed/{image_file}"></a>\n<p class="feed-text">[{formatted_date}]</p>\n'
+
+
+#     with open(index_file, 'r') as file:
+#         html_content = file.read()
+
+#     start_marker = '<div id="image-container">'
+#     end_marker = '</div>'
+#     start_index = html_content.find(start_marker)
+#     end_index = html_content.find(end_marker, start_index)
+
+#     if start_index != -1 and end_index != -1:
+#         new_html_content = html_content[:start_index + len(start_marker)] + '\n' + image_html + html_content[end_index:]
+#     else:
+#         new_html_content = html_content.replace(
+#             '</body>',
+#             f'<div id="image-container">\n{image_html}</div>\n</body>'
+#         )
+
+#     with open(index_file, 'w') as file:
+#         file.write(new_html_content)
+
+#     print(f"{index_file} has been updated successfully.")
 
 
 
@@ -23,208 +128,15 @@ remove_dummy_file()
 
 
 
-# import os
+process_images('./inbox', './thumbnails')
+process_images('./inbox', './images', None)
 
-def process_images(inbox_dir='inbox', images_dir='images', record_file='record.txt'):
-    # List of acceptable image file extensions
-    image_extensions = ['.png', '.jpg', '.jpeg', '.gif']
 
-    # Create images directory if it doesn't exist
-    if not os.path.exists(images_dir):
-        os.makedirs(images_dir)
 
-    # Read existing record.txt contents if it exists
-    if os.path.exists(record_file):
-        with open(record_file, 'r') as record:
-            recorded_filenames = set(line.strip() for line in record)
-    else:
-        recorded_filenames = set()
 
-    # Check for files in the inbox directory
-    for filename in os.listdir(inbox_dir):
-        # Get the file extension
-        file_ext = os.path.splitext(filename)[1].lower()
+# update_file(images_folder, './index.html')
+# update_file(images_folder, './feed.html')
 
-        # Check if the file is an image or gif
-        if file_ext in image_extensions:
-            # Define the source and destination paths
-            source = os.path.join(inbox_dir, filename)
-            destination = os.path.join(images_dir, filename)
-
-            # Copy the file only if it does not already exist in the destination directory
-            if not os.path.exists(destination):
-                with open(source, 'rb') as src_file:
-                    with open(destination, 'wb') as dst_file:
-                        while True:
-                            chunk = src_file.read(1024)  # Read in chunks
-                            if not chunk:
-                                break
-                            dst_file.write(chunk)
-                print(f"Copied: {filename}")
-
-                # Add filename to record.txt if it was copied
-                with open(record_file, 'a') as record:
-                    record.write(filename + '\n')
-            else:
-                print(f"Already exists: {filename}")
-
-    print("Processing complete. All files copied where necessary.")
-
-
-# Example of using the function
-process_images()
-
-
-
-
-
-
-
-
-def clean_record(images_dir='images', record_file='record.txt'):
-    # Check if record.txt exists
-    if not os.path.exists(record_file):
-        print(f"{record_file} does not exist.")
-        return
-
-    # Get a list of filenames in the images directory
-    images_in_dir = set(os.listdir(images_dir))
-
-    # Read the current contents of record.txt
-    with open(record_file, 'r') as record:
-        lines = record.readlines()
-
-    # Filter out lines that do not match any filenames in the images directory
-    new_lines = [line for line in lines if line.strip() in images_in_dir]
-
-    # Write the updated contents back to record.txt
-    with open(record_file, 'w') as record:
-        record.writelines(new_lines)
-
-    print("Record file cleaned. Any missing files were removed from the record.")
-
-# Example of using the function
-clean_record()
-
-
-
-
-
-
-
-
-
-def update_feed_from_record(record_file='record.txt', feed_file='feed.html'):
-    # Check if record.txt exists
-    if not os.path.exists(record_file):
-        print(f"{record_file} does not exist.")
-        return
-
-    # Check if feed.html (or target file) exists
-    if not os.path.exists(feed_file):
-        print(f"{feed_file} does not exist.")
-        return
-
-    # Read the lines from record.txt
-    with open(record_file, 'r') as record:
-        record_lines = record.readlines()
-
-    # Wrap each line in quotes and add a comma at the end
-    wrapped_lines = [f'\t\t\t"{line.strip()}",\n' for line in record_lines]
-
-    # Read the feed file
-    with open(feed_file, 'r') as feed:
-        feed_content = feed.readlines()
-
-    # Find the start and end tag positions
-    start_index = None
-    end_index = None
-
-    for i, line in enumerate(feed_content):
-        if "start tag" in line:
-            start_index = i
-        elif "end tag" in line:
-            end_index = i
-            break
-
-    # Ensure both tags are present
-    if start_index is None or end_index is None:
-        print(f"Could not find 'start tag' or 'end tag' in {feed_file}.")
-        return
-
-    # Replace the lines between the start and end tag with the wrapped record lines
-    updated_content = (
-        feed_content[:start_index + 1] +  # Keep content up to and including "start tag"
-        wrapped_lines +                   # Insert the wrapped record lines
-        feed_content[end_index:]          # Keep content from "end tag" onward
-    )
-
-    # Write the updated content back to the feed file
-    with open(feed_file, 'w') as feed:
-        feed.writelines(updated_content)
-
-    print(f"Feed file {feed_file} updated successfully.")
-
-# Example of using the function
-update_feed_from_record()
-update_feed_from_record(feed_file='index.html')
-
-
-
-
-
-
-from PIL import Image
-# import os
-
-def create_thumbnails(images_dir='images', thumbnails_dir='thumbnails', thumbnail_width=750):
-    # Create the thumbnails directory if it doesn't exist
-    if not os.path.exists(thumbnails_dir):
-        os.makedirs(thumbnails_dir)
-
-    # Get a set of filenames in the images directory
-    image_files = set(os.listdir(images_dir))
-
-    # Loop through each file in the images directory
-    for filename in image_files:
-        # Get the full paths for image and thumbnail
-        image_path = os.path.join(images_dir, filename)
-        thumbnail_path = os.path.join(thumbnails_dir, filename)
-
-        # Only create the thumbnail if it doesn't exist
-        if not os.path.exists(thumbnail_path):
-            try:
-                with Image.open(image_path) as img:
-                    # Calculate the new height while maintaining the aspect ratio
-                    width_percent = (thumbnail_width / float(img.size[0]))
-                    thumbnail_height = int((float(img.size[1]) * float(width_percent)))
-
-                    # Resize the image
-                    img_resized = img.resize((thumbnail_width, thumbnail_height), Image.ANTIALIAS)
-
-                    # Save the resized image to the thumbnails folder
-                    img_resized.save(thumbnail_path)
-
-                    print(f"Thumbnail created for {filename}")
-            except Exception as e:
-                print(f"Error processing {filename}: {e}")
-
-    # Remove thumbnails that don't have corresponding images
-    for thumbnail_file in os.listdir(thumbnails_dir):
-        if thumbnail_file not in image_files:
-            thumbnail_path = os.path.join(thumbnails_dir, thumbnail_file)
-            os.remove(thumbnail_path)
-            print(f"Removed orphaned thumbnail: {thumbnail_file}")
-
-    print("Thumbnail generation complete and orphan cleanup done.")
-
-# Example of using the function
-create_thumbnails()
-
-
-
-
-# import os
 
 def create_inbox_with_dummy_file():
     # Define the directory and file paths
@@ -249,3 +161,54 @@ def create_inbox_with_dummy_file():
 
 # Call the function
 create_inbox_with_dummy_file()
+
+
+
+
+
+
+
+# import os
+# from datetime import datetime
+
+# images_folder = 'feed'
+# index_file = './index.html'
+
+# def update_file(images_folder, index_file):
+#     image_files = sorted(
+#         [f for f in os.listdir(images_folder) if f.lower().endswith(('png', 'jpg', 'jpeg', 'gif'))],
+#         key=lambda x: os.path.getctime(os.path.join(images_folder, x)),
+#         reverse=True
+#     )
+
+#     image_html = ""
+#     for image_file in image_files:
+#         img_src = os.path.join(images_folder, image_file)
+#         filename = os.path.splitext(image_file)[0].replace('-', ' ')
+#         creation_time = datetime.fromtimestamp(os.path.getctime(os.path.join(images_folder, image_file)))
+#         formatted_date = creation_time.strftime('%m/%d/%y')
+#         image_html += f'<img class="feed-image" src="{img_src}">\n<p class="feed-text">{image_file}</p>\n'
+
+#     with open(index_file, 'r') as file:
+#         html_content = file.read()
+
+#     start_marker = '<div id="image-container">'
+#     end_marker = '</div>'
+#     start_index = html_content.find(start_marker)
+#     end_index = html_content.find(end_marker, start_index)
+
+#     if start_index != -1 and end_index != -1:
+#         new_html_content = html_content[:start_index + len(start_marker)] + '\n' + image_html + html_content[end_index:]
+#     else:
+#         new_html_content = html_content.replace(
+#             '</body>',
+#             f'<div id="image-container">\n{image_html}</div>\n</body>'
+#         )
+
+#     with open(index_file, 'w') as file:
+#         file.write(new_html_content)
+
+#     print(f"{index_file} has been updated successfully.")
+
+# update_file('feed', './index.html')
+# update_file('feed', './feed.html')
