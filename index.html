@@ -82,6 +82,7 @@
   }
   img {
     max-width: 100%;
+    image-orientation: from-image;
   }
   /* img:hover {
     filter: invert(1);
@@ -182,20 +183,9 @@
         // start tag
 			"3_image.jpg",
 			"2_image.jpg",
-			"1_image-02.jpg",
-			"1_profile-pic-2023.jpeg",
 			"1_IMG_3966.jpeg",
 			"1_image.jpg",
-			"1_IMG_6202.jpeg",
-			"1_34.jpg",
-			"1_IMG_3579.jpeg",
-			"image-02.jpg",
-			"IMG_3579.jpeg",
-			"34.jpg",
 			"IMG_6202.jpeg",
-			"IMG_3966.jpeg",
-			"profile-pic-2023.jpeg",
-			"image.jpg",
         // end tag
       ];
 
@@ -205,27 +195,27 @@
 
       // Function to load the next batch of images
       function loadImages() {
-      const endIndex = imgIndex + imagesPerBatch;
-      for (let i = imgIndex; i < endIndex && i < imgUrls.length; i++) {
-          const atag1 = document.createElement('a');
-          atag1.href = `./images/${imgUrls[i]}`;
+        const endIndex = imgIndex + imagesPerBatch;
+        for (let i = imgIndex; i < endIndex && i < imgUrls.length; i++) {
+            const atag1 = document.createElement('a');
+            atag1.href = `./images/${imgUrls[i]}`;
 
-          const img = document.createElement('img');
-          img.src = `thumbnails/${imgUrls[i]}`;
-          atag1.appendChild(img);
+            const img = document.createElement('img');
+            img.src = `thumbnails/${imgUrls[i]}`;
+            atag1.appendChild(img);
 
-          container.appendChild(atag1);
+            container.appendChild(atag1);
 
-          const atag2 = document.createElement('a');
+            const atag2 = document.createElement('a');
 
-          const ptag = document.createElement('p');
-          ptag.className = `feed-text`;
-          ptag.innerHTML = `./${imgUrls[i]}`;
-          atag2.appendChild(ptag);
+            const ptag = document.createElement('p');
+            ptag.className = `feed-text`;
+            ptag.innerHTML = `./${imgUrls[i]}`;
+            atag2.appendChild(ptag);
 
-          container.appendChild(atag2);
-      }
-      imgIndex += imagesPerBatch;
+            container.appendChild(atag2);
+        }
+        imgIndex += imagesPerBatch;
       }
 
       // Infinite scroll handler
