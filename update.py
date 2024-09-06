@@ -200,7 +200,7 @@ def create_thumbnails(images_dir='images', thumbnails_dir='thumbnails', thumbnai
                     thumbnail_height = int((float(img.size[1]) * float(width_percent)))
 
                     # Resize the image
-                    img_resized = img.resize((thumbnail_width, thumbnail_height), Image.ANTIALIAS)
+                    img_resized = img.resize((thumbnail_width, thumbnail_height), Image.Resampling.LANCZOS)
 
                     # Save the resized image to the thumbnails folder
                     img_resized.save(thumbnail_path)
