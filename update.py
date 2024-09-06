@@ -22,8 +22,7 @@ remove_dummy_file()
 
 
 
-
-# import os
+import os
 
 def process_images(inbox_dir='inbox', images_dir='images', record_file='record.txt'):
     # List of acceptable image file extensions
@@ -40,8 +39,23 @@ def process_images(inbox_dir='inbox', images_dir='images', record_file='record.t
     else:
         recorded_filenames = set()
 
+    # List and print the files in the inbox directory for debugging
+    inbox_files = os.listdir(inbox_dir)
+    print(f"Files in inbox: {inbox_files}")
+
+    # Function to generate a new filename if it already exists
+    def get_unique_filename(filepath):
+        directory, original_filename = os.path.split(filepath)
+        name, ext = os.path.splitext(original_filename)
+        counter = 1
+        while os.path.exists(filepath):
+            new_name = f"{counter}_{name}{ext}"
+            filepath = os.path.join(directory, new_name)
+            counter += 1
+        return filepath
+
     # Check for files in the inbox directory
-    for filename in os.listdir(inbox_dir):
+    for filename in inbox_files:
         # Get the file extension
         file_ext = os.path.splitext(filename)[1].lower()
 
@@ -51,25 +65,40 @@ def process_images(inbox_dir='inbox', images_dir='images', record_file='record.t
             source = os.path.join(inbox_dir, filename)
             destination = os.path.join(images_dir, filename)
 
-            # Copy the file only if it does not already exist in the destination directory
-            if not os.path.exists(destination):
-                with open(source, 'rb') as src_file:
-                    with open(destination, 'wb') as dst_file:
-                        while True:
-                            chunk = src_file.read(1024)  # Read in chunks
-                            if not chunk:
-                                break
-                            dst_file.write(chunk)
-                print(f"Copied: {filename}")
+            # If file already exists, generate a unique filename
+            if os.path.exists(destination):
+                destination = get_unique_filename(destination)
+                print(f"File already exists, renaming to {os.path.basename(destination)}")
 
-                # Add filename to record.txt if it was copied
-                with open(record_file, 'a') as record:
-                    record.write(filename + '\n')
+            # Copy the file to the destination
+            print(f"Copying {filename} from {source} to {destination}")
+            with open(source, 'rb') as src_file:
+                with open(destination, 'wb') as dst_file:
+                    while True:
+                        chunk = src_file.read(1024)  # Read in chunks
+                        if not chunk:
+                            break
+                        dst_file.write(chunk)
+            print(f"Copied: {filename} as {os.path.basename(destination)}")
+
+            # Read the existing record file content
+            if os.path.exists(record_file):
+                with open(record_file, 'r') as record:
+                    existing_content = record.readlines()
             else:
-                print(f"Already exists: {filename}")
+                existing_content = []
 
-    print("Processing complete. All files copied where necessary.")
+            # Add the new filename to the top of the record.txt
+            new_filename = os.path.basename(destination) + '\n'
+            with open(record_file, 'w') as record:
+                record.write(new_filename)  # Write new filename first
+                record.writelines(existing_content)  # Write the rest of the old content
 
+            # Remove the file from the inbox after copying
+            os.remove(source)
+            print(f"Removed {filename} from {inbox_dir}")
+
+    print("Processing complete. All files copied, removed from inbox, and record updated.")
 
 # Copy inbox images to image folder
 process_images()
