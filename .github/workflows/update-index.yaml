@@ -2,8 +2,8 @@ name: Update Index with Images
 
 on:
   push:
-    branches:
-      - '**'  # Runs on pushes to any branch
+    paths:
+      - 'inbox/**'
 
 jobs:
   update-index:
