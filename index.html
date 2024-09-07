@@ -127,13 +127,13 @@
   <div id="sonic-player"></div>
 
   <ul>
-    <li><a target="new" href="https://github.com/tombetthauser">💻 github</a></li>
-    <li><a target="new" href="https://www.linkedin.com/in/tombetthauser/">🤝 linkedin</a></li>
-    <li><a target="new" href="./feed.html">🖤 social media</a></li>
-    <li><a target="new" href="./oldsite/resume.pdf">📄 resume</a></li>
-    <!-- <li><a target="new" href="https://socialnotwork.net/@tom">studio-work</a></li> -->
-    <!-- <li><a target="new" href="https://socialnotwork.net/@tom">mastodon</a></li> -->
-    <!-- <li><a target="new" href="https://www.etsy.com/shop/SocietyofObjects">🛒 art</a></li> -->
+    <li><a href="https://github.com/tombetthauser">💻 github</a></li>
+    <li><a href="https://www.linkedin.com/in/tombetthauser/">🤝 linkedin</a></li>
+    <li><a href="./feed.html">🖤 social media</a></li>
+    <li><a href="./oldsite/resume.pdf">📄 resume</a></li>
+    <!-- <li><a href="https://socialnotwork.net/@tom">studio-work</a></li> -->
+    <!-- <li><a href="https://socialnotwork.net/@tom">mastodon</a></li> -->
+    <!-- <li><a href="https://www.etsy.com/shop/SocietyofObjects">🛒 art</a></li> -->
   </ul>
 
   <!-- <ul>
@@ -141,22 +141,22 @@
   </ul> -->
 
   <ul>
-    <li><a id='page-garden' target="new" href="https://pagegarden.herokuapp.com/">🌱 page-garden</a></li>
-    <li><a id='zine-bot' target="new" href="https://tombetthauser.github.io/wasm-zinebot/">📒 zine-bot</a></li>
-    <!-- <li><a id='astronaut-horse' target="new" href="https://www.astronaut.horse/">🐎 astronaut-horse</a></li> -->
-    <!-- <li><a id='state-of-the-arts' target="new" href="https://xstreetgames.itch.io/">🕹️ gameboy-games</a></li> -->
-    <!-- <li><a id='state-of-the-arts' target="new" href="https://tombetthauser.github.io/stateofthearts/">📄 state-of-the-arts-survey</a></li> -->
-    <!-- <li><a id='astronaut-horse' target="new" href="./coming-soon.html">🎨 art-n-chill</a></li> -->
-    <!-- <li><a id='astronaut-horse' target="new" href="./coming-soon.html">🏛 artist-coding-workshops</a></li> -->
-    <!-- <li><a id='astronaut-horse' target="new" href="https://www.astronaut.horse/">🤖 blog-conversations-with-artists-and-engineers</a></li> -->
-    <!-- <li><a id='computer-buddies' target="new" href="https://tombetthauser.github.io/computerbuddies/">💾 computer-buddy-sculptures</a></li> -->
-    <!-- <li><a id='computer-buddies' target="new" href="https://tombetthauser.github.io/computerbuddies/">✏️ tech-people-portraits</a></li> -->
-    <!-- <li><a target="new" href="www.zine.garden/">zine-garden</a></li> -->
+    <li><a id='page-garden' href="https://pagegarden.herokuapp.com/">🌱 page-garden</a></li>
+    <li><a id='zine-bot' href="https://tombetthauser.github.io/wasm-zinebot/">📒 zine-bot</a></li>
+    <!-- <li><a id='astronaut-horse' href="https://www.astronaut.horse/">🐎 astronaut-horse</a></li> -->
+    <!-- <li><a id='state-of-the-arts' href="https://xstreetgames.itch.io/">🕹️ gameboy-games</a></li> -->
+    <!-- <li><a id='state-of-the-arts' href="https://tombetthauser.github.io/stateofthearts/">📄 state-of-the-arts-survey</a></li> -->
+    <!-- <li><a id='astronaut-horse' href="./coming-soon.html">🎨 art-n-chill</a></li> -->
+    <!-- <li><a id='astronaut-horse' href="./coming-soon.html">🏛 artist-coding-workshops</a></li> -->
+    <!-- <li><a id='astronaut-horse' href="https://www.astronaut.horse/">🤖 blog-conversations-with-artists-and-engineers</a></li> -->
+    <!-- <li><a id='computer-buddies' href="https://tombetthauser.github.io/computerbuddies/">💾 computer-buddy-sculptures</a></li> -->
+    <!-- <li><a id='computer-buddies' href="https://tombetthauser.github.io/computerbuddies/">✏️ tech-people-portraits</a></li> -->
+    <!-- <li><a href="www.zine.garden/">zine-garden</a></li> -->
   </ul>
   
   <ul>
     <li><a href="oldsite/studio/index.html">🖼️ studio-archive</a></li>
-    <li><a target="new" href="https://tombetthauser.bandcamp.com">🎹 bandcamp</a></li>
+    <li><a href="https://tombetthauser.bandcamp.com">🎹 bandcamp</a></li>
   </ul>
 
   <a class="red-label" href="./feed.html">
@@ -220,11 +220,10 @@
   <script>
       const imgUrls = [
         // start tag
-			"IMG_6371.jpeg",
-			"3_image.jpg",
-			"2_image.jpg",
-			"1_IMG_3966.jpeg",
-			"1_image.jpg",
+			 { filename: "IMG_6371.jpeg", date: "[Sep '24]" },
+			 { filename: "3_image.jpg", date: "[Sep '24]" },
+			 { filename: "1_IMG_3966.jpeg", date: "[Sep '24]" },
+			 { filename: "1_image.jpg", date: "[Sep '24]" },
         // end tag
       ];
 
@@ -237,10 +236,10 @@
         const endIndex = imgIndex + imagesPerBatch;
         for (let i = imgIndex; i < endIndex && i < imgUrls.length; i++) {
             const atag1 = document.createElement('a');
-            atag1.href = `./images/${imgUrls[i]}`;
+            atag1.href = `./images/${imgUrls[i].filename}`;
 
             const img = document.createElement('img');
-            img.src = `thumbnails/${imgUrls[i]}`;
+            img.src = `./thumbnails/${imgUrls[i].filename}`;
             atag1.appendChild(img);
 
             container.appendChild(atag1);
@@ -249,7 +248,7 @@
 
             const ptag = document.createElement('p');
             ptag.className = `feed-text`;
-            ptag.innerHTML = `./${imgUrls[i]}`;
+            ptag.innerHTML = `./${imgUrls[i].filename} ${imgUrls[i].date}`;
             atag2.appendChild(ptag);
 
             container.appendChild(atag2);

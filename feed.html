@@ -14,6 +14,7 @@
             font-size: 60px;
             font-weight: 100;
             margin-bottom: 70px;
+            max-width: 80%;
         }
         img {
           width: 100%;
@@ -34,12 +35,11 @@
     <script>
         const imgUrls = [
             // start tag
-			"IMG_6371.jpeg",
-			"3_image.jpg",
-			"2_image.jpg",
-			"1_IMG_3966.jpeg",
-			"1_image.jpg",
-          // end tag
+			 { filename: "IMG_6371.jpeg", date: "[Sep '24]" },
+			 { filename: "3_image.jpg", date: "[Sep '24]" },
+			 { filename: "1_IMG_3966.jpeg", date: "[Sep '24]" },
+			 { filename: "1_image.jpg", date: "[Sep '24]" },
+			      // end tag
         ];
 
         let imgIndex = 0;
@@ -51,10 +51,10 @@
         const endIndex = imgIndex + imagesPerBatch;
         for (let i = imgIndex; i < endIndex && i < imgUrls.length; i++) {
             const atag1 = document.createElement('a');
-            atag1.href = `./images/${imgUrls[i]}`;
+            atag1.href = `./images/${imgUrls[i].filename}`;
 
             const img = document.createElement('img');
-            img.src = `thumbnails/${imgUrls[i]}`;
+            img.src = `thumbnails/${imgUrls[i].filename}`;
             atag1.appendChild(img);
 
             container.appendChild(atag1);
@@ -63,7 +63,8 @@
 
             const ptag = document.createElement('p');
             // ptag.className = `feed-text`;
-            ptag.innerHTML = `./${imgUrls[i]}`;
+            // ptag.innerHTML = `${imgUrls[i].filename} ${imgUrls[i].date}`;
+            ptag.innerHTML = `${imgUrls[i].date}`;
             // atag2.appendChild(ptag);
 
             container.appendChild(ptag);

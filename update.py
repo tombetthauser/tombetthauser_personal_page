@@ -1,4 +1,23 @@
 import os
+from datetime import datetime
+
+def get_image_creation_date(file_path: str) -> str:
+    # Get the creation time of the file
+    creation_time = os.path.getctime(file_path)
+    
+    # Convert the creation time to a datetime object
+    creation_date = datetime.fromtimestamp(creation_time)
+    
+    # Format the date as "[Mon 'YY]"
+    formatted_date = creation_date.strftime("[%b '%y]")
+    
+    return formatted_date
+
+# Example usage:
+# file_path = 'example_image.jpg'
+# formatted_date = get_image_creation_date(file_path)
+# print(formatted_date)
+
 
 
 
@@ -159,7 +178,22 @@ def update_feed_from_record(record_file='record.txt', feed_file='feed.html'):
         record_lines = record.readlines()
 
     # Wrap each line in quotes and add a comma at the end
-    wrapped_lines = [f'\t\t\t"{line.strip()}",\n' for line in record_lines]
+    # wrapped_lines = [f'\t\t\t"{line.strip()}",\n' for line in record_lines]
+    wrapped_lines = []
+
+    for line in record_lines:
+        print(line)
+        img_date = get_image_creation_date(f"./images/{line.strip()}")
+        print(img_date)
+
+        filename = line.strip()
+
+        # new_line_str = f"\t\t\t{{ filename: `{line.strip()}`, date: `{img_date}` \},\n"
+        # formatted_string = f"Here is a string with quotes: \"{value}\" and curly brackets: {{this is a literal curly bracket}}"
+        new_line_str = f"\t\t\t {{ filename: \"{filename}\", date: \"{img_date}\" }},\n"
+
+        # new_line_str = '\t\t\t{ filename: \'%\', date: \'%\' },\n' % (line.strip(), img_date)
+        wrapped_lines.append(new_line_str)
 
     # Read the feed file
     with open(feed_file, 'r') as feed:
