@@ -312,3 +312,55 @@ def create_inbox_with_dummy_file():
 
 # Call the function
 create_inbox_with_dummy_file()
+
+
+
+def get_first_line(input_file):
+    with open(input_file, 'r') as file:
+        first_line = file.readline().strip()  # Read the first line and strip any surrounding whitespace
+    return first_line
+
+
+
+def replace_text_between_markers(start_string, end_string, file_to_update, new_text):
+    # Read the file content
+    with open(file_to_update, 'r') as file:
+        lines = file.readlines()
+
+    # Initialize variables
+    new_content = []
+    in_marker_block = False
+    
+    # Process the file line by line
+    for line in lines:
+        if start_string in line:
+            # When the start marker is found, add the line and start replacing text
+            new_content.append(line)
+            new_content.append(new_text + '\n')  # Append the new text
+            in_marker_block = True
+        elif end_string in line and in_marker_block:
+            # When the end marker is found, stop replacing text
+            new_content.append(line)
+            in_marker_block = False
+        elif not in_marker_block:
+            # Outside the marker block, just copy the line
+            new_content.append(line)
+
+    # Write the modified content back to the file
+    with open(file_to_update, 'w') as file:
+        file.writelines(new_content)
+
+new_preview_header = f'''\
+  <meta property="og:title" content="w̷̢̨̛̭̻̱̥͍͙͕̮̜͔̘̥͔̦͕̺̑̉̍̍̿͌̊̑̌͂̈́̿̀̕͜͝͝w̶̢̢̡̢̡̢̨̢̦̪̟̦̯̹̣̠̰̙̺̰͖̝̥̖͕̭̹͓͖̩͖̰̦̣̲̮̲̫͓̖̙̦̞̙̱̥͈̪̹͕̳͈̖̞͕̻̖̣̥̝̪̫̻̗͙̗̯͇͎͉̙͇͎̝̌̈́͂͂͒́͗̀͌̄̓̓̏̾͂́̾̽͌͜͜͜͠ͅͅͅŵ̷̡̧̧̢̧̨̢̛̛̛̦̺̰̲͍̱̪̩̭͇̗̹͇͚̞̣̜̭͙͍̝͙̞̰̳̺̘̳̙̖̗͚͖͈͕̥̞̩̰͔̞͉̞̻͔̟̘̠̲͉̥̠̼̙͔̺̩͔͈͓͚̳̩̤͚̤̙̻̝͓͙̪͙͓̼͚̟̼̬̤̺̓̈́͗̔̄̋͛̿̓͋̅̉̈́̿̑̅̀͆̐̉̀̑́̓́͐́̄̽̑͐̅͌̌̍͐̍͛͑̉̓͂́̈̍͗͊͑̌͛̀̆́̔̀̑͂͗̈́̉̉̑́̔̚̚͘͘̕͜͠͠͠͠͝͝͝͝͝͝ͅͅͅͅͅͅ.̶̡̢̨̨̢̯͍͓̼̻͍̬̺͍̱̱̩̳͍̪̰̰͔͓̘͓̮̞̣͕̺̲̝̰̗̻̳̘̯̹͕̦̩̬͇̗̮̱͕̱̣̟͔̤̺̯̣̖̹̯͖͚̝̩͚̋͑́̾̿̑́̀̾͛̂̓̈͌̓̔̇̃̍́̿͛́̊̓́̌̈̎͊̐̾̅͂́̃̂̀̽̌́̆͘͜͠͝͝ͅͅt̶̨̢̢̡̧̨̢̨̢̨̬̗̝̜̘̮̫̪̥̭̣̳̬̯͉͇̫̤̻͖̝̖̺͓̖̞̝̜̞̪̲̺̜̣͎̖̝̙̰͎̓̀͑̋͆̏̍͛̒̈̍̀͛̓̄̃̎̊͋͆͑͋̄͂̐̋̄̈͋̓̄͑̏̏̌̋̿̂̀͊͌͆̌̋̒̚̕̚̕̕̚͘͜͜͜͝͝͝ö̷͔̣͔̲̟̰͕̜̬̱͙̹́͌̉͝m̵̡̡̛̛̗͉̙̠͙̼̗̲̟̪̲̯̻̍̈̎̎́̏́̔̇̓́̌̄̑͒̓͂͌͗͒̑͋̀͒̍̀̾͒̀̄̍̔̾͌̄́̄͆̈́̆̀̎̀̎̇͆́̆͛̓͗̇̑̏̿̋͆͑̈́̋̐̉͆̌̽̚̚͘̚͘͘̚̚͜͝͠͝͝͝͝͝͝ͅb̶̨̨̢̨̧̡͇̖̞̮̗̘̬͙͕̹̤͇̲̫̩̩͈̺̩̼͚͖̲͓͍̣̤͙̝̥͈̪͚̘̝̣͈̫̺̦̘̗͉̞̰̭̥̰͚̲̫̫̪̖̪͍͙̯̹͚̭͈̪̖̬̹͓̟̣͔̼͉̤͇̟͈̼̖̯̣̥̟̙̺̥̮̃̋͆́͐̈̿̽̌̈͐͌̽͗̋͌̑͂̔̿̍̔͑͊́͗͋͘͘͜͜͜͝͝͝͝͠ͅͅͅè̴̛̛̛̝͖͚̱̭̺̅̈̔̌̀̏̓̐̇̅̌̎͑̀̿̑̈́̿̓̐́̾͆̂͋̄̋̎̇̈́̅̄̐̽̈́̍̈́̏͑̇͋̈́̒̇̿̋̇̋̅̔̾̇̒̈́̊̇̄͘̚͘̚̚̚͠͠͠͠͝͠͝t̵̡̧̡̡̨̢̡̨̨̨̛̺͍̱̖̹̗̝̬͎̼̙̥̙̫͓͔̭̬̳̘̻͇̙̙̫̦̼͚͇̤̣͖̠̠̻͇͎̫̪̤̗̦̩̝̥̻̘͔̭̳͖̜͓̭͚̙̗̤̳̩̠̝̝̲͈͔̯͈͈̻̹̭̥̯̟̙̼͖̘̿̇͂͆͒́̆̈́̒̋̽̄̒̄͒͐͆̆̇̋̒̈́̀͛̾̃͊̄̈́̈́͑̉̋̑̿̀͗̍̈̔͗̎̔̂̅̀́̀̀͒͌̚̕̕͠͝͠͠͠͝͝ͅͅt̷̢̨̨̡̢̢̨̡̧̢̛̛̺̥̥͈̬̳̩̠͉̮̺̦͔̬͈̩̟̦͕͔͍̘͍̥̥̳͎̥͍̪̹͙̦͔͙̜̰͇̝͚͕̲͕̜͎̲̝̺̘̫̩̫͇͔͉̟̖̭̤̳͔̩̱͙̫̠͈̹̠͚͇̦͔̭͉̼̰̓̎͋̋͛̇̎̑̉̈́̐̆͑̈́͊̽͒̾̔͊͊͂͒͗̀͌͐͆̒̏͆̈́̃̂͊̉́̽̈̾̅̓̀̍̃̌̋̈́̀̅͑̆̓̀̀͆͘̚͘͘͘̚͜͝͠ͅͅḫ̴̢̛̛̹̞̫̾̄̑̀̽͐̐̑̔̇̈̏̐͂̿́̔͛͗͂̂́̌̔͛̂͌̿̓͂͋̄̿́́̌̅͛̽̐̏̆̅͛͊̐̇͛̉̒͛͛̂̄̉̽͌͌̏͊̿͊̓͌̂͊͋͋̐͒̽̃̇̑͆̚̕̕̚̚̚͘͘̕̚̚͝͝͠͠a̶̧̡̧̡̢̨̢̡̢̡̨̛̛̪̠̯͎͇͚̪̯͖̭̦̫͎̥̭͔̯̤̤͉̱̪̰̝̻͓̟̻̦̤͇̤͉̠̰͔͍̤̗̹͉̮̪̙̼͕̙̦͙̰̤̳͍̺̙̬͙̬̲̣̠̰̱̱̭̤͚̰̖̯̫͎̞͔͉̾̄̋́̊̍͂͆͋̊͊̐́̈́̾͐͐͐̏̒̆̅͗͗̅̏̉̐͌̓́̆̆̾̽̓̏́͗̀̽͊̇͛̄̌̽̓͑̿̌̔̋͐̉̓͌̀͊͑̉̋͗͂̿̓͊̈́̐̚̚͘̕͘̚͜͜͝͠͝͝͠͝͝͝͝ͅͅu̴̡̨̨̢̳͈̗͈̯̼͖̫̤̗̗̯̺̯̯̩̥͕̗̜͔͉̝̘͔͎̺̠̞̞̭̻̺̻̘̤͇̩̜̣̖̬͎̙̿̾̉̾͌̀͌̓̅͒̈́͒̾̅͆̀͂̑́̓̎̄͑̄͊͋̈́̑̓̽̑͋̚̚̚͘͜͜͝͠͝͝ͅs̴̢̹̓̒̑̓́̍͛͠ͅē̷̢̢̢̢̧̥̫̺͖̖̯͎̼͖̰͖̹͉̥̯͍̲͙̼̗͇̳̥͉̬̗̯̥͕̳̥̝̼̭̺̲͖̠̺̼̮̼̱̫̙̬̙̻͎͇̺̲͇̙̝̳͓͖̺̹̲͛́̌̀̄̾̌͋̓́̉̓̋̈́͌̐̈̔̌͒̐̕̕̕͜͝͝͝͝ͅͅr̵̨̧̯̝̘̰͍̲̭̙̦̫̲̬̟̟͈͈̳̤̮̲̠̩̰͍̞͇̥̮̰̜̺̩̪̱̼̝̄͌̿̂̒̄̌͜͜͜.̸̛̮͌͛͛̓̍̒̏͐̍̓̒̍̌̉̏͋́̇̈́̈́̀̆́͋̕̚͘c̶̡̨̧̨̢̡̨̡̡͕̝͍̰̖͕̪̰͉̯̞̗͔̹͎̯̲̣͇̝̤̭͉̯̣͙̗̳̲͚̰̠̠̼̳͖͖̫̺̠̬̮̜̳̱̣̹̀̂́́́͌̾̿̽̋̂͌͗̒͗̏̊͊̒̏̋̔͂̔̈́̊̃̊̔̆̍͊̏̀͗̍͊͗̈̔̀͂̌̇̊̈̓͂̌̈́̂͐̈̕͘͜͝͠͠͝͝ͅǫ̸̧̢̧̨̢͚͎̘̩͎̯̖͖̬̮̻̣̭̰̟͉̬̲̳̟͚̬̘̦̗͍͓̘̮͓̹̩̘̟͔̙̪̻̹̥̖͖̯̰͈̦͙̜̩͍̗̞̼͖̳͉͔̠̹̞̠̱͙̗͙̣̱̰͇̜͖̫͕͙͖͙͖̻̫͕̙͎͇̮͂͐̍̿́̿̉͜͜͝ͅm̸̨̨̢̛̬͇̼̜̫̻̲̜̝̠̦̯̥͈̫͓̹̬͎̫͕͖̖̱̩̤̠̥͔̮̙̘̥͓͙͈̼͙͇̫̦̬͍̟͐̏̈́̀̓͐̀̽͌̄̇͗͗̐́̌͗͋͛͑͊̑̌̇͛̅̌̓̿̔̄̔͂̀̓͊̓̍̈̏̏̀̓̈́̐̄͋̅̅̓̉̊͑̂̾̽͊̂͂̋͋̈́̂̀̐͌̌̉̍̇̀̈́͘̕̕͘̕̕͝͝͠͝͠͠͝͝" />
+  <meta property="og:image" content="./thumbnails/{get_first_line('record.txt')}" />\
+'''
+
+replace_text_between_markers('<!-- START_PREVIEW_HEADER -->', '<!-- END_PREVIEW_HEADER -->', 'index.html', new_preview_header)
+
+
+new_preview_header = f'''\
+    <meta property="og:title" content="Tom's Social Media Feed" />
+    <meta property="og:image" content="./thumbnails/{get_first_line('record.txt')}" />\
+'''
+
+replace_text_between_markers('<!-- START_PREVIEW_HEADER -->', '<!-- END_PREVIEW_HEADER -->', 'feed.html', new_preview_header)
