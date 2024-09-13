@@ -128,6 +128,18 @@
     filter: invert(1);
     cursor: grab;
   } */
+
+   .heart-span {
+      /* background-color: white;
+      padding: 10px 15px;
+      border-radius: 15px;
+      margin-bottom: 35px; */
+      /* box-shadow: -7px -7px 5px black; */
+      /* border: 3px dotted black; */
+   }
+   .heart-span:hover {
+      cursor: pointer;
+   }
 </style>
 
 <body>
@@ -249,21 +261,34 @@
         for (let i = imgIndex; i < endIndex && i < imgUrls.length; i++) {
             const atag1 = document.createElement('a');
             atag1.href = `./images/${imgUrls[i].filename}`;
-
+            
             const img = document.createElement('img');
             img.src = `./thumbnails/${imgUrls[i].filename}`;
             atag1.appendChild(img);
-
-            container.appendChild(atag1);
-
+            
+            // container.appendChild(atag1);
+            
             const atag2 = document.createElement('a');
-
+            
             const ptag = document.createElement('p');
             ptag.className = `feed-text`;
             ptag.innerHTML = `./${imgUrls[i].filename} ${imgUrls[i].date}`;
             atag2.appendChild(ptag);
+            
+            const containerDiv = document.createElement('div');
+            
+            const heartSpan = document.createElement('button');
+            // heartSpan.setAttribute('#', `heart-${i}`);
+            heartSpan.className = 'heart-span'
+            heartSpan.innerHTML = `❤️ ${Math.floor(Math.random() * 1000000000000000)}`;
+            
+            atag1.appendChild(heartSpan);
+            
+            containerDiv.appendChild(atag1);
+            containerDiv.appendChild(atag2);
 
-            container.appendChild(atag2);
+
+            container.appendChild(containerDiv);
         }
         imgIndex += imagesPerBatch;
       }
@@ -307,6 +332,23 @@
 
     // Call the function to initialize the player
     loadYouTubePlayer();
+  </script>
+
+  <script>
+      const heartsArr = document.querySelectorAll('.heart-span');
+      heartsArr.forEach(heartSpan => {
+        heartSpan.addEventListener('click', () => {
+            alert('❤️ thank you! ')
+        })
+      })
+
+    setInterval(() => {
+      const window = document.querySelectorAll('.heart-span');
+      heartsArr.forEach(heartSpan => {
+        heartSpan.innerHTML = `❤️ ${Math.floor(Math.random() * 1000000000000000)}`;
+        // heartSpan.style.boxShadow = `-${Math.floor(Math.random() * 7)}px -${Math.floor(Math.random() * 7)}px ${Math.floor(Math.random() * 7)}px #00000088`;
+      });
+    }, 50)
   </script>
 
 </body>
