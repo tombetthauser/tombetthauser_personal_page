@@ -18,7 +18,7 @@
 <style>
   html {
     background-color: greenyellow;
-    animation: zoom 5s linear infinite;
+    animation: zoom-drift 20s linear infinite;
     /* animation: zoom 20s linear infinite; */
     background-size: 500px 380px;
     background-image: url("./images/img1.jpg");
@@ -55,6 +55,10 @@
   @keyframes zoom {
     from {     background-size: 500px 380px; }
     to {  background-size: 0px 0px; }
+  }
+  @keyframes zoom-drift {
+    from {     background-size: 500px 380px; background-position: 0px 0px; }
+    to {  background-size: 0px 0px; background-position: -2000px -1520px; }
   }
   @keyframes jitter {
     0% { margin: 1px 1px -1px 1px; }
