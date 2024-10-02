@@ -167,7 +167,7 @@
   </ul> -->
 
   <ul>
-    <li><a id='zine-bot' href="https://tombetthauser.github.io/marcella/">🐤 marcella</a></li>
+    <li><a id='zine-bot' href="https://tombetthauser.github.io/marcella/">🦆 marcella</a></li>
     <li><a id='state-of-the-arts' href="https://xstreetgames.itch.io/">🕹️ gameboy-games</a></li>
     <li><a id='page-garden' href="https://pagegarden.herokuapp.com/">🌱 page-garden</a></li>
     <li><a id='zine-bot' href="https://tombetthauser.github.io/wasm-zinebot/">📒 zine-bot</a></li>
@@ -287,13 +287,6 @@
             
             const containerDiv = document.createElement('div');
             
-            const heartSpan = document.createElement('button');
-            // heartSpan.setAttribute('#', `heart-${i}`);
-            heartSpan.className = 'heart-span'
-            heartSpan.innerHTML = `❤️ ${Math.floor(Math.random() * 1000000000000000)}`;
-            
-            atag1.appendChild(heartSpan);
-            
             containerDiv.appendChild(atag1);
             containerDiv.appendChild(atag2);
 
@@ -351,14 +344,6 @@
             alert('❤️ thank you! ')
         })
       })
-
-    setInterval(() => {
-      const window = document.querySelectorAll('.heart-span');
-      heartsArr.forEach(heartSpan => {
-        heartSpan.innerHTML = `❤️ ${Math.floor(Math.random() * 1000000000000000)}`;
-        // heartSpan.style.boxShadow = `-${Math.floor(Math.random() * 7)}px -${Math.floor(Math.random() * 7)}px ${Math.floor(Math.random() * 7)}px #00000088`;
-      });
-    }, 50)
   </script>
 
 </body>
