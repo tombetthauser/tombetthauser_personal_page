@@ -1,6 +1,6 @@
-Untitled, graphite on paper, 2024
-<a class="feed-text" href="http://google.com">test url</a>
-http://google.com
+<a class="feed-text" href="https://axisgallery.org/home/exhibitions/erin-kaczkowski/">Axis Gallery, 2024</a>
+<a class="feed-text" href="https://axisgallery.org/home/exhibitions/erin-kaczkowski/">Axis Gallery, 2024</a>
+<a class="feed-text" href="https://axisgallery.org/home/exhibitions/erin-kaczkowski/">Axis Gallery, 2024</a>
 
 IMG_7393.jpeg
 IMG_7299.jpeg
