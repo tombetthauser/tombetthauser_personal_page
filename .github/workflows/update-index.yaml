@@ -6,6 +6,8 @@ on:
       - 'inbox/**'
       - 'images/**'
       - 'thumbnails/**'
+      - 'record.txt'
+      - 'text.txt'
 
 jobs:
   update-index:

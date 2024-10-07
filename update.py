@@ -19,6 +19,15 @@ def get_image_creation_date(file_path: str) -> str:
 # print(formatted_date)
 
 
+def formatted_current_date():
+    # Get the current date and time
+    now = datetime.now()
+    
+    # Format the date as desired: [month-day-year]
+    formatted_date = f"[{now.month}-{now.day}-{now.year}]"
+    
+    return formatted_date
+
 
 
 def remove_dummy_file():
@@ -41,9 +50,10 @@ remove_dummy_file()
 
 
 
+
 import os
 
-def process_images(inbox_dir='inbox', images_dir='images', record_file='record.txt'):
+def process_images(inbox_dir='inbox', images_dir='images', record_file='record.txt', text_file='text.txt'):
     # List of acceptable image file extensions
     image_extensions = ['.png', '.jpg', '.jpeg', '.gif']
 
@@ -113,6 +123,10 @@ def process_images(inbox_dir='inbox', images_dir='images', record_file='record.t
                 record.write(new_filename)  # Write new filename first
                 record.writelines(existing_content)  # Write the rest of the old content
 
+            with open(text_file, 'w') as record:
+                record.write(new_filename)  # Write new filename first
+                record.writelines(existing_content)  # Write the rest of the old content
+
             # Remove the file from the inbox after copying
             os.remove(source)
             print(f"Removed {filename} from {inbox_dir}")
@@ -157,12 +171,40 @@ clean_record()
 
 
 
+def update_text_file(record_file='record.txt', text_file='text.txt'):
+    # Read the lines from the record.txt file
+    with open(record_file, 'r') as record_f:
+        record_lines = record_f.readlines()
+    
+    # Read the lines from the text.txt file
+    with open(text_file, 'r') as text_f:
+        text_lines = text_f.readlines()
+
+    # Get the number of lines in both files
+    record_len = len(record_lines)
+    text_len = len(text_lines)
+
+    # If record.txt has more lines, copy the corresponding lines from record.txt to text.txt
+    if record_len > text_len:
+        for i in range(text_len, record_len):
+            text_lines.append(record_lines[i])
+    # If text.txt has more lines, truncate the excess lines
+    elif record_len < text_len:
+        text_lines = text_lines[:record_len]
+
+    # Write the updated lines back to text.txt
+    with open(text_file, 'w') as text_f:
+        text_f.writelines(text_lines)
+
+# Example usage:
+# update_text_file('record.txt', 'text.txt')
+
+update_text_file()
 
 
 
 
-
-def update_feed_from_record(record_file='record.txt', feed_file='feed.html'):
+def update_feed_from_record(record_file='record.txt', feed_file='feed.html', text_file='text.txt'):
     # Check if record.txt exists
     if not os.path.exists(record_file):
         print(f"{record_file} does not exist.")
@@ -177,20 +219,27 @@ def update_feed_from_record(record_file='record.txt', feed_file='feed.html'):
     with open(record_file, 'r') as record:
         record_lines = record.readlines()
 
+    # Read the lines from text.txt
+    with open(text_file, 'r') as text:
+        text_lines = text.readlines()
+
     # Wrap each line in quotes and add a comma at the end
     # wrapped_lines = [f'\t\t\t"{line.strip()}",\n' for line in record_lines]
     wrapped_lines = []
 
-    for line in record_lines:
+    for idx, line in enumerate(record_lines):
         print(line)
-        img_date = get_image_creation_date(f"./images/{line.strip()}")
+        # img_date = get_image_creation_date(f"./images/{line.strip()}")
+        img_date = formatted_current_date()
         print(img_date)
 
         filename = line.strip()
 
+        img_text = text_lines[idx].strip().replace('"', "'")
+
         # new_line_str = f"\t\t\t{{ filename: `{line.strip()}`, date: `{img_date}` \},\n"
         # formatted_string = f"Here is a string with quotes: \"{value}\" and curly brackets: {{this is a literal curly bracket}}"
-        new_line_str = f"\t\t\t {{ filename: \"{filename}\", date: \"{img_date}\" }},\n"
+        new_line_str = f"\t\t\t {{ filename: \"{filename}\", date: \"{img_date}\", text: \"{img_text}\"}},\n"
 
         # new_line_str = '\t\t\t{ filename: \'%\', date: \'%\' },\n' % (line.strip(), img_date)
         wrapped_lines.append(new_line_str)

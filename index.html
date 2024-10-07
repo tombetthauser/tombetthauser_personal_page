@@ -17,13 +17,15 @@
 </head>
 <style>
   html {
-    background-color: greenyellow;
-    animation: zoom-drift 20s linear infinite;
+    background-color: black;
+    animation: drift 10s linear infinite;
+    /* animation: zoom-drift 20s linear infinite; */
     /* animation: zoom 20s linear infinite; */
     background-size: 500px 380px;
     /* background-image: url("./images/img1.jpg"); */
     background-attachment: fixed;
-    background-image: url("https://i.pinimg.com/originals/8d/38/8f/8d388f38ade142d0e6f7e6c54aa835c8.gif");
+        background-image: url("./backgrounds/aeon-fly.gif");
+    /* background-image: url("https://i.pinimg.com/originals/8d/38/8f/8d388f38ade142d0e6f7e6c54aa835c8.gif"); */
     /* background-image: url("./backgrounds/IMG_7023.jpeg"); */
     /* background-image: url("https://i.makeagif.com/media/9-20-2017/fZPKhZ.gif"); */
     
@@ -251,23 +253,23 @@
   <script>
       const imgUrls = [
         // start tag
-			 { filename: "IMG_7435.jpeg", date: "[Oct '24]" },
-			 { filename: "IMG_7403.jpeg", date: "[Oct '24]" },
-			 { filename: "IMG_7459.jpeg", date: "[Oct '24]" },
-			 { filename: "IMG_7405.jpeg", date: "[Oct '24]" },
-			 { filename: "IMG_7393.jpeg", date: "[Oct '24]" },
-			 { filename: "IMG_7299.jpeg", date: "[Oct '24]" },
-			 { filename: "IMG_7083.jpeg", date: "[Oct '24]" },
-			 { filename: "IMG_6911.jpeg", date: "[Oct '24]" },
-			 { filename: "IMG_6371.jpeg", date: "[Oct '24]" },
-			 { filename: "3_image.jpg", date: "[Oct '24]" },
-			 { filename: "1_IMG_3966.jpeg", date: "[Oct '24]" },
-			 { filename: "1_image.jpg", date: "[Oct '24]" },
-			 { filename: "IMG_6572.jpeg", date: "[Oct '24]" },
-			 { filename: "IMG_6489.jpeg", date: "[Oct '24]" },
-			 { filename: "IMG_6487.jpeg", date: "[Oct '24]" },
-			 { filename: "IMG_6453.jpeg", date: "[Oct '24]" },
-			 { filename: "IMG_6384.jpeg", date: "[Oct '24]" },
+			 { filename: "IMG_7435.jpeg", date: "[10-7-2024]", text: "Untitled, graphite on paper, 2024"},
+			 { filename: "IMG_7403.jpeg", date: "[10-7-2024]", text: "<a class='feed-text' href='http://google.com'>test url</a>"},
+			 { filename: "IMG_7459.jpeg", date: "[10-7-2024]", text: "http://google.com"},
+			 { filename: "IMG_7405.jpeg", date: "[10-7-2024]", text: ""},
+			 { filename: "IMG_7393.jpeg", date: "[10-7-2024]", text: "IMG_7393.jpeg"},
+			 { filename: "IMG_7299.jpeg", date: "[10-7-2024]", text: "IMG_7299.jpeg"},
+			 { filename: "IMG_7083.jpeg", date: "[10-7-2024]", text: "IMG_7083.jpeg"},
+			 { filename: "IMG_6911.jpeg", date: "[10-7-2024]", text: "IMG_6911.jpeg"},
+			 { filename: "IMG_6371.jpeg", date: "[10-7-2024]", text: "IMG_6371.jpeg"},
+			 { filename: "3_image.jpg", date: "[10-7-2024]", text: "3_image.jpg"},
+			 { filename: "1_IMG_3966.jpeg", date: "[10-7-2024]", text: "1_IMG_3966.jpeg"},
+			 { filename: "1_image.jpg", date: "[10-7-2024]", text: "1_image.jpg"},
+			 { filename: "IMG_6572.jpeg", date: "[10-7-2024]", text: "IMG_6572.jpeg"},
+			 { filename: "IMG_6489.jpeg", date: "[10-7-2024]", text: "IMG_6489.jpeg"},
+			 { filename: "IMG_6487.jpeg", date: "[10-7-2024]", text: "IMG_6487.jpeg"},
+			 { filename: "IMG_6453.jpeg", date: "[10-7-2024]", text: "IMG_6453.jpeg"},
+			 { filename: "IMG_6384.jpeg", date: "[10-7-2024]", text: "IMG_6384.jpeg"},
         // end tag
       ];
 
@@ -288,14 +290,41 @@
             
             // container.appendChild(atag1);
             
-            const atag2 = document.createElement('a');
-            
-            const ptag = document.createElement('p');
-            ptag.className = `feed-text`;
-            ptag.innerHTML = `./${imgUrls[i].filename} ${imgUrls[i].date}`;
-            atag2.appendChild(ptag);
-            
+            const atag2 = document.createElement('a');            
             const containerDiv = document.createElement('div');
+            const currImgText = imgUrls[i].text;
+
+            if (currImgText !== '#none' && currImgText !== '') {
+              if (currImgText.slice(0, 4) == '<') {
+                const newHtml = document.createElement('html');
+                newHtml.innerHTML = currImgText;
+                newHtml.className = `feed-text`;
+                atag2.appendChild(newHtml);
+              } else if (currImgText.slice(0,4) == 'http') {
+                const newPTag = document.createElement('p');
+                // newPTag.innerHTML = currImgText;
+                newPTag.className = `feed-text`;
+                
+                const newATag = document.createElement('a');
+                newATag.href = currImgText;
+                newATag.innerHTML = currImgText;
+                newATag.className = `feed-text`;
+                newPTag.appendChild(newATag);
+
+                atag2.appendChild(newPTag);
+              } else {
+                const newPTag = document.createElement('p');
+                newPTag.innerHTML = currImgText;
+                newPTag.className = `feed-text`;
+                atag2.appendChild(newPTag);
+              }
+            } else {
+              const ptag = document.createElement('p');
+              ptag.className = `feed-text`;
+              // ptag.innerHTML = `./${imgUrls[i].filename} ${imgUrls[i].date}`;
+              ptag.innerHTML = `./${imgUrls[i].filename}`;
+              atag2.appendChild(ptag);
+            }
             
             containerDiv.appendChild(atag1);
             containerDiv.appendChild(atag2);
