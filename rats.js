@@ -1,4 +1,3 @@
-// var colour = "#7b9b83";
 var colour = "#30a14e";
 var sparkles = 120;
 var x = ox = 400;
@@ -17,7 +16,6 @@ var tinyv = new Array();
 
 window.onload = function () {
   if (document.getElementById) {
-    var i, rats, rlef, rdow;
     for (var i = 0; i < sparkles; i++) {
       var rats = createDiv(3, 3);
       rats.style.visibility = "hidden";
@@ -28,39 +26,46 @@ window.onload = function () {
       rats.style.backgroundColor = "transparent";
       rats.style.visibility = "hidden";
       var rlef = createDiv(5, 5);
-      // var rdow = createDiv(5, 1);
+      var rdow = createDiv(5, 1);
       rats.appendChild(rlef);
-      // rats.appendChild(rdow);
+      rats.appendChild(rdow);
       rlef.style.top = "0px";
       rlef.style.left = "0px";
-      // rdow.style.top = "0px";
-      // rdow.style.left = "2px";
+      rdow.style.top = "0px";
+      rdow.style.left = "2px";
       document.body.appendChild(star[i] = rats);
     }
     set_width();
+    set_scroll(); // Ensure scroll is set initially
     sparkle();
   }
-}
+};
 
 function sparkle() {
   var c;
+  // Generate random x and y, factoring in scroll position
+  x = Math.random() * swide + sleft;
+  y = Math.random() * shigh + sdown;
+  
   if (x != ox || y != oy) {
     ox = x;
     oy = y;
-    for (c = 0; c < sparkles; c++) if (!starv[c]) {
-      star[c].style.left = (starx[c] = x) + "px";
-      star[c].style.top = (stary[c] = y) + "px";
-      star[c].style.clip = "rect(0px, 5px, 5px, 0px)";
-      star[c].style.visibility = "visible";
-      starv[c] = 50;
-      break;
+    for (c = 0; c < sparkles; c++) {
+      if (!starv[c]) {
+        star[c].style.left = (starx[c] = x) + "px";
+        star[c].style.top = (stary[c] = y) + "px";
+        star[c].style.clip = "rect(0px, 5px, 5px, 0px)";
+        star[c].style.visibility = "visible";
+        starv[c] = 50;
+        break;
+      }
     }
   }
   for (c = 0; c < sparkles; c++) {
     if (starv[c]) update_star(c);
     if (tinyv[c]) update_tiny(c);
   }
-  setTimeout("sparkle()", 40);
+  setTimeout(sparkle, 50); // Adjusted to 50 milliseconds
 }
 
 function update_star(i) {
@@ -71,21 +76,19 @@ function update_star(i) {
       star[i].style.top = stary[i] + "px";
       starx[i] += (i % 5 - 2) / 5;
       star[i].style.left = starx[i] + "px";
-    }
-    else {
+    } else {
       star[i].style.visibility = "hidden";
       starv[i] = 0;
       return;
     }
-  }
-  else {
+  } else {
     tinyv[i] = 50;
     tiny[i].style.top = (tinyy[i] = stary[i]) + "px";
     tiny[i].style.left = (tinyx[i] = starx[i]) + "px";
     tiny[i].style.width = "2px";
     tiny[i].style.height = "2px";
     star[i].style.visibility = "hidden";
-    tiny[i].style.visibility = "visible"
+    tiny[i].style.visibility = "visible";
   }
 }
 
@@ -100,54 +103,41 @@ function update_tiny(i) {
       tiny[i].style.top = tinyy[i] + "px";
       tinyx[i] += (i % 5 - 2) / 5;
       tiny[i].style.left = tinyx[i] + "px";
-    }
-    else {
+    } else {
       tiny[i].style.visibility = "hidden";
       tinyv[i] = 0;
       return;
     }
-  }
-  else tiny[i].style.visibility = "hidden";
+  } else tiny[i].style.visibility = "hidden";
 }
 
-document.onmousemove = mouse;
-function mouse(e) {
-  set_scroll();
-  y = (e) ? e.pageY : event.y + sdown;
-  x = (e) ? e.pageX : event.x + sleft;
-}
-
+// Track scroll position and update accordingly
+window.onscroll = set_scroll;
 function set_scroll() {
   if (typeof (self.pageYOffset) == "number") {
     sdown = self.pageYOffset;
     sleft = self.pageXOffset;
-  }
-  else if (document.body.scrollTop || document.body.scrollLeft) {
+  } else if (document.body.scrollTop || document.body.scrollLeft) {
     sdown = document.body.scrollTop;
     sleft = document.body.scrollLeft;
-  }
-  else if (document.documentElement && (document.documentElement.scrollTop || document.documentElement.scrollLeft)) {
+  } else if (document.documentElement && (document.documentElement.scrollTop || document.documentElement.scrollLeft)) {
     sleft = document.documentElement.scrollLeft;
     sdown = document.documentElement.scrollTop;
-  }
-  else {
+  } else {
     sdown = 0;
     sleft = 0;
   }
 }
-
 
 window.onresize = set_width;
 function set_width() {
   if (typeof (self.innerWidth) == "number") {
     swide = self.innerWidth;
     shigh = self.innerHeight;
-  }
-  else if (document.documentElement && document.documentElement.clientWidth) {
+  } else if (document.documentElement && document.documentElement.clientWidth) {
     swide = document.documentElement.clientWidth;
     shigh = document.documentElement.clientHeight;
-  }
-  else if (document.body.clientWidth) {
+  } else if (document.body.clientWidth) {
     swide = document.body.clientWidth;
     shigh = document.body.clientHeight;
   }
@@ -155,11 +145,13 @@ function set_width() {
 
 function createDiv(height, width) {
   var div = document.createElement("div");
-  div.className = "sparkle"
+  div.className = "sparkle";
   div.style.position = "absolute";
   div.style.height = height + "px";
   div.style.width = width + "px";
-  div.style.overflow = "hidden";
-  div.style.backgroundColor = colour + `${Math.floor(Math.random() * 10)}` + `${Math.floor(Math.random() * 10)}`;
-  return (div);
+  div.innerHTML = "%";
+  div.style.color = "#fff";
+  div.style.fontSize = "14px";
+  div.style.overflow = "visible";
+  return div;
 }
