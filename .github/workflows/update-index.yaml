@@ -49,6 +49,12 @@ jobs:
       - name: List images directory before processing
         run: ls images
 
+      - name: List images directory before processing
+        run: cd weblog
+  
+      - name: Run update.py
+        run: python update.py
+        
       - name: Commit and push changes
         run: |
           git config --global user.name 'github-actions[bot]'
