@@ -111,8 +111,8 @@ def convert_txt_to_html(file_path):
         print(f"An error occurred: {e}")
 
 
-def process_text_files(inbox_dir='inbox', target_dir='./', record_file='record.txt', text_file='text.txt'):
-# def process_text_files(inbox_dir='inbox', record_file='record.txt'):
+def process_text_files(inbox_dir='inbox', target_dir='./', record_file='weblog/record.txt', text_file='text.txt'):
+# def process_text_files(inbox_dir='inbox', record_file='weblog/record.txt'):
     # List of acceptable image file extensions
     file_extensions = ['.txt']
 
@@ -120,7 +120,7 @@ def process_text_files(inbox_dir='inbox', target_dir='./', record_file='record.t
     if not os.path.exists(target_dir):
         os.makedirs(target_dir)
 
-    # Read existing record.txt contents if it exists
+    # Read existing weblog/record.txt contents if it exists
     if os.path.exists(record_file):
         with open(record_file, 'r') as record:
             recorded_filenames = set(line.strip() for line in record)
@@ -176,7 +176,7 @@ def process_text_files(inbox_dir='inbox', target_dir='./', record_file='record.t
             else:
                 existing_content = []
 
-            # Add the new filename to the top of the record.txt
+            # Add the new filename to the top of the weblog/record.txt
             new_filename = os.path.basename(destination) + '\n'
             with open(record_file, 'w') as record:
                 record.write(os.path.splitext(new_filename)[0] + '.html\n') # Write new filename first
@@ -202,8 +202,8 @@ process_text_files()
 
 
 
-def clean_record(blog_files_dir='./', record_file='record.txt'):
-    # Check if record.txt exists
+def clean_record(blog_files_dir='./', record_file='weblog/record.txt'):
+    # Check if weblog/record.txt exists
     if not os.path.exists(record_file):
         print(f"{record_file} does not exist.")
         return
@@ -211,7 +211,7 @@ def clean_record(blog_files_dir='./', record_file='record.txt'):
     # Get a list of filenames in the images directory
     blog_files_in_dir = set(os.listdir(blog_files_dir))
 
-    # Read the current contents of record.txt
+    # Read the current contents of weblog/record.txt
     with open(record_file, 'r') as record:
         lines = record.readlines()
     
@@ -224,7 +224,7 @@ def clean_record(blog_files_dir='./', record_file='record.txt'):
     # Filter out lines that do not match any filenames in the images directory
     new_lines = [line for line in lines if line.strip() in blog_files_in_dir]
 
-    # Write the updated contents back to record.txt
+    # Write the updated contents back to weblog/record.txt
     with open(record_file, 'w') as record:
         record.writelines(new_lines)
 
@@ -236,8 +236,8 @@ clean_record()
 
 
 # this creates / updates a text file that tracks the display text for images in the old blog - not needed here
-# def update_text_file(record_file='record.txt', text_file='text.txt'):
-#     # Read the lines from the record.txt file
+# def update_text_file(record_file='weblog/record.txt', text_file='text.txt'):
+#     # Read the lines from the weblog/record.txt file
 #     with open(record_file, 'r') as record_f:
 #         record_lines = record_f.readlines()
     
@@ -249,7 +249,7 @@ clean_record()
 #     record_len = len(record_lines)
 #     text_len = len(text_lines)
 
-#     # If record.txt has more lines, copy the corresponding lines from record.txt to text.txt
+#     # If weblog/record.txt has more lines, copy the corresponding lines from weblog/record.txt to text.txt
 #     if record_len > text_len:
 #         for i in range(text_len, record_len):
 #             text_lines.append(record_lines[i])
@@ -262,15 +262,15 @@ clean_record()
 #         text_f.writelines(text_lines)
 
 # # Example usage:
-# # update_text_file('record.txt', 'text.txt')
+# # update_text_file('weblog/record.txt', 'text.txt')
 
 # update_text_file()
 
 
 
 
-def update_feed_from_record(record_file='record.txt', feed_file='index.html', text_file='text.txt'):
-    # Check if record.txt exists
+def update_feed_from_record(record_file='weblog/record.txt', feed_file='weblog/index.html', text_file='text.txt'):
+    # Check if weblog/record.txt exists
     if not os.path.exists(record_file):
         print(f"{record_file} does not exist.")
         return
@@ -280,7 +280,7 @@ def update_feed_from_record(record_file='record.txt', feed_file='index.html', te
         print(f"{feed_file} does not exist.")
         return
 
-    # Read the lines from record.txt
+    # Read the lines from weblog/record.txt
     with open(record_file, 'r') as record:
         record_lines = record.readlines()
 
@@ -414,7 +414,7 @@ update_feed_from_record()
 
 def create_inbox_with_dummy_file():
     # Define the directory and file paths
-    dir_name = "inbox"
+    dir_name = "weblog/inbox"
     file_name = "foo.txt"
     file_content = "bar"
     
@@ -475,7 +475,7 @@ create_inbox_with_dummy_file()
 
 # new_preview_header = f'''\
 #   <meta property="og:title" content=" ̴̛̬̱͈̃̅͠ ̴̣͙̱͕̥͒́̓t̵̢̺͉͔͛́͗͛̈́ơ̷̗͎m̴͚͍̞͙͑̔b̵̢͇͚̱͚̀͠ȩ̶̡̡͉̭́̾̚͝t̴̼͕̯̭̜͂̐̀̿t̶̛͉̭͍͒̔̽̍ͅh̷̦̟̖̟̀̔a̷̡̺̹̾̇̋̀͆ú̴̜̔͝s̸͈̦͍͓͂e̶͎͎̖̖̔ŕ̸̢͝ ̶̢̛͕͕̇ ̸̧̦̥̇̂͘" />
-#   <meta property="og:image" content="./thumbnails/{get_first_line('record.txt')}" />\
+#   <meta property="og:image" content="./thumbnails/{get_first_line('weblog/record.txt')}" />\
 # '''
 
 # replace_text_between_markers('<!-- START_PREVIEW_HEADER -->', '<!-- END_PREVIEW_HEADER -->', 'index.html', new_preview_header)
@@ -483,7 +483,7 @@ create_inbox_with_dummy_file()
 
 # new_preview_header = f'''\
 #     <meta property="og:title" content="Tom's Social Media Feed" />
-#     <meta property="og:image" content="./thumbnails/{get_first_line('record.txt')}" />\
+#     <meta property="og:image" content="./thumbnails/{get_first_line('weblog/record.txt')}" />\
 # '''
 
 # replace_text_between_markers('<!-- START_PREVIEW_HEADER -->', '<!-- END_PREVIEW_HEADER -->', 'feed.html', new_preview_header)
