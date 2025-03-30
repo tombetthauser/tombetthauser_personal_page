@@ -28,32 +28,11 @@ jobs:
           python -m pip install --upgrade pip
           pip install Pillow
 
-      - name: List inbox directory before processing
-        run: ls inbox
-
-      - name: List thumbnails directory before processing
-        run: ls thumbnails
-
-      - name: List images directory before processing
-        run: ls images
-
       - name: Run update.py
         run: python update.py
-
-      - name: List inbox directory before processing
-        run: ls inbox
-
-      - name: List thumbnails directory before processing
-        run: ls thumbnails
-
-      - name: List images directory before processing
-        run: ls images
-
-      - name: List images directory before processing
-        run: cd weblog
   
       - name: Run update.py
-        run: python update.py
+        run: python weblog/update.py
         
       - name: Commit and push changes
         run: |
