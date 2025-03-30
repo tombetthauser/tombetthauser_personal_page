@@ -410,31 +410,31 @@ update_feed_from_record()
 
 
 
-# # import os
+# import os
 
-# def create_inbox_with_dummy_file():
-#     # Define the directory and file paths
-#     dir_name = "inbox"
-#     file_name = "foo.txt"
-#     file_content = "bar"
+def create_inbox_with_dummy_file():
+    # Define the directory and file paths
+    dir_name = "inbox"
+    file_name = "foo.txt"
+    file_content = "bar"
     
-#     # Check if the directory exists, if not, create it
-#     if not os.path.exists(dir_name):
-#         os.makedirs(dir_name)
-#         print(f"Directory '{dir_name}' created.")
-#     else:
-#         print(f"Directory '{dir_name}' already exists.")
+    # Check if the directory exists, if not, create it
+    if not os.path.exists(dir_name):
+        os.makedirs(dir_name)
+        print(f"Directory '{dir_name}' created.")
+    else:
+        print(f"Directory '{dir_name}' already exists.")
     
-#     # Define the full path for the file
-#     file_path = os.path.join(dir_name, file_name)
+    # Define the full path for the file
+    file_path = os.path.join(dir_name, file_name)
     
-#     # Create the file and write 'bar' to it
-#     with open(file_path, "w") as file:
-#         file.write(file_content)
-#         print(f"File '{file_name}' created with content: {file_content}")
+    # Create the file and write 'bar' to it
+    with open(file_path, "w") as file:
+        file.write(file_content)
+        print(f"File '{file_name}' created with content: {file_content}")
 
-# # Call the function
-# create_inbox_with_dummy_file()
+# Call the function
+create_inbox_with_dummy_file()
 
 
 
