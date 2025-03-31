@@ -1,1 +1,2 @@
 test-blog.html
+blog-haikus.html
