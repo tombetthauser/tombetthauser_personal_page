@@ -155,7 +155,7 @@ def clean_record(blog_files_dir='weblog', record_file='weblog/record.txt'):
 
     blog_files_in_dir = set(os.listdir(blog_files_dir))
 
-    with open(record_file, ' 'r') as record:
+    with open(record_file, 'r') as record:
         lines = record.readlines()
 
     print('\n\n')
