@@ -24,7 +24,60 @@ def remove_dummy_file():
 
 remove_dummy_file()
 
+
 def convert_txt_to_html(file_path):
+    file_path = os.path.join("weblog", file_path)
+    if not file_path.endswith('.txt'):
+        print("Error: Please provide a .txt file.")
+        return
+
+    try:
+        with open(file_path, 'r', encoding='utf-8') as f:
+            lines = [line.strip() for line in f if line.strip()]
+
+        if not lines:
+            print("Error: File is empty or contains only whitespace.")
+            return
+
+        title = lines[0]
+        sub_title = lines[1]
+        paragraphs = lines[2:]
+
+        html_content = """<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Blog Haikus</title>
+    <link rel="stylesheet" href="./css/dectionary.css">
+</head>
+<body style="max-width: 700px;">
+""" + f"""
+    <b>{title}</b>
+    <i>{sub_title}</i>
+"""
+
+        for para in paragraphs:
+            html_content += f"    <p>{para}</p>\n"
+
+        date = datetime.now().strftime("%m/%d/%Y")
+        date_string = f"""<p>[{date}]</p>"""
+        # html_content += date_string
+
+        html_content += "</body>\n</html>"
+
+        html_file_path = file_path.replace('.txt', '.html')
+
+        with open(html_file_path, 'w', encoding='utf-8') as f:
+            f.write(html_content)
+
+        os.remove(file_path)
+        print(f"Converted and deleted: {file_path} → {html_file_path}")
+
+    except Exception as e:
+        print(f"An error occurred: {e}")
+
+def _old_convert_txt_to_html(file_path):
     file_path = os.path.join("weblog", file_path)
     if not file_path.endswith('.txt'):
         print("Error: Please provide a .txt file.")

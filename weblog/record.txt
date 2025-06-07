@@ -1,5 +1,2 @@
+test.html
 socratic-misalignment.html
-now-thats-a-spicy-hypothetical.html
-test-blog-two.html
-test-blog.html
-blog-haikus.html
