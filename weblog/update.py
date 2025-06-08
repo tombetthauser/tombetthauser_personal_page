@@ -43,13 +43,19 @@ def convert_txt_to_html(file_path):
         sub_title = lines[1]
         paragraphs = lines[2:]
 
-        html_content = """<!DOCTYPE html>
+        html_content = f"""<!DOCTYPE html>
 <html lang='en'>
 <head>
     <meta charset='UTF-8'>
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
     <title>Blog Haikus</title>
     <link rel="stylesheet" href="./css/dectionary.css">
+
+    <meta property="og:title" content="{title}">
+    <meta property="og:description" content="{sub_title}">
+    <meta property="og:image" content="https://i.makeagif.com/media/9-20-2017/fZPKhZ.gif">
+    <meta property="og:type" content="website">
+
 </head>
 <body style="max-width: 700px;">
 """ + f"""
