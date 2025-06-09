@@ -53,7 +53,7 @@ def convert_txt_to_html(file_path):
 
     <meta property="og:title" content="{title}">
     <meta property="og:description" content="{sub_title}">
-    <meta property="og:image" content="https://i.makeagif.com/media/9-20-2017/fZPKhZ.gif">
+    <meta property="og:image" content="./typing.gif">
     <meta property="og:type" content="website">
 
 </head>
