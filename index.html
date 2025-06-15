@@ -22,10 +22,12 @@
     background-color: black;
     /* animation: drift 10s linear infinite; */
     /* animation: zoom-drift-small 7.5s linear infinite; */
-    animation: zoom-drift 20s linear infinite;
+    /* animation: zoom-drift 20s linear infinite; */
+    /* animation: drift 20s linear infinite; */
+    animation: drift-small 2s linear infinite;
     /* animation: zoom 20s linear infinite; */
-    background-size: 500px 380px;
-    /* background-size: 250px 190px; */
+    /* background-size: 500px 380px; */
+    background-size: 250px 190px;
     /* background-size: 125px 95px; */
     /* background-image: url("./images/img1.jpg"); */
     background-attachment: fixed;
@@ -40,7 +42,9 @@
     /* background-image: url("./backgrounds/meany-look.gif"); */
     
     /* pooh dancing */
-    background-image: url("./backgrounds/pooh-crew.gif");
+    /* background-image: url("./backgrounds/pooh-crew.gif"); */
+    
+    background-image: url("./backgrounds/smash-pals.gif");
     
 
     /* background-image: url("https://i.pinimg.com/originals/8d/38/8f/8d388f38ade142d0e6f7e6c54aa835c8.gif"); */
@@ -68,6 +72,10 @@
     margin-top: 30px;
   }
   @keyframes drift {
+    from { background-position: 0px 0px; }
+    to { background-position: -500px -380px; }
+  }
+  @keyframes drift-small {
     from { background-position: 0px 0px; }
     to { background-position: -500px -380px; }
   }
@@ -485,6 +493,41 @@
             alert('❤️ thank you! ')
         })
       })
+  </script>
+
+  <script>
+    function animateDurationSine({
+      element = document.documentElement,
+      min = 2.5,
+      max = 10.0,
+      cycleDuration = 8000, // Total time in ms for a full sine wave cycle (down & up)
+      property = 'animationDuration'
+    } = {}) {
+      const range = max - min;
+      const startTime = performance.now();
+
+      function update() {
+        const elapsed = performance.now() - startTime;
+
+        // Get a value from -1 to 1 based on elapsed time
+        const sineValue = Math.sin((elapsed / cycleDuration) * 2 * Math.PI);
+
+        // Normalize to 0 to 1
+        const normalized = (sineValue + 1) / 2;
+
+        // Map to duration range
+        const currentDuration = min + (1 - normalized) * range;
+
+        // Set the duration on the element
+        element.style[property] = `${currentDuration.toFixed(3)}s`;
+
+        requestAnimationFrame(update);
+      }
+
+      update();
+    }
+
+    animateDurationSine();
   </script>
   
   <script src="./rats.js"></script>
