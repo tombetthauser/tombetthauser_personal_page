@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>[STORY] Evening Walk</title>
+    <style>
+        body {
+            font-family: serif;
+            max-width: 700px;
+            margin: 40px auto;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <a href="#" onclick="goBack()">/back</a>
+    <h2>[STORY] Evening Walk</h2>
+    <p>We are walking along a long balcony that raps around a enormous airplane hanger residential, employment and manufacturing building that we are currently living and working in. I say working but you're primarily studying for an assessment that will determine our eligibility to either take advantage of different levels of resources here or potentially getting a lottery assignment to a different facility. Studying is work. I'm pretty sure you're working harder than me. But most of my work these days get's to be model production management, which I don't think makes total sense to you yet but I'm sure it will play a pretty large role in your study process soon enough.</p>
+    <p>We used to live on the outside. It isn't great out there. Of course we can leave the facility whenever we want, we used to all the time to go out into the re-wilded areas in the mountains or along the coast. We should do that more often, we only have so much time until you move through the assessments and get stationed somewhere where I can't follow you, or more likely where you won't want me to follow you. Anyway I'm grateful we aren't living outside a facility anymore. Our house was beautiful and very old, made by hand 200 years ago I think. But it's insane that people make it work out there, there's just triage law enforcement and infrastructure maintenance at this point for the remaining families and to stop larger organized independent communities from forming.</p>
+    <p>The point is we are lucky. I look down at you as up look out at the horizon, across the dense green humid landscape. Thin lines of towers rising in the distance from the other distant facilities, our rippled iridescent reflections stretching out along the reflective wall of the photovoltaic glass of the endless facility wall, the distant calls of wild birds stirring hundreds of feet below the walkway reminding us of our distance, safe from the unknown forces of the outside. I begin to tear up as I often do without you noticing. This is your world, and I know my place in it by your side.</p>
+</body>
+<script>
+    function goBack() {
+        if (window.history.length > 1) {
+            window.history.back();
+        } else {
+            alert('No previous page in history.');
+        }
+    }    
+</script>
+</html>
